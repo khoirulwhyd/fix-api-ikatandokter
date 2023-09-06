@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\role;
+use App\Models\user_role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class authController extends Controller
 {
     public function indexUser() {
-        $data = User::with('role')->where('name','asc')->get();
+        $data = User::with('roles')->OrderBy('name','asc')->get();
         // dd($data);
         return response()->json([
             'status' => true,

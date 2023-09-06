@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controller\authController;
+use App\Http\Controller\rumahSakitController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,3 +26,6 @@ Route::get('/', [App\Http\Controllers\authController::class, 'indexUser']);
 // Route::post('register', [authController::class, 'registerUser']);
 Route::post('/register', [App\Http\Controllers\authController::class, 'registerUser']);
 Route::post('/login', [App\Http\Controllers\authController::class, 'loginUser']);
+
+//rumahsakit
+Route::get('/rumahsakit', [App\Http\Controllers\rumahSakitController::class, 'indexRumahSakit']);

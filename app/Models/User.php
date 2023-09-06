@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\user_role;
 use App\Models\role;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -48,7 +49,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function role() {
+    public function roles()
+    {
         return $this->belongsToMany(role::class, 'user_role');
     }
+
 }
