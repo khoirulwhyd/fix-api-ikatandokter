@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_sip_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pribadi');
-            $table->string('no_sip');
+            $table->string('no_sip')->unique();
             $table->string('scan_sip');
             $table->timestamps();
             

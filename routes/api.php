@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\authController;
-use App\Http\Controller\rumahSakitController;
+use App\Http\Controllers\authController;
+use App\Http\Controllers\DataSIPController;
+use App\Http\Controllers\DataSTRController;
+use App\Http\Controllers\rumahSakitController;
+use App\Http\Controllers\DataPribadiController;
+use App\Http\Controllers\DataProfesiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,12 +25,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //get user
-Route::get('/', [App\Http\Controllers\authController::class, 'indexUser']);
+Route::get('/', [authController::class, 'indexUser']);
 
+Route::apiResource('/data-pribadi', DataPribadiController::class);
+Route::apiResource('/data-profesi', DataProfesiController::class);
+Route::apiResource('/data-str', DataSTRController::class);
+Route::apiResource('/data-sip', DataSIPController::class);
 
 // Route::post('register', [authController::class, 'registerUser']);
-Route::post('/register', [App\Http\Controllers\authController::class, 'registerUser']);
-Route::post('/login', [App\Http\Controllers\authController::class, 'loginUser']);
+Route::post('/register', [authController::class, 'registerUser']);
+Route::post('/login', [authController::class, 'loginUser']);
 
 //rumahsakit
-Route::get('/rumahsakit', [App\Http\Controllers\rumahSakitController::class, 'indexRumahSakit']);
+Route::get('/rumahsakit', [rumahSakitController::class, 'indexRumahSakit']);

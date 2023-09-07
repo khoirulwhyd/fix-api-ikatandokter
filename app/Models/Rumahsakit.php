@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Rumahsakit extends Model
 {
     use HasFactory;
-    // protected $fillable = [
-    //     'kode',
-    //     'nama',
-    //     'alamat',
-    //     'no_telp',
-    //     'layanan_pembayaran',
-    //     'hari_pelayanan',
-    //     'kecamatan',
-    //     'tipe',
-    // ];
+    
+    protected $table = 'rumahsakits';
+    
+    protected $fillable = [
+        'kode',
+        'nama',
+        'alamat',
+        'no_telp',
+        'layanan_pembayaran',
+        'hari_pelayanan',
+        'kecamatan',
+        'tipe',
+    ];
 }

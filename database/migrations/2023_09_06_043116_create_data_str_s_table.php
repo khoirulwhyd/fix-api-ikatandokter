@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_str_s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pribadi');
-            $table->string('no_str');
+            $table->string('no_str')->unique();
             $table->string('scan_str');
             $table->timestamps();
 

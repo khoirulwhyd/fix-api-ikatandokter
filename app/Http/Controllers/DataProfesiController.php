@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DataProfesi;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Validator;
 
 class DataProfesiController extends Controller
 {
@@ -12,7 +14,16 @@ class DataProfesiController extends Controller
      */
     public function index()
     {
-        //
+        if(DataProfesi::all()->isEmpty()) {
+            return response()->json([
+                'message' => 'Data Profesi Tidak Ditemukan'
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Data Profesi Ditemukan',
+            'data' => DataProfesi::all()
+        ]);
     }
 
     /**
@@ -28,7 +39,27 @@ class DataProfesiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id_pribadi' => 'required|integer',
+            'dokter' => 'required|string',
+            'spesialis' => 'string',
+            'sub_spesialis' => 'string',
+            'akademis' => 'required|string'
+        ]);
+
+        if($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data Profesi Gagal Ditambahkan',
+                'data' => $validator->errors()
+            ]);
+        }
+        DataProfesi::create($request->all());
+        
+        return response()->json([
+            'message' => 'Data Profesi Berhasil Ditambahkan',
+            'data' => $request->all()
+        ]);
     }
 
     /**
@@ -36,7 +67,11 @@ class DataProfesiController extends Controller
      */
     public function show(DataProfesi $dataProfesi)
     {
-        //
+        $dataProfesi = DataProfesi::find($dataProfesi->id);
+        return response()->json([
+            'message' => 'Data Profesi Ditemukan',
+            'data' => $dataProfesi
+        ]);
     }
 
     /**
@@ -52,14 +87,40 @@ class DataProfesiController extends Controller
      */
     public function update(Request $request, DataProfesi $dataProfesi)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'id_pribadi' => 'required|integer',
+            'dokter' => 'required|string',
+            'spesialis' => 'string',
+            'sub_spesialis' => 'string',
+            'akademis' => 'required|string'
+        ]);
+
+        if($dataProfesi->fails()) {
+            return response()->json([
+                'message' => 'Data Profesi Gagal Diupdate',
+                'data' => $validator->errors()
+            ]);
+        }
+
+        $dataProfesi->update($request->all());
+
+        return response()->json([
+            'message' => 'Data Profesi Berhasil Diupdate',
+            'data' => $dataProfesi
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DataProfesi $dataProfesi)
+    public function destroy(String $id)
     {
-        //
+        $dataProfesi = DataProfesi::find($id);
+        $dataProfesi->delete();
+
+        return response()->json([
+            'message' => 'Data Profesi Berhasil Dihapus',
+            'data' => $dataProfesi
+        ]);
     }
 }
