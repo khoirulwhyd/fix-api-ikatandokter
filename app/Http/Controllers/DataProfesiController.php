@@ -42,8 +42,8 @@ class DataProfesiController extends Controller
         $validator = Validator::make($request->all(), [
             'id_pribadi' => 'required|integer',
             'dokter' => 'required|string',
-            'spesialis' => 'string',
-            'sub_spesialis' => 'string',
+            'spesialis' => '',
+            'sub_spesialis' => '',
             'akademis' => 'required|string'
         ]);
 
@@ -90,12 +90,12 @@ class DataProfesiController extends Controller
         $validator = Validator::make($request->all(), [
             'id_pribadi' => 'required|integer',
             'dokter' => 'required|string',
-            'spesialis' => 'string',
-            'sub_spesialis' => 'string',
+            'spesialis' => '',
+            'sub_spesialis' => '',
             'akademis' => 'required|string'
         ]);
 
-        if($dataProfesi->fails()) {
+        if($validator->fails()) {
             return response()->json([
                 'message' => 'Data Profesi Gagal Diupdate',
                 'data' => $validator->errors()

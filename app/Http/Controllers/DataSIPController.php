@@ -84,7 +84,7 @@ class DataSIPController extends Controller
      */
     public function update(Request $request, DataSIP $dataSIP)
     {
-        $validator :: Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'id_pribadi' => 'required|integer',
             'no_sip' => 'required|string',
             'scan_sip' => 'required|string'

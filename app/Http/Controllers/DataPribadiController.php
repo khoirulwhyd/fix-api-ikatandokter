@@ -107,7 +107,7 @@ class DataPribadiController extends Controller
      */
     public function update(Request $request, DataPribadi $dataPribadi)
     {
-        $validator :: Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'npaidi' => 'required|integer',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
