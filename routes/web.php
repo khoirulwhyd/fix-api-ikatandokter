@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
+
+Route::get('/login', function () {
+    return view('Dokter.login');
+});
+
+// Route::get('/test', function () {
+//     return view('app');
+// });
