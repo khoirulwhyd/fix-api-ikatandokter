@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 class DokterController extends Controller
 {
     public function login() {
-        return view('Dokter.login');
+        return view('Auth.login');
+    }
+
+    public function register() {
+        return view('Auth.register');
+    }
+
+    public function lupa_password() {
+        return view('Auth.lupapassword');
+    }
+    public function Dashboard()
+    {
+        return view('Dokter.dashboardUser');
     }
 }

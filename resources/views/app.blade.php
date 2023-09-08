@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -10,4 +10,4 @@
     Hello world!
   </h1>
 </body>
-</html>
+</html> -->

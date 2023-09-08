@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('Dokter.dashboardUser');
 });
 
 Route::get('/login', function () {
-    return view('Dokter.login');
+    return view('Auth.login');
 });
+Route::get('/register', function () {
+    return view('Auth.register');
+});
+Route::get('/lupapassword', function () {
+    return view('Auth.lupapassword');   
+});
+
+
 
 // Route::get('/test', function () {
 //     return view('app');
