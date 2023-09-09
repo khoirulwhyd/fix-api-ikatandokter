@@ -31,6 +31,16 @@ Route::get('/datapribadi', function() {
     return view('Dokter.DataPribadi.index');
 });
 
+Route::get('/createdatapribadi', function() {
+   return view('Dokter.DataPribadi.create');
+});
+
+Route::get('/editdatapribadi', function() {
+   return view('Dokter.DataPribadi.edit');
+});
+
+
+
 
 
 // Route::get('/test', function () {

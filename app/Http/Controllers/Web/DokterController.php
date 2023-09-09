@@ -25,4 +25,9 @@ class DokterController extends Controller
     public function DataPribadi() {
         return view('Dokter.DataPribadi.index');
     }
+    
+    public function CreateDataPribadi()
+    {
+        return view('Dokter.DataPribadi.create');
+    }
 }

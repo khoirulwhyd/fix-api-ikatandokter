@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script src="../path/to/flowbite/dist/datepicker.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
    <!-- <link href="{{ asset('css/login.css') }}" rel="stylesheet"> -->
   @vite(['resources/css/app.css','resources/js/app.js'])
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
