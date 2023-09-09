@@ -27,6 +27,10 @@ Route::get('/lupapassword', function () {
     return view('Auth.lupapassword');   
 });
 
+Route::get('/datapribadi', function() {
+    return view('Dokter.DataPribadi.index');
+});
+
 
 
 // Route::get('/test', function () {

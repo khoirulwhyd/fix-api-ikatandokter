@@ -22,4 +22,7 @@ class DokterController extends Controller
     {
         return view('Dokter.dashboardUser');
     }
+    public function DataPribadi() {
+        return view('Dokter.DataPribadi.index');
+    }
 }
