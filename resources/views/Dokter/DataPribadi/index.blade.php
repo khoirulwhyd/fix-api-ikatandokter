@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 @section('content')
             <div class="p-4 sm:ml-64">
-                <div class="p-4 border-gray-200 rounded-lg dark:border-gray-700 md:mt-14">
+                <div class="p-4 border-gray-200 rounded-lg dark:border-gray-700 md:mt-14 mt-14">
                     <div class="grid grid-cols-0 gap-4 mb-4">
                         <div class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div>
@@ -277,23 +277,23 @@
                                                 <table class="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400 md:table-fixed">
                                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"></thead>
                                                     <tbody>
-                                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                                            <th
-                                                                scope="row"
-                                                                class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                                            >
-                                                                Telepon Rumah
-                                                            </th>
-                                                            <td class="px-6 py-4">{dat.no_telponrumah}</td>
-                                                        </tr>
                                                         <tr class="bg-white dark:bg-gray-800">
                                                             <th
                                                                 scope="row"
                                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                                             >
-                                                                No. Hp
+                                                                Telpon Rumah KTP
                                                             </th>
-                                                            <td class="px-6 py-4">{dat.no_hp}</td>
+                                                                <td class="px-6 py-4">Griya Shanta Blok K.121fgdgfdgfdgfd</td>
+                                                        </tr>
+                                                        <<tr class="bg-white dark:bg-gray-800">
+                                                            <th
+                                                                scope="row"
+                                                                class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                                            >
+                                                                No Hp
+                                                            </th>
+                                                                <td class="px-6 py-4">081216055665</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -314,7 +314,7 @@
                                                                 Provinsi
                                                             </th>
                                                             <td class="px-6 py-4">
-                                                                {dat.alamat_korespondensi}
+                                                                <p>Nusa tenggara barat</p>
                                                             </td>
                                                         </tr>
                                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

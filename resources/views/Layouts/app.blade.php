@@ -31,6 +31,20 @@
           <span class="self-center text-sm font-semibold sm:text-lg whitespace-nowrap text-primary-800 dark:text-white">IDI Malang Raya</span>
         </a>
       </div>
+      <form class="md:flex flex-row flex-wrap items-center lg:ml-auto mr-3">
+                        <div class="relative flex w-full flex-wrap items-stretch">
+                            <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M21.0002 21L16.6572 16.657M16.6572 16.657C17.4001 15.9141 17.9894 15.0322 18.3914 14.0615C18.7935 13.0909 19.0004 12.0506 19.0004 11C19.0004 9.94938 18.7935 8.90906 18.3914 7.93843C17.9894 6.9678 17.4001 6.08587 16.6572 5.34298C15.9143 4.60009 15.0324 4.0108 14.0618 3.60875C13.0911 3.2067 12.0508 2.99977 11.0002 2.99977C9.9496 2.99977 8.90929 3.2067 7.93866 3.60875C6.96803 4.0108 6.08609 4.60009 5.34321 5.34298C3.84288 6.84331 3 8.87819 3 11C3 13.1218 3.84288 15.1566 5.34321 16.657C6.84354 18.1573 8.87842 19.0002 11.0002 19.0002C13.122 19.0002 15.1569 18.1573 16.6572 16.657Z" stroke="#A7A8A9" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            </span>
+                            <input
+                                type="text"
+                                placeholder="Search here..."
+                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
+                            />
+                        </div>
+                    </form>
       <div class="flex items-center">
           <div class="flex items-center ml-3">
             <div>
@@ -329,7 +343,7 @@
 
     @yield('content')
 </body>
-    <div class="relative md:ml-64 bg-blueGray-100 mt-16 md:mt-4">
+    <div class="relative p-4 md:ml-64 bg-blueGray-100 mt-10 md:mt-4">
       <div class="grid-cols-2">
         <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
             <div class="w-full max-w-screen-xl p-4 md:flex md:justify-between">
