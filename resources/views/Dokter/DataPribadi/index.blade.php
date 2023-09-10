@@ -67,7 +67,7 @@
                                                         </button>
                                                     </Link>
 
-                                                    <Link to="/editdatapribadi">
+                                                    <a href="/editdatapribadi">
                                                         <button
                                                             type="button"
                                                             class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3"
@@ -106,7 +106,7 @@
                                                             </svg>
                                                             Edit Data
                                                         </button>
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="justify-start w-full h-full">

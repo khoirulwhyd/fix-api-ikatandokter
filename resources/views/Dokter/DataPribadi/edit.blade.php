@@ -55,7 +55,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         NPA IDI
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan NPA IDI" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                    id="grid-last-name" type="number" name="npaidi" placeholder="Masukkkan NPA IDI" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -64,15 +65,16 @@
                                                         No Identitas 
                                                     </label>
                                                     <div class="grid grid-cols-2 gap-4">
-                                                        <div class="w-full md:">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan NPA IDI">
-                                                                <option>KTP</option>
-                                                                <option>SIM</option>
-                                                                <option>KTA</option>
+                                                        <div class="w-full">
+                                                            <select name="tipe" class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan NPA IDI">
+                                                                <option selected disabled>Pilih Tipe</option>
+                                                                <option value="KTP">KTP</option>
+                                                                <option value="SIM">SIM</option>
+                                                                <option value="KTA">KTA</option>
                                                             </select>
                                                         </div>
                                                         <div>
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan Nomer Identitas" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="noidentitas" placeholder="Masukkan Nomer Identitas" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,14 +84,16 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Nama Lengkap Beserta Gelar
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Masukkkan nama lengkap beserta gelar" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                     id="grid-last-name" type="text" name="namalengkap" placeholder="Masukkkan nama lengkap beserta gelar" />
                                                 </div>
                                             </div>
                                             <div class="mb-6">
                                                 <label for="file_input" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                                     Foto terbaru
                                                 </label>
-                                                <input class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" />
+                                                <input class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                                                id="file_input" name="fototerbaru" type="file" />
                                                 <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB, Mengikuti Tahun Lahir, Genap Background Biru, Ganjil Background Merah</span>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -99,7 +103,8 @@
                                                     </label>
                                                     <div class="grid grid-cols-2 gap-2">
                                                         <div class="w-full md:">
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Tempat" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="text" name="tempat" placeholder="Tempat" />
                                                         </div>
                                                         <div>
                                                             <div class="relative max-w-sm">
@@ -108,7 +113,7 @@
                                                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                                                 </svg>
                                                             </div>
-                                                            <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                                            <input datepicker datepicker-autohide type="text" name="tanggallahir" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tanggal lahir">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,11 +126,11 @@
                                                     </label>
                                                     <div class="grid grid-cols-2 gap-2">
                                                         <div class="w-full flex items-center pl-6 border border-gray-200 rounded dark:border-gray-700">
-                                                            <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <input id="bordered-radio-1" type="radio" value="" name="laki-laki" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                                             <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-Laki</label>
                                                         </div>
                                                         <div class="w-full flex items-center pl-6 border border-gray-200 rounded dark:border-gray-700">
-                                                            <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                                            <input id="bordered-radio-1" type="radio" value="" name="perempuan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                                             <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
                                                         </div>
                                                     </div>
@@ -141,10 +146,12 @@
                                                     </label>
                                                     <div className="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Indonesia</option>
-                                                                <option>Malaysia</option>
-                                                                <option>Brunei Darussalam</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="text" name="kewarganegaraan" placeholder="Kewarganegaraan">
+                                                                <option selected disabled>Pilih Kewarganegaraan</option>
+                                                                <option value="Indonesia">Indonesia</option>
+                                                                <option value="Malaysia">Malaysia</option>
+                                                                <option value="Singapura">Singapua</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -157,12 +164,15 @@
                                                     </label>
                                                     <div className="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Islam</option>
-                                                                <option>Kristen</option>
-                                                                <option>Hindu</option>
-                                                                <option>Budha</option>
-                                                                <option>Konghucu</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" name="agama" type="text" placeholder="Agama">
+                                                                <option selected disabled>Pilih Agama</option>
+                                                                <option value="Islam">Islam</option>
+                                                                <option value="Kristenkatolik">Kristen Katolik</option>
+                                                                <option value="Kristenprotestan">Kristen Protestan</option>
+                                                                <option value="Hindu">Hindu</option>
+                                                                <option value="Budha">Budha</option>
+                                                                <option value="Konghucu">Konghucu</option>  
                                                             </select>
                                                         </div>
                                                     </div>
@@ -173,7 +183,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Nama Pasangan
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Masukkan nama pasangan" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                    id="grid-last-name" type="text" name="namapasangan" placeholder="Masukkan nama pasangan" />
                                                 </div>
                                             </div>
                                         </form>
@@ -194,10 +205,12 @@
                                                     </label>
                                                     <div className="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Jawa Timur</option>
-                                                                <option>Jawa Tengah</option>
-                                                                <option>Jawa Barat</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" name="provinsi" type="text" placeholder="Pilih Provinsi">
+                                                                <option selected disabled>Pilih Provinsi</option>
+                                                                <option value="JawaTimur">Jawa Timur</option>
+                                                                <option value="JawaTengah">Jawa Tengah</option>
+                                                                <option value="JawaBarat">Jawa Barat</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -210,13 +223,14 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kab/kota" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Kab. Malang</option>
-                                                                <option>Kota Malang</option>
-                                                                <option>Bandung</option>
-                                                                <option>Surabaya</option>
-                                                                <option>Madiun</option>
-                                                                <option>Ngawi</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kab/kota" type="text" name="pilihkabupatenkota" placeholder="">
+                                                                <option selected disabled>Pilih Kabupaten/Kota</option>
+                                                                <option value="Kab. Malang">Kab. Malang</option>
+                                                                <option value="Kota Malang">Kota Malang</option>
+                                                                <option value="Bandung">Bandung</option>
+                                                                <option value="Medan">Medan</option>
+                                                                <option value="Madiun">Madiun</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -229,13 +243,15 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kecamatan" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Kec. Lowokwaru</option>
-                                                                <option>Kec. Sawojajar</option>
-                                                                <option>Kec. Sukun</option>
-                                                                <option>Kec. Turen</option>
-                                                                <option>Kec. Gondanglegi</option>
-                                                                <option>Kec. Batu</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kecamatan" name="kecamatan" type="text" placeholder="Kewarganegaraan">
+                                                                <option selected disabled>Pilih Kecamamatan</option>
+                                                                <option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+                                                                <option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+                                                                <option value="Kec. Sukun">Kec. Sukun</option>
+                                                                <option value="Kec. Turen">Kec. Turen</option>
+                                                                <option value="Kec. Gondanglegi">Kec. Gondanglegi</option>
+                                                                <option value="Kota Batu">Kota Batu</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -248,13 +264,15 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kelurahan" type="text" placeholder="kelurahan">
-                                                                <option>Kelurahan Jatimulyo</option>
-                                                                <option>Kec. Sawojajar</option>
-                                                                <option>Kec. Sukun</option>
-                                                                <option>Kec. Turen</option>
-                                                                <option>Kec. Gondanglegi</option>
-                                                                <option>Kec. Batu</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kelurahan" name="kelurahan" type="text" placeholder="kelurahan">
+                                                                <option selected disabled>Pilih Kelurahan</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -267,10 +285,12 @@
                                                     </label>
                                                     <div class="grid grid-cols-2 gap-2">
                                                         <div class="w-full md:">
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan RT" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="number" name="rt" placeholder="Masukkan RT" />
                                                         </div>
                                                         <div>
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan RW" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="number" name="rw" placeholder="Masukkan RW" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,7 +300,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Kode Pos
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan kode pos" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight 
+                                                    focus:outline-none focus:bg-white focus:border-gray-500" name="kodepos" id="grid-last-name" type="number" placeholder="Masukkan kode pos" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -288,7 +309,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Alamat Lengkap
                                                     </label>
-                                                    <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan alamat lengkap disini"></textarea>
+                                                    <textarea id="message" name="alamatlengkap" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan alamat lengkap disini"></textarea>
                                                 </div>
                                             </div>
                                         </form>
@@ -307,7 +328,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         No. Telpon Rumah
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan No Telpon Rumah" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                    id="grid-last-name" name="notelponrumah" type="number" placeholder="Masukkan No Telpon Rumah" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -315,7 +337,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         No. Hp 1
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan No Hp" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                    id="grid-last-name" name="nohp1" type="number" placeholder="Masukkan No Hp" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -323,7 +346,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         No. Hp 2
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan No Hp" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                    id="grid-last-name" name="nohp2" type="number" placeholder="Masukkan No Hp" />
                                                 </div>
                                             </div>
                                         </form>
@@ -337,21 +361,19 @@
                                     
                                     <div class="mx-auto justify-center">
                                         <form class="w-full max-w-lg mt-6">
-                                            <div class="flex items-center mb-6">
-                                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alamat sama dengan KTP</label>
-                                            </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full md:w-full px-3 mb-6 md:mb-0">
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="Kewarganegaraan">
                                                         Provinsi
                                                     </label>
-                                                    <div class="w-full">
+                                                    <div className="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Jawa Timur</option>
-                                                                <option>Jawa Tengah</option>
-                                                                <option>Jawa Barat</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" name="provinsi" type="text" placeholder="Pilih Provinsi">
+                                                                <option selected disabled>Pilih Provinsi</option>
+                                                                <option value="JawaTimur">Jawa Timur</option>
+                                                                <option value="JawaTengah">Jawa Tengah</option>
+                                                                <option value="JawaBarat">Jawa Barat</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -364,13 +386,14 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kab/kota" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Kab. Malang</option>
-                                                                <option>Kota Malang</option>
-                                                                <option>Bandung</option>
-                                                                <option>Surabaya</option>
-                                                                <option>Madiun</option>
-                                                                <option>Ngawi</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kab/kota" type="text" name="pilihkabupatenkota" placeholder="">
+                                                                <option selected disabled>Pilih Kabupaten/Kota</option>
+                                                                <option value="Kab. Malang">Kab. Malang</option>
+                                                                <option value="Kota Malang">Kota Malang</option>
+                                                                <option value="Bandung">Bandung</option>
+                                                                <option value="Medan">Medan</option>
+                                                                <option value="Madiun">Madiun</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -383,13 +406,15 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kecamatan" type="text" placeholder="Kewarganegaraan">
-                                                                <option>Kec. Lowokwaru</option>
-                                                                <option>Kec. Sawojajar</option>
-                                                                <option>Kec. Sukun</option>
-                                                                <option>Kec. Turen</option>
-                                                                <option>Kec. Gondanglegi</option>
-                                                                <option>Kec. Batu</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kecamatan" name="kecamatan" type="text" placeholder="Kewarganegaraan">
+                                                                <option selected disabled>Pilih Kecamamatan</option>
+                                                                <option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+                                                                <option value="Kec. Lowokwaru">Kec. Lowokwaru</option>
+                                                                <option value="Kec. Sukun">Kec. Sukun</option>
+                                                                <option value="Kec. Turen">Kec. Turen</option>
+                                                                <option value="Kec. Gondanglegi">Kec. Gondanglegi</option>
+                                                                <option value="Kota Batu">Kota Batu</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -402,13 +427,15 @@
                                                     </label>
                                                     <div class="w-full">
                                                         <div class="w-full">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="kelurahan" type="text" placeholder="kelurahan">
-                                                                <option>Kelurahan Jatimulyo</option>
-                                                                <option>Kec. Sawojajar</option>
-                                                                <option>Kec. Sukun</option>
-                                                                <option>Kec. Turen</option>
-                                                                <option>Kec. Gondanglegi</option>
-                                                                <option>Kec. Batu</option>
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="kelurahan" name="kelurahan" type="text" placeholder="kelurahan">
+                                                                <option selected disabled>Pilih Kelurahan</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
+                                                                <option value="jatimulyo">Kelurahan Jatimulyo</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -421,10 +448,12 @@
                                                     </label>
                                                     <div class="grid grid-cols-2 gap-2">
                                                         <div class="w-full md:">
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan RT" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="number" name="rt" placeholder="Masukkan RT" />
                                                         </div>
                                                         <div>
-                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan RW" />
+                                                            <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                                                            id="grid-last-name" type="number" name="rw" placeholder="Masukkan RW" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -434,7 +463,8 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Kode Pos
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan kode pos" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight 
+                                                    focus:outline-none focus:bg-white focus:border-gray-500" name="kodepos" id="grid-last-name" type="number" placeholder="Masukkan kode pos" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -442,7 +472,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Alamat Lengkap
                                                     </label>
-                                                    <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan alamat lengkap disini"></textarea>
+                                                    <textarea id="message" name="alamatlengkap" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan alamat lengkap disini"></textarea>
                                                 </div>
                                             </div>
                                         </form>

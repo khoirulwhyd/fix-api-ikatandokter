@@ -28,8 +28,8 @@
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                         NIK
                                     </label>
-                                    <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                        type="email" placeholder="Masukkan NIK">
+                                    <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
+                                        type="nik" name="nik" placeholder="Masukkan NIK">
                                     </input>
                                 </div>
 
@@ -37,8 +37,8 @@
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                         Password
                                     </label>
-                                    <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                        type="password" placeholder="Masukkan Password">
+                                    <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
+                                        type="password" name="password" placeholder="Masukkan Password">
                                     </input>
                                 </div>
                                 <!-- <div class="py-4">
@@ -64,16 +64,21 @@
                                 
                                 
                                 <div class="jusfity-end py-2">
-                                    <button clas="px-2 py-2">
-                                        <span class="text-primary-600 underline">Lupa Password ?</span>
-                                    </button>
+                                    <a href="/lupapassword">
+                                        <button clas="px-2 py-2">
+                                            <span class="text-primary-600 underline">Lupa Password ?</span>
+                                        </button>
+                                    </a>
                                 </div>
 
                                 <div class="flex jusfity-end py-6">
                                     <span class="text-gray-600 ">Belum Memiliki Akun ? </span>
-                                    <button class="py-2">
-                                        <span class="text-primary-600 font-semibold underline">Daftar Sekarang</span>
-                                    </button>
+                                    <a href="/register">
+                                        <button class="px-2">
+                                            <span class="text-primary-600 font-semibold underline">Daftar Sekarang</span>
+                                        </button>
+                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>

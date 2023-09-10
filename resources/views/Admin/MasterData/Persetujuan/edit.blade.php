@@ -56,7 +56,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Nama Lengkap
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Masukkkan nama lengkap beserta gelar" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="" name="namalengkap" type="text" placeholder="Masukkkan nama lengkap beserta gelar" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -65,7 +65,7 @@
                                                         NIK 
                                                     </label>
                                                     <div>
-                                                        <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkan Nomer Identitas" />
+                                                        <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="nik" placeholder="Masukkan Nomer Identitas" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         NPA IDI
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan NPA IDI" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="npaidi" placeholder="Masukkkan NPA IDI" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -82,7 +82,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         No Telpon
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan No Telpon" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="notelpon" placeholder="Masukkkan No Telpon" />
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -90,7 +90,7 @@
                                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                                         Email
                                                     </label>
-                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Masukkkan nama lengkap beserta gelar" />
+                                                    <input class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" name="email" placeholder="Masukkkan nama lengkap beserta gelar" />
                                                 </div>
                                             </div>
                                             
@@ -100,8 +100,8 @@
                                                         Status Approval 
                                                     </label>
                                                     <div class="grid grid-cols-1 gap-4">
-                                                        <div class="w-full md:">
-                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" placeholder="Masukkkan NPA IDI">
+                                                        <div class="w-full">
+                                                            <select class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number" name="role" placeholder="Masukkkan NPA IDI">
                                                                 <option>User</option>
                                                                 <option>Dokter</option>
                                                                 <option>Admin</option>
