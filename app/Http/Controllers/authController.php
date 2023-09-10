@@ -57,10 +57,7 @@ class authController extends Controller
             $role = ["*"];
         }
 
-        return response()->json([
-            'status' => true,
-            'message' => 'registrasi berhasil'
-        ], 200);
+        return view ('Auth.login');
     }
 
     public function loginUser(Request $request) {

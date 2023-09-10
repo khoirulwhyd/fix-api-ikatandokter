@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,9 @@ Route::get('/', function () {
     return view('Dokter.dashboardUser');
 });
 
-Route::get('/login', function () {
-    return view('Auth.login');
-});
-Route::get('/register', function () {
-    return view('Auth.register');
-});
+Route::resource('register', RegisterController::class);
+Route::resource('login', LoginController::class);
+
 Route::get('/lupapassword', function () {
     return view('Auth.lupapassword');   
 });
@@ -88,7 +87,3 @@ Route::get('/persetujuan', function() {
 Route::get('/persetujuan-masuk', function() {
     return view ('Admin.MasterData.Persetujuan.edit');
 });
-
-
-
-
