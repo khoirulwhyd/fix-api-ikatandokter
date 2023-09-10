@@ -8,11 +8,10 @@ use App\Models\role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,12 +19,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'npa_idi',
+        'npaidi',
         'nik',
-        'name',
-        'phone_number',
+        'nama_lengkap',
+        'no_telepon',
         'email',
         'password',
+        'ulangi_password',
+        'lupa_password',
+        'role'
     ];
 
 
@@ -36,7 +38,8 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'lupa_password',
+        'remember_token'
     ];
 
     /**
@@ -47,11 +50,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'lupa_password' => 'hashed'
     ];
-
-    public function roles()
+    
+    public function data_pribadi()
     {
-        return $this->belongsToMany(role::class, 'user_role');
-    }
-
+        return $this->hasOne(DataPribadi::class, 'id_pribadi', 'id');
+    }    
 }

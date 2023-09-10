@@ -43,6 +43,11 @@ class DataPribadi extends Model
         'krsp_alamat_lengkap'
     ];
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function dataProfesi()
     {
         return $this->hasMany(DataProfesi::class);
