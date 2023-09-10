@@ -14,16 +14,17 @@ class DataPribadiController extends Controller
      */
     public function index()
     {
-        if(DataPribadi::all()->isEmpty()) {
-            return response()->json([
-                'message' => 'Data Pribadi Tidak Ditemukan'
-            ]);
-        }
+        return view('Dokter.DataPribadi.index');
+        // if(DataPribadi::all()->isEmpty()) {
+        //     return response()->json([
+        //         'message' => 'Data Pribadi Tidak Ditemukan'
+        //     ]);
+        // }
         
-        return response()->json([
-            'message' => 'Data Pribadi Ditemukan',
-            'data' => DataPribadi::all()
-        ]);
+        // return response()->json([
+        //     'message' => 'Data Pribadi Ditemukan',
+        //     'data' => DataPribadi::all()
+        // ]);
     }
 
     /**
