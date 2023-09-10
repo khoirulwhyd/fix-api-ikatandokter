@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class RegisterController extends Controller
 {
@@ -41,10 +43,10 @@ class RegisterController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->route('register')->withErrors($validator)->withInput();
+            return redirect()->route('register.index')->withErrors($validator)->withInput();
         }
 
         $user->save();
-        return redirect()->route('login.index');
+        return redirect()->route('login.index')->withSucces('success', 'Registrasi Berhasil');
     }
 }
