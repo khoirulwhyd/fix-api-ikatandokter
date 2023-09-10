@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Validator;
 
 class LoginController extends Controller
 {
@@ -28,7 +31,24 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nik' => 'required|string|min:16|max:16',
+            'password' => 'required|string|min:6|max:50'
+        ]);
+
+        if(Auth::attempt([
+            'nik' => $request->get('nik'),
+            'password' => $request->get('password')
+        ])) {
+
+            $request->session()->regenerate();
+
+            return view ('Dokter.DataPribadi.index');
+        };
+
+        return back()->withErrors([
+            'message' => 'NIK atau password salah'
+        ]);
     }
 
     /**

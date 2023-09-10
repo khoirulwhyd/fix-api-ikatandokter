@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -16,11 +17,13 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('Dokter.dashboardUser');
+    return view('Auth.register');
 });
 
 Route::resource('register', RegisterController::class);
 Route::resource('login', LoginController::class);
+
+Route::resource('data-pribadi', DataPribadiController::class);
 
 Route::get('/lupapassword', function () {
     return view('Auth.lupapassword');   

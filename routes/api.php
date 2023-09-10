@@ -25,16 +25,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //get user
-Route::get('/', [authController::class, 'indexUser']);
+// Route::get('/', [authController::class, 'indexUser']);
 
-Route::apiResource('/data-pribadi', DataPribadiController::class);
-Route::apiResource('/data-profesi', DataProfesiController::class);
-Route::apiResource('/data-str', DataSTRController::class);
-Route::apiResource('/data-sip', DataSIPController::class);
+// Route::apiResource('/data-pribadi', DataPribadiController::class);
+// Route::apiResource('/data-profesi', DataProfesiController::class);
+// Route::apiResource('/data-str', DataSTRController::class);
+// Route::apiResource('/data-sip', DataSIPController::class);
 
 // Route::post('register', [authController::class, 'registerUser']);
-Route::post('/register', [authController::class, 'registerUser']);
-Route::post('/login', [authController::class, 'loginUser']);
+// Route::post('/register', [authController::class, 'registerUser']);
+// Route::post('/login', [authController::class, 'loginUser']);
 
 //rumahsakit
-Route::get('/rumahsakit', [rumahSakitController::class, 'indexRumahSakit']);
+// Route::get('/rumahsakit', [rumahSakitController::class, 'indexRumahSakit']);
