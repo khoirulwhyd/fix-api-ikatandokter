@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\CobaLoginController;
+use App\Http\Middleware\Dokter;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +22,14 @@ Route::get('/', function () {
     return view('Auth.register');
 });
 
+Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('Dokter');
+
 Route::resource('register', RegisterController::class);
-Route::resource('login', LoginController::class);
+// Route::resource('login', LoginController::class);
+Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
 
 Route::resource('data-pribadi', DataPribadiController::class);
 
@@ -74,7 +82,7 @@ Route::get('/create-sip', function() {
 });
 
 // ADMIN ROUTE
-Route::get('/adminDashboard', function() {
+Route::get('/admin', function() {
     return view('Admin.adminDashboard');
 });
 

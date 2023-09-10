@@ -45,8 +45,9 @@ class RegisterController extends Controller
         if($validator->fails()) {
             return redirect()->route('register.index')->withErrors($validator)->withInput();
         }
-
         $user->save();
-        return redirect()->route('login.index')->withSucces('success', 'Registrasi Berhasil');
+        Alert::success('İşlem Başarılı!', 'Slider resmi ekleme işleminiz başarılı.');
+        return redirect()->route('login');
+
     }
 }

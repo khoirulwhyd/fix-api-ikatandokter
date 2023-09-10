@@ -6,16 +6,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Validator;
+// use Illuminate\Support\Facades\Validator'
+// use Validator;
 
 class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    // public function dashboard()
+    // {
+    //     return view('Dokter.dashboardUser');
+    // }
     public function index()
     {
-        return view('Auth.login');
+        if (Auth::check()) {
+            return redirect('dashboardUser');
+        } else {
+            return view('login');
+        }
     }
 
     /**
@@ -42,8 +51,8 @@ class LoginController extends Controller
         ])) {
 
             $request->session()->regenerate();
-
-            return view ('Dokter.DataPribadi.index');
+            return redirect()->intended('/dashboardUser');
+            // return view('Dokter.dashboardUser');
         };
 
         return back()->withErrors([
