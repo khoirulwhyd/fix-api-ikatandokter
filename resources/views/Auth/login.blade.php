@@ -41,14 +41,14 @@
                                         type="password" placeholder="Masukkan Password">
                                     </input>
                                 </div>
-                                <div class="py-4">
+                                <!-- <div class="py-4">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                         Kode Unik
                                     </label>
                                     <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                         type="text" placeholder="Masukkan Kode Unik">
                                     </input>
-                                </div>
+                                </div> -->
                                     <button
                                         class=" mt-5 tracking-wide font-semibold bg-primary-600 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                         <span class="ml-3">

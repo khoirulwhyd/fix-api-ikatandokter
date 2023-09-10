@@ -39,9 +39,6 @@
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3">
-                                                    <span class="sr-only">Image</span>
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
                                                     Nama Lengkap
                                                 </th>
                                                 <th scope="col" class="px-6 py-3">
@@ -63,11 +60,8 @@
                                         </thead>
                                         <tbody>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-32 p-4">
-                                                    <img src="/Assets/main-avatar.svg" alt="Apple Watch" />
-                                                </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                                    Dr. Lissa Nur Aini. S.T., M.T
+                                                <td class="px-6 py-4 font-medium text-gray-800">
+                                                    Dr. Lissa Nur Aini
                                                 </td>
                                                 <td class="px-6 py-4 font-regular text-gray-700">
                                                     123124123123
@@ -100,7 +94,7 @@
                                                             <span class="sr-only">Icon description</span>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="{{ url('persetujuan-masuk') }}">
                                                         <button type="button" class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 42 42" fill="none">
                                                         <path d="M15.7499 35.735L4.88245 24.8675L9.83495 19.915L15.7499 25.8475L33.0399 8.53998L37.9924 13.4925L15.7499 35.735Z" fill="white"/>
@@ -111,11 +105,8 @@
                                                 </td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-32 p-4">
-                                                    <img src="/Assets/main-avatar.svg" alt="Apple Watch" />
-                                                </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                                    Dr. Lissa Nur Aini. S.T., M.T
+                                                <td class="px-6 py-4 font-medium text-gray-800">
+                                                    Dr. Lissa Nur Aini
                                                 </td>
                                                 <td class="px-6 py-4 font-regular text-gray-700">
                                                     123124123123
@@ -148,7 +139,7 @@
                                                             <span class="sr-only">Icon description</span>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="{{ url('persetujuan-masuk') }}">
                                                         <button type="button" class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 42 42" fill="none">
                                                         <path d="M15.7499 35.735L4.88245 24.8675L9.83495 19.915L15.7499 25.8475L33.0399 8.53998L37.9924 13.4925L15.7499 35.735Z" fill="white"/>
@@ -160,11 +151,8 @@
                                             </tr>
 
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-32 p-4">
-                                                    <img src="/Assets/main-avatar.svg" alt="Apple Watch" />
-                                                </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                                    Dr. Lissa Nur Aini. S.T., M.T
+                                                <td class="px-6 py-4 font-medium text-gray-800">
+                                                    Dr. Lissa Nur Aini
                                                 </td>
                                                 <td class="px-6 py-4 font-regular text-gray-700">
                                                     123124123123
@@ -197,7 +185,7 @@
                                                             <span class="sr-only">Icon description</span>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="{{ url('persetujuan-masuk') }}">
                                                         <button type="button" class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 42 42" fill="none">
                                                         <path d="M15.7499 35.735L4.88245 24.8675L9.83495 19.915L15.7499 25.8475L33.0399 8.53998L37.9924 13.4925L15.7499 35.735Z" fill="white"/>
@@ -208,14 +196,11 @@
                                                 </td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-32 p-4">
-                                                    <img src="/Assets/main-avatar.svg" alt="Apple Watch" />
+                                                <td class="px-6 py-4 font-medium text-gray-800">
+                                                    Dr. Lissa Nur Aini
                                                 </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                                    Dr. Lissa Nur Aini. S.T., M.T
-                                                </td>
-                                                <td class="px-6 py-4 font-regular text-gray-700">
-                                                    123124123123
+                                                <td class="px-6 py-4 font-regular text-gray-700 dark:text-white">
+                                                    897789
                                                 </td>
                                                 <td class="px-6 py-4 font-regular text-gray-700 dark:text-white">
                                                     897789
@@ -245,7 +230,7 @@
                                                             <span class="sr-only">Icon description</span>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="{{ url('persetujuan-masuk') }}">
                                                         <button type="button" class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 42 42" fill="none">
                                                         <path d="M15.7499 35.735L4.88245 24.8675L9.83495 19.915L15.7499 25.8475L33.0399 8.53998L37.9924 13.4925L15.7499 35.735Z" fill="white"/>
@@ -256,9 +241,6 @@
                                                 </td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-32 p-4">
-                                                    <img src="/Assets/main-avatar.svg" alt="Apple Watch" />
-                                                </td>
                                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                                                     Dr. Lissa Nur Aini. S.T., M.T
                                                 </td>
@@ -293,7 +275,7 @@
                                                             <span class="sr-only">Icon description</span>
                                                         </button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href="{{ url('persetujuan-masuk') }}">
                                                         <button type="button" class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 42 42" fill="none">
                                                         <path d="M15.7499 35.735L4.88245 24.8675L9.83495 19.915L15.7499 25.8475L33.0399 8.53998L37.9924 13.4925L15.7499 35.735Z" fill="white"/>
