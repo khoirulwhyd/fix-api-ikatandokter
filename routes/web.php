@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\CobaLoginController;
 use App\Http\Middleware\Dokter;
 
+use App\Http\Controllers\Admin\dashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,7 @@ Route::get('/', function () {
     return view('Auth.register');
 });
 
-Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('Dokter');
+Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('auth','Dokter');
 
 Route::resource('register', RegisterController::class);
 // Route::resource('login', LoginController::class);
@@ -81,10 +82,18 @@ Route::get('/create-sip', function() {
     return view('Dokter.SIP.create');
 });
 
+
+
+
+//=========================================ADMIN ROUTESS==============================================//
+
+
 // ADMIN ROUTE
 Route::get('/admin', function() {
     return view('Admin.adminDashboard');
 });
+
+Route::get('/admin', [dashboardController::class, 'admin'])->name('admin')->middleware('auth', 'Admin');
 
 //ANGGOTA ROUTE
 Route::get('/anggota', function() {
