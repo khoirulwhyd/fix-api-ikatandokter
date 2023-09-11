@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-24">
+            <div class="lg:w-1/2 mt-10 xl:w-5/12 p-6 sm:p-24">
                 <div class="flex flex-col px-4 md:px-12">
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
                         Login Anggota IDI
