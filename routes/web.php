@@ -27,6 +27,10 @@ Route::get('/', function () {
     return view('Auth.register');
 });
 
+//==================================AUTH USER==============================================//
+// Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
+// Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
+// Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('User');
 
 //==================================AUTH DOKTER==============================================//
 
@@ -87,6 +91,9 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     });
 });
 
+// Route::get('protected', ['middleware' => ['auth', 'user'], function() {
+//     return view('Auth.login');
+// }]);
 
 
 //=========================================ADMIN ROUTESS==============================================//

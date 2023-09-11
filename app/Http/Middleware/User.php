@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Middleware\User;
 use Symfony\Component\HttpFoundation\Response;
 
 class User
@@ -15,6 +16,9 @@ class User
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if($request->user()->role == User::ROLE_USER) {
+            return response()->json(['error' => 'Anda tidak memiliki izin untuk mengakses dashboard.'], 403);
+        }
+        abort(401);
     }
 }

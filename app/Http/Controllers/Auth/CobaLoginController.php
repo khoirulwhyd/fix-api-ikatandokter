@@ -16,11 +16,16 @@ class CobaLoginController extends Controller
     }
     public function login()
     {
-        if (Auth::check()) {
-            return redirect('dashboard');
-        } else {
-            return view('Auth.login')->with('error', 'nik atau password salah');
-        }
+        if (Auth::check() && Auth::user()->role == 'dokter') {
+            return view('Dokter.dashboardUser');
+        } else if(Auth::check() && Auth::user()->role == 'admin') {
+            return view('Admin.adminDashboard');    
+        } else if(Auth::check() && Auth::user()->role == 'user') {
+            return view('Auth.login')->with('error', 'anda harus di verifikasi oleh admin terlebih dahulu');
+        } 
+        // {
+        //     return view('Auth.login')->with('error', 'nik atau password salah');
+        // }
     }
 
     public function actionlogin(Request $request)
