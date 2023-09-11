@@ -19,7 +19,8 @@ class Admin
         if ($request->user()->role == User::ROLE_ADMIN) {
             return $next($request);
         }
-        return redirect('/dashboard');
+        abort(401);
+        // return redirect('/admin');
         // return $next($request);
     }
 }

@@ -8,6 +8,10 @@ use App\Http\Controllers\Auth\CobaLoginController;
 use App\Http\Middleware\Dokter;
 
 use App\Http\Controllers\Admin\dashboardController;
+
+//admin import
+use App\Http\Controllers\Admin\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +28,7 @@ Route::get('/', function () {
 });
 
 
-//==================================AUTH==============================================//
+//==================================AUTH DOKTER==============================================//
 
 Route::resource('register', RegisterController::class);
 // Route::resource('login', LoginController::class);
@@ -36,7 +40,7 @@ Route::get('/lupapassword', function () {
     return view('Auth.lupapassword');
 });
 
-//=======================MIDLEWARE ROUTES DOKTER==============================================//
+//============================MIDLEWARE ROUTES DOKTER==============================================//
 
 Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
@@ -87,12 +91,23 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
 
 //=========================================ADMIN ROUTESS==============================================//
 
+//Auth/Login admin
+Route::get('/login-admin', [AuthController::class, 'loginAdmin'])->name('loginAdmin');
+Route::post('actionLoginAdmin', [AuthController::class, 'actionLoginAdmin'])->name('actionLoginAdmin');
+Route::get('logoutAdmin', [AuthController::class, 'logoutAdmin'])->name('logoutAdmin')->middleware('auth');
 
-Route::get('/admin', function() {
-    return view('Admin.adminDashboard');
+
+//=======================================MIDDLEWARE ROUTES ADMIN======================================//
+Route::group(['middleware' => ['auth', 'Admin']], function () {
+    Route::get('/admin', [dashboardController::class, 'admin'])->name('admin');
 });
 
-Route::get('/admin', [dashboardController::class, 'admin'])->name('admin')->middleware('auth', 'Admin');
+
+// Route::get('/admin', function() {
+//     return view('Admin.adminDashboard');
+// });
+
+
 
 //ANGGOTA ROUTE
 Route::get('/anggota', function() {

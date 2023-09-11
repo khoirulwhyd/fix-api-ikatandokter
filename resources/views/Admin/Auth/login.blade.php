@@ -7,19 +7,19 @@
                     <div class="section">
                         <div class="logoidi py-4">
                             <img class="h-12 w-12" src="{{ url('Assets/logoidi.png') }}" alt="description of myimage">
-                            <p class="font-bold text-gray-50 text-2xl">IDI Malang Raya</p>
+                            <p class="font-bold text-gray-50 text-2xl">Admin IDI Malang Raya</p>
                         </div>
-                        <h1 class="text-5xl font-bold text-gray-50 justify-start py-2">Bergabunglah </h1>
+                        <!-- <h1 class="text-5xl font-bold text-gray-50 justify-start py-2">Bergabunglah </h1>
                         <h1 class="text-5xl font-bold text-gray-50 justify-start">Bersama Kami IDI</h1>
-                        <h1 class="text-5xl font-bold text-gray-50 justify-start">Malang Raya</h1>
-                        <img class="py-10 w-50" src="{{ url('Assets/Ilustrasi.svg') }}" alt="description of myimage">
+                        <h1 class="text-5xl font-bold text-gray-50 justify-start">Malang Raya</h1> -->
+                        <img class="py-10 w-50" src="{{ url('Assets/adminilustrasi.svg') }}" alt="description of myimage">
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-24">
+            <div class="lg:w-1/2 mt-10 xl:w-5/12 p-6 sm:p-24">
                 <div class="flex flex-col px-4 md:px-12">
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
-                        Login Anggota IDI
+                        Login Admin IDI
                     </h1>
 
                     <!-- session -->
@@ -40,7 +40,7 @@
                     
                         <!-- @csrf -->
                         <div class="w-full flex-1 mt-8">
-                            <form action="{{ route('') }}" method="post">
+                            <form action="{{ route('actionLoginAdmin') }}" method="post">
                                 @csrf
                                 <div class="mx-auto max-w-sm justify-center">
                                     <div class="py-4">
@@ -95,12 +95,6 @@
                                                     <span class="text-primary-600 underline">Lupa Password ?</span>
                                                 </button>
                                             </a>
-                                        </div>
-                                        <div class="flex jusfity-end py-6">
-                                            <span class="text-gray-600 ">Belum Memiliki Akun ? </span>
-                                            <button class="px-2" onclick="location.href='{{ route('register.index') }}">
-                                                <span class="text-primary-600 font-semibold underline">Daftar Sekarang</span>
-                                            </button>
                                         </div>
                                     </div>      
                         </div>
