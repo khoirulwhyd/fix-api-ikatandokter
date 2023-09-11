@@ -51,7 +51,7 @@
                                             class="form-control @error('nik') is-invalid @enderror w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
                                             type="nik" name="nik" placeholder="Masukkan NIK" required value="{{ old('nik') }}">
                                             @error('nik')
-                                            <div class="invalid-feedback">
+                                            <div class="invalid-feedback text-red-600">
                                                 {{ $message }}
                                             </div>
                                             @enderror
@@ -63,8 +63,13 @@
                                             Password
                                         </label>
                                         <input
-                                            class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
+                                            class="form-control @error('password') is-invalid @enderror w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
                                             type="password" name="password" placeholder="Masukkan Password" required />
+                                            @error('password')
+                                            <div class="invalid-feedback text-red-600">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                     </div>
                                     <button type="submit"
                                         class=" mt-5 tracking-wide font-semibold bg-primary-600 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">

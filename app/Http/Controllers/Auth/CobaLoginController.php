@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Session;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CobaLoginController extends Controller
 {
@@ -16,10 +17,9 @@ class CobaLoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-
             return redirect('dashboard');
         } else {
-            return view('Auth.login');
+            return view('Auth.login')->with('error', 'nik atau password salah');
         }
     }
 
@@ -39,8 +39,9 @@ class CobaLoginController extends Controller
             return redirect('dashboard');
         } else {
             Session::flash('error', 'Email atau Password Salah');
-            return redirect('/login');
+            return redirect('/login')->withError('Nik atau password');
         }
+        
     }
 
     public function actionlogout()

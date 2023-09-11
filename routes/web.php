@@ -23,7 +23,8 @@ Route::get('/', function () {
     return view('Auth.register');
 });
 
-Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('auth','Dokter');
+
+//==================================AUTH==============================================//
 
 Route::resource('register', RegisterController::class);
 // Route::resource('login', LoginController::class);
@@ -31,64 +32,62 @@ Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
-
-Route::resource('data-pribadi', DataPribadiController::class);
-
 Route::get('/lupapassword', function () {
-    return view('Auth.lupapassword');   
+    return view('Auth.lupapassword');
 });
 
-Route::get('/datapribadi', function() {
-    return view('Dokter.DataPribadi.index');
-});
+//=======================MIDLEWARE ROUTES DOKTER==============================================//
 
-Route::get('/createdatapribadi', function() {
-   return view('Dokter.DataPribadi.create');
-});
+Route::group(['middleware' => ['auth', 'Dokter']], function() {
+    Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
+    Route::resource('data-pribadi', DataPribadiController::class);
+    Route::get('/datapribadi', function () {
+        return view('Dokter.DataPribadi.index');
+    });
+    Route::get('/createdatapribadi', function () {
+        return view('Dokter.DataPribadi.create');
+    });
+    Route::get('/editdatapribadi', function () {
+        return view('Dokter.DataPribadi.edit');
+    });
+    Route::get('/dataprofesi', function () {
+        return view('Dokter.DataProfesi.index');
+    });
+    Route::get('/edit-profesi', function () {
+        return view('Dokter.DataProfesi.edit');
+    });
+    Route::get('/create-profesi', function () {
+        return view('Dokter.DataProfesi.create');
+    });
 
-Route::get('/editdatapribadi', function() {
-   return view('Dokter.DataPribadi.edit');
-});
+    // Route STR
+    Route::get('/str', function () {
+        return view('Dokter.STR.index');
+    });
+    Route::get('/edit-str', function () {
+        return view('Dokter.STR.edit');
+    });
+    Route::get('/create-str', function () {
+        return view('Dokter.STR.create');
+    });
 
-Route::get('/dataprofesi', function() {
-    return view('Dokter.DataProfesi.index');
+    // Route SIP
+    Route::get('/sip', function () {
+        return view('Dokter.SIP.index');
+    });
+    Route::get('/edit-sip', function () {
+        return view('Dokter.SIP.edit');
+    });
+    Route::get('/create-sip', function () {
+        return view('Dokter.SIP.create');
+    });
 });
-Route::get('/edit-profesi', function() {
-    return view('Dokter.DataProfesi.edit');
-});
-Route::get('/create-profesi', function() {
-    return view('Dokter.DataProfesi.create');
-});
-
-// Route STR
-Route::get('/str', function() {
-    return view('Dokter.STR.index');
-});
-Route::get('/edit-str', function() {
-    return view('Dokter.STR.edit');
-});
-Route::get('/create-str', function() {
-    return view('Dokter.STR.create');
-});
-
-// Route SIP
-Route::get('/sip', function() {
-    return view('Dokter.SIP.index');
-});
-Route::get('/edit-sip', function() {
-    return view('Dokter.SIP.edit');
-});
-Route::get('/create-sip', function() {
-    return view('Dokter.SIP.create');
-});
-
 
 
 
 //=========================================ADMIN ROUTESS==============================================//
 
 
-// ADMIN ROUTE
 Route::get('/admin', function() {
     return view('Admin.adminDashboard');
 });
