@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\approveController;
+use App\Http\Controllers\Admin\persetujuanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DataPribadiController;
@@ -92,32 +94,23 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
 //=========================================ADMIN ROUTESS==============================================//
 
 //Auth/Login admin
+
+
 Route::get('/login-admin', [AuthController::class, 'loginAdmin'])->name('loginAdmin');
 Route::post('actionLoginAdmin', [AuthController::class, 'actionLoginAdmin'])->name('actionLoginAdmin');
 Route::get('logoutAdmin', [AuthController::class, 'logoutAdmin'])->name('logoutAdmin')->middleware('auth');
 
 
+
 //=======================================MIDDLEWARE ROUTES ADMIN======================================//
+
+
 Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::get('/admin', [dashboardController::class, 'admin'])->name('admin');
-});
-
-
-// Route::get('/admin', function() {
-//     return view('Admin.adminDashboard');
-// });
-
-
-
-//ANGGOTA ROUTE
-Route::get('/anggota', function() {
-    return view ('Admin.MasterData.Anggota.index');
-});
-
-//persetujuan ROUTE
-Route::get('/persetujuan', function() {
-    return view ('Admin.MasterData.Persetujuan.index');
-});
-Route::get('/persetujuan-masuk', function() {
-    return view ('Admin.MasterData.Persetujuan.edit');
+    //ANGGOTA ROUTE
+    Route::get('/anggota', function () {
+        return view('Admin.MasterData.Anggota.index');
+    });
+    //persetujuan ROUTE
+    Route::resource('persetujuan', approveController::class);
 });
