@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'Admin' => \App\Http\Middleware\Admin::class,
         'Dokter' => \App\Http\Middleware\Dokter::class,
         'User' => \App\Http\Middleware\User::class,
+        'verify_email' => \App\Http\Middleware\VerifyEmail::class,
     ];
 }
