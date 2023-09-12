@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\CobaLoginController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\persetujuanController;
 
+use App\Http\Controllers\Dokter\AuthhController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +30,24 @@ use App\Http\Controllers\Admin\persetujuanController;
 |
 */
 
-Route::get('/', function () {
-    return view('Auth.register');
-});
+//=========================AUTH ROUTES WITH VERIFY EMAIL======================================//
+
+Route::get('login', [AuthhController::class, 'index'])->name('login');
+Route::post('post-login', [AuthhController::class, 'postLogin'])->name('post-login');
+Route::get('registration', [AuthhController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthhController::class, 'postRegistration'])->name('post-register');
+Route::get('logout', [AuthhController::class, 'logout'])->name('logout');
+Route::get('verifEmail', [AuthhController::class, 'verifPage'])->name('verifEmail');
+
+
+/* New Added Routes */
+Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email']);
+Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])->name('user.verify');
+
+//============================================================================================//
+// Route::get('/', function () {
+//     return view('Auth.register');
+// });
 
 //==================================AUTH USER==============================================//
 // Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
@@ -40,14 +56,14 @@ Route::get('/', function () {
 
 //==================================AUTH DOKTER==============================================//
 
-Route::resource('register', RegisterController::class);
-Route::get('/login', [CobaLoginController::class, 'index'])->name('login');
-Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
+// Route::resource('register', RegisterController::class);
+// Route::get('/login', [CobaLoginController::class, 'index'])->name('login');
+// Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
 
 
-Route::get('/lupapassword', function () {
-    return view('Auth.lupapassword');
-});
+// Route::get('/lupapassword', function () {
+//     return view('Auth.lupapassword');
+// });
 
 //============================MIDLEWARE ROUTES DOKTER==============================================//
 

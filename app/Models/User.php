@@ -32,7 +32,8 @@ class User extends Authenticatable
         'password',
         'ulangi_password',
         'lupa_password',
-        'role'
+        'role',
+        'email_verified_at',
     ];
 
 
