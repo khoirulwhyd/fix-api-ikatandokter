@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
 
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
+    
+    // Route::get('data-pribadi/edit', [DataPribadiController::class, 'edit'])->name('data-pribadi.edit');
 
     //Route Data Profesi
     Route::resource('data-profesi', DataProfesiController::class);

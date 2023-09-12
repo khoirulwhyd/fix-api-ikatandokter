@@ -17,7 +17,7 @@
                                     src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
                                 <div class="section-avatar px-6">
                                     <p class="text-primary-600 text-base font-semibold md:text-xl">
-                                        Muhammad Ali
+                                        {{ $dokter->nama_lengkap }}
                                     </p>
                                     <p class="font-regular text-gray-400 text-sm sm:text-lg">
                                         KTP-24234223
@@ -45,25 +45,24 @@
                                     Hapus Data
                                 </button>
 
-                                <a href="/editdatapribadi">
-                                    <button type="button"
-                                        class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3">
-                                        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 18 18" fill="none">
-                                            <path
-                                                d="M8.57699 0.824219H5.46116C2.89866 0.824219 1.29199 2.63839 1.29199 5.20672V12.1351C1.29199 14.7034 2.89116 16.5176 5.46116 16.5176H12.8145C15.3853 16.5176 16.9845 14.7034 16.9845 12.1351V8.77838"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M6.35652 7.60074L12.584 1.37324C13.3599 0.598242 14.6174 0.598242 15.3932 1.37324L16.4074 2.38741C17.1832 3.16324 17.1832 4.42158 16.4074 5.19658L10.1499 11.4541C9.81069 11.7932 9.35069 11.9841 8.87069 11.9841H5.74902L5.82736 8.83408C5.83902 8.37074 6.02819 7.92908 6.35652 7.60074Z"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M11.6377 2.33545L15.4427 6.14045" stroke="white" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Edit Data
-                                    </button>
-                                </a>
+                                <button type="button"
+                                    class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3"
+                                    onclick="location.href='{{ route('data-pribadi.edit', $dokter->id) }}'">
+                                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 18 18" fill="none">
+                                        <path
+                                            d="M8.57699 0.824219H5.46116C2.89866 0.824219 1.29199 2.63839 1.29199 5.20672V12.1351C1.29199 14.7034 2.89116 16.5176 5.46116 16.5176H12.8145C15.3853 16.5176 16.9845 14.7034 16.9845 12.1351V8.77838"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.35652 7.60074L12.584 1.37324C13.3599 0.598242 14.6174 0.598242 15.3932 1.37324L16.4074 2.38741C17.1832 3.16324 17.1832 4.42158 16.4074 5.19658L10.1499 11.4541C9.81069 11.7932 9.35069 11.9841 8.87069 11.9841H5.74902L5.82736 8.83408C5.83902 8.37074 6.02819 7.92908 6.35652 7.60074Z"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.6377 2.33545L15.4427 6.14045" stroke="white" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    Edit Data
+                                </button>
                             </div>
                         </div>
                         <div class="justify-start w-full h-full">
@@ -85,7 +84,7 @@
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 NPA IDI
                                             </th>
-                                            <td class="px-6 py-4">123456</td>
+                                            <td class="px-6 py-4">{{ $dokter->npaidi }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <th scope="row"
@@ -223,7 +222,7 @@
                                             class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             No Hp
                                         </th>
-                                        <td class="px-6 py-4">081216055665</td>
+                                        <td class="px-6 py-4">{{ $dokter->no_telepon }}</td>
                                         </tr>
                                 </tbody>
                             </table>
