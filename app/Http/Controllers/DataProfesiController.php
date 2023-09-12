@@ -14,16 +14,7 @@ class DataProfesiController extends Controller
      */
     public function index()
     {
-        if(DataProfesi::all()->isEmpty()) {
-            return response()->json([
-                'message' => 'Data Profesi Tidak Ditemukan'
-            ]);
-        }
-
-        return response()->json([
-            'message' => 'Data Profesi Ditemukan',
-            'data' => DataProfesi::all()
-        ]);
+        return view('Dokter.DataProfesi.index');
     }
 
     /**

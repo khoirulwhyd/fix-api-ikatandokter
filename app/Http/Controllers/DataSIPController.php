@@ -14,16 +14,7 @@ class DataSIPController extends Controller
      */
     public function index()
     {
-        if(DataSIP::all()->isEmpty()) {
-            return response()->json([
-                'message' => 'Data SIP Tidak Ditemukan'
-            ]);
-        }
-
-        return response()->json([
-            'message' => 'Data SIP Ditemukan',
-            'data' => DataSIP::all()
-        ]);
+        return view('Dokter.SIP.index');
     }
 
     /**

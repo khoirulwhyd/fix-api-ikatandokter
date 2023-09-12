@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Models\DataPribadi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -14,17 +15,8 @@ class DataPribadiController extends Controller
      */
     public function index()
     {
+        // $user = User::find($user->id);
         return view('Dokter.DataPribadi.index');
-        // if(DataPribadi::all()->isEmpty()) {
-        //     return response()->json([
-        //         'message' => 'Data Pribadi Tidak Ditemukan'
-        //     ]);
-        // }
-        
-        // return response()->json([
-        //     'message' => 'Data Pribadi Ditemukan',
-        //     'data' => DataPribadi::all()
-        // ]);
     }
 
     /**
@@ -32,7 +24,7 @@ class DataPribadiController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dokter.DataPribadi.create');
     }
 
     /**

@@ -1,18 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\approveController;
-use App\Http\Controllers\Admin\persetujuanController;
+use App\Http\Middleware\Dokter;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DataSIPController;
+use App\Http\Controllers\DataSTRController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DataPribadiController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\CobaLoginController;
-use App\Http\Middleware\Dokter;
 
-use App\Http\Controllers\Admin\dashboardController;
+use App\Http\Controllers\DataProfesiController;
 
 //admin import
-use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\approveController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\CobaLoginController;
+use App\Http\Controllers\Admin\dashboardController;
+use App\Http\Controllers\Admin\persetujuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +41,9 @@ Route::get('/', function () {
 //==================================AUTH DOKTER==============================================//
 
 Route::resource('register', RegisterController::class);
-// Route::resource('login', LoginController::class);
-Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
+Route::get('/login', [CobaLoginController::class, 'index'])->name('login');
 Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
-Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
 
 Route::get('/lupapassword', function () {
     return view('Auth.lupapassword');
@@ -50,47 +53,20 @@ Route::get('/lupapassword', function () {
 
 Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
+
+    // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
-    Route::get('/datapribadi', function () {
-        return view('Dokter.DataPribadi.index');
-    });
-    Route::get('/createdatapribadi', function () {
-        return view('Dokter.DataPribadi.create');
-    });
-    Route::get('/editdatapribadi', function () {
-        return view('Dokter.DataPribadi.edit');
-    });
-    Route::get('/dataprofesi', function () {
-        return view('Dokter.DataProfesi.index');
-    });
-    Route::get('/edit-profesi', function () {
-        return view('Dokter.DataProfesi.edit');
-    });
-    Route::get('/create-profesi', function () {
-        return view('Dokter.DataProfesi.create');
-    });
 
-    // Route STR
-    Route::get('/str', function () {
-        return view('Dokter.STR.index');
-    });
-    Route::get('/edit-str', function () {
-        return view('Dokter.STR.edit');
-    });
-    Route::get('/create-str', function () {
-        return view('Dokter.STR.create');
-    });
+    //Route Data Profesi
+    Route::resource('data-profesi', DataProfesiController::class);
 
+    // Route Data STR
+    Route::resource('data-str', DataSTRController::class);
+    
     // Route SIP
-    Route::get('/sip', function () {
-        return view('Dokter.SIP.index');
-    });
-    Route::get('/edit-sip', function () {
-        return view('Dokter.SIP.edit');
-    });
-    Route::get('/create-sip', function () {
-        return view('Dokter.SIP.create');
-    });
+    Route::resource('data-sip', DataSIPController::class);
+    
+    Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {

@@ -12,8 +12,18 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CobaLoginController extends Controller
 {
     public function dashboard () {
+        // return response()->json([
+        //     'message' => 'Anda Berhasil Login',
+        //     'user' => Auth::user()
+        // ]);
         return view('Dokter.dashboardUser');
     }
+    
+    public function index()
+    {
+        return view('Auth.login');
+    }
+
     public function login()
     {
         if (Auth::check() && Auth::user()->role == 'dokter') {

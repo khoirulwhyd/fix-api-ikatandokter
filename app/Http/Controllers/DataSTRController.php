@@ -14,16 +14,7 @@ class DataSTRController extends Controller
      */
     public function index()
     {
-        if(DataSTR::all()->isEmpty()) {
-            return response()->json([
-                'message' => 'Data STR Tidak Ditemukan'
-            ]);
-        }
-
-        return response()->json([
-            'message' => 'Data STR Ditemukan',
-            'data' => DataSTR::all()
-        ]);
+        return view('Dokter.STR.index');
     }
 
     /**
