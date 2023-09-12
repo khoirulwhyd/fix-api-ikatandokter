@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Http\Middleware\User;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
 
 class User
 {

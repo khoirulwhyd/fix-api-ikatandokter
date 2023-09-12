@@ -32,7 +32,8 @@ class User extends Authenticatable
         'password',
         'ulangi_password',
         'lupa_password',
-        'role'
+        'role',
+        'email_verified_at'
     ];
 
 
@@ -61,5 +62,6 @@ class User extends Authenticatable
     public function data_pribadi()
     {
         return $this->hasOne(DataPribadi::class, 'id_pribadi', 'id');
-    }    
+    }
+      
 }
