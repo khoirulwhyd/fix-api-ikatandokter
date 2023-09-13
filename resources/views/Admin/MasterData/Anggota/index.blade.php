@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                             
-                                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
+                                <div class="relative overflow-x-auto border sm:rounded-lg mt-2">
                                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
@@ -109,15 +109,18 @@
                                                 </td>
                                             </tr>
                                         </tbody>
-                                         @empty
-                                        <tr>
-                                            <div class="mx-auto max-w-sm justify-center mt-10">
-                                            <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center" alt="user photo" />
-                                            <div class="py-4">
-                                                <p class="text-center font-medium text-lg">Tidak ada <strong class="text-primary-600">permintaan masuk</strong> untuk saat ini, mungkin lain kali</p>
-                                            </div>
-                                        </div>
-                                        </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center text-mute" colspan="8">
+                                                    <div class="mx-auto max-w-sm justify-center mt-10">
+                                                    <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center" alt="user photo" />
+                                                    <div class="py-4">
+                                                        <p class="text-center font-medium text-lg">Tidak ada <strong class="text-primary-600">permintaan masuk</strong> untuk saat ini, mungkin lain kali</p>
+                                                    </div>
+                                                </div>
+                                                </td>
+                                                
+                                            </tr>
                                         
                                             <!-- <tr>
                                                 <td class="text-center text-mute" colspan="4">Data post tidak tersedia</td>

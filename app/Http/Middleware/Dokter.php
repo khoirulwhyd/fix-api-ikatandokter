@@ -19,7 +19,6 @@ class Dokter
     {
         if($request->user()->role == User::ROLE_DOKTER) {
             return $next($request);
-            
         }
         return back()->withErrors('Maaf anda belum memiliki hak akses');
         // abort(401);

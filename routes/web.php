@@ -43,6 +43,7 @@ Route::post('post-registration', [AuthhController::class, 'postRegistration'])->
 Route::get('logout', [AuthhController::class, 'logout'])->name('logout');
 Route::get('verifEmail', [AuthhController::class, 'verifPage'])->name('verifEmail');
 
+
 /* New Added Routes */
 Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email', 'Dokter']);
 Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])->name('user.verify');
@@ -54,6 +55,11 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+// Route::get('/link', function () {
+//     return view('auth2.lupapasswordLink');
+// });
+
+Route::get('/', [LandingController::class, 'index']);
 
 //========================================DOKTER LAYOUTS ROUTES============================================//
 

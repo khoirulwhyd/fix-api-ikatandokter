@@ -46,7 +46,10 @@ class masterAnggotaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::select('*')
+            ->where('id', $id)
+            ->get();
+        return view('Admin.MasterData.Anggota.edit', ['user' => $user]);
     }
 
     /**

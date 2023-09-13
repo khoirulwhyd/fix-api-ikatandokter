@@ -60,8 +60,9 @@
                                                 </th>
                                             </tr>
                                         </thead>
-                                       @forelse ($user as $users)
+                                       
                                         <tbody>
+                                            @forelse ($user as $users)
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                                 <td class="px-6 py-4 font-medium text-gray-800">
                                                     {{ $users->nama_lengkap }}
@@ -104,18 +105,22 @@
                                                         </button>
                                                     </a>
                                                 </td>
-                                            </tr>   
-                                        </tbody>
-                                        @empty
-                                        <tr>
-                                            <div class="mx-auto max-w-sm justify-center mt-10">
-                                            <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center" alt="user photo" />
-                                            <div class="py-4">
-                                                <p class="text-center font-medium text-lg">Tidak ada <strong class="text-primary-600">permintaan masuk</strong> untuk saat ini, mungkin lain kali</p>
-                                            </div>
-                                        </div>
-                                        </tr>
+                                            </tr>
+                                            @empty
+                                            <tr>
+                                                <td class="text-center text-mute" colspan="8">
+                                                    <div class="mx-auto max-w-sm justify-center mt-10">
+                                                    <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center" alt="user photo" />
+                                                    <div class="py-4">
+                                                        <p class="text-center font-medium text-lg">Tidak ada <strong class="text-primary-600">permintaan masuk</strong> untuk saat ini, mungkin lain kali</p>
+                                                    </div>
+                                                </div>
+                                                </td>
+                                                
+                                            </tr>
                                          @endforelse
+                                        </tbody>
+                                        
                                     </table>
                                     
                                     <!-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
@@ -125,7 +130,7 @@
                                     
                                    
                                 </div>
-                                <nav aria-label="Page navigation example" class="justify-end">
+                                <!-- <nav aria-label="Page navigation example" class="justify-end">
                                     <ul class="flex items-center -space-x-px h-8 text-sm mt-4">
                                         <li>
                                             <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -160,7 +165,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> -->
                             </div>
 
                         </div>
