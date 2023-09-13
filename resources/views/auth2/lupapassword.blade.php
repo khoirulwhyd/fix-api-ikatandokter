@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </div> -->
+                   
                 <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-24">
                     <div class="flex p-28 flex-col px-4 md:px-12">
                         <div class="w-full px-4 md:px-2">
@@ -46,17 +47,22 @@
                             <p class="py-4 font-medium text-gray-500">
                                 Masukkan email anda, kami akan mengirimkan link reset password ke email kamu
                             </p>
-                            <div class="py-1">
-                                <input
-                                    class="form-control @error('email') is-invalid @enderror w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
-                                    type="email" name="email" placeholder="Masukkaan email anda">
-                                    @error('emmail')
-                                    <div class="invalid-feedback text-red-600">
-                                        {{ $message }}
+                            <form action="{{ route('forget.password.post') }}" method="POST">
+                                @csrf
+                                 @if (Session::has('message'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ Session::get('message') }}
                                     </div>
-                                    @enderror
-                            </div>
-                            <div class="flex flex-row items-start justify-start">
+                                @endif
+                                <div class="py-1">
+                                    <input
+                                        class="form-control @error('email') is-invalid @enderror w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-primary-800 focus:bg-white"
+                                        type="email" id="email" name="email" placeholder="Masukkaan email anda">
+                                        @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                         @endif
+                                </div>
+                                <div class="flex flex-row items-start justify-start">
                                 <button type="submit"
                                     class=" mt-5 tracking-wide font-semibold bg-primary-600 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                     <span class="ml-3">
@@ -64,6 +70,9 @@
                                     </span>
                                 </button>                                    
                             </div>
+                            </form>
+                            
+                            
                         </div>
                     </div>
                 </div>

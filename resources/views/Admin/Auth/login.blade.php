@@ -88,15 +88,6 @@
                                     </button>
                                 </div>
                             </form>
-                                    <div>
-                                        <div class="jusfity-end py-2">
-                                            <a href="/lupapassword">
-                                                <button clas="px-2 py-2">
-                                                    <span class="text-primary-600 underline">Lupa Password ?</span>
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>      
                         </div>
                 </div>
             </div>
