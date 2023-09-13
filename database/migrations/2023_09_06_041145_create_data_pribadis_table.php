@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('data_pribadis', function (Blueprint $table) {
             $table->id();
-            $table->integer('npaidi')->unique();
+            $table->string('npaidi')->unique();
+            $table->string('identitas');
             $table->string('no_identitas')->unique();
             $table->string('nama_lengkap');
             $table->string('foto_diri')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('ktp_rw');
             $table->string('ktp_kodepos');
             $table->string('ktp_alamat_lengkap');
+            $table->string('foto_ktp')->nullable();
             $table->string('no_teleponrumah', 13);
             $table->string('no_hp', 13);
             $table->string('no_hp2', 13)->nullable();
