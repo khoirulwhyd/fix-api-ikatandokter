@@ -19,7 +19,8 @@ class Dokter
         if($request->user()->role == User::ROLE_DOKTER) {
             return $next($request);
         }
-        abort(401);
+        return back()->with('error', 'Maaf anda belum memiliki hak akses');
+        // abort(401);
 
         // $user = User::where('nik', $request->nik)->first();
         // if ($user->role == 'admin') {
@@ -37,6 +38,6 @@ class Dokter
         // }
         // return $next($request);
         
-        // return back()->with('error', 'Maaf anda belum memiliki hak akses');
+        
     }
 }

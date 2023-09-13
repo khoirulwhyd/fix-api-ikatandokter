@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\persetujuanController;
 
 use App\Http\Controllers\Dokter\AuthhController;
+
+use App\Http\Controllers\Dokter\LandingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,13 +43,15 @@ Route::get('verifEmail', [AuthhController::class, 'verifPage'])->name('verifEmai
 
 
 /* New Added Routes */
-Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email']);
+Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email', 'Dokter']);
 Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])->name('user.verify');
 
 //============================================================================================//
 // Route::get('/', function () {
-//     return view('Auth.register');
+//     return view('public.landingpage');
 // });
+
+Route::get('/', [LandingController::class, 'index']);
 
 //==================================AUTH USER==============================================//
 // Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
@@ -68,7 +72,7 @@ Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])-
 //============================MIDLEWARE ROUTES DOKTER==============================================//
 
 Route::group(['middleware' => ['auth', 'Dokter']], function() {
-    Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
+    // Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
 
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
