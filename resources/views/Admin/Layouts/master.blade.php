@@ -14,7 +14,8 @@
   <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
-    
+     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+  @include('sweetalert::alert')
 <nav class="fixed top-0 z-50 w-full bg-white border-b shadow-md border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">

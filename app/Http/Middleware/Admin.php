@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Admin
 {
@@ -19,7 +20,7 @@ class Admin
         if ($request->user()->role == User::ROLE_ADMIN) {
             return $next($request);
         }
-        abort(401);
+        return back()->withErrors('Maaf anda tidak memiliki hak akses');
         // return redirect('/admin');
         // return $next($request);
     }

@@ -98,9 +98,12 @@
                                         </div>
                                         <div class="flex jusfity-end py-6">
                                             <span class="text-gray-600 ">Belum Memiliki Akun ? </span>
-                                            <button class="px-2" onclick="">
-                                                <span class="text-primary-600 font-semibold underline">Daftar Sekarang</span>
-                                            </button>
+                                            <a href="/registration">
+                                                <button class="px-2">
+                                                    <span class="text-primary-600 font-semibold underline">Daftar Sekarang</span>
+                                                </button>
+                                            </a>
+                                            
                                         </div>
                                     </div>      
                         </div>
