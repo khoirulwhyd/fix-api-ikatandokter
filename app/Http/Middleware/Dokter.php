@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Dokter
 {
@@ -18,8 +19,10 @@ class Dokter
     {
         if($request->user()->role == User::ROLE_DOKTER) {
             return $next($request);
+            
         }
-        abort(401);
+        return back()->withErrors('Maaf anda belum memiliki hak akses');
+        // abort(401);
 
         // $user = User::where('nik', $request->nik)->first();
         // if ($user->role == 'admin') {
@@ -37,6 +40,6 @@ class Dokter
         // }
         // return $next($request);
         
-        // return back()->with('error', 'Maaf anda belum memiliki hak akses');
+        
     }
 }

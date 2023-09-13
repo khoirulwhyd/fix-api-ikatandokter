@@ -16,7 +16,8 @@
 </head>
 
 <body>
-
+     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+    @include('sweetalert::alert')
     <nav
         class="fixed top-0 z-50 w-full bg-white border-b shadow-md border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -81,7 +82,7 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="{{ route('actionlogout') }}"
+                                    <a href="{{ route('logout') }}"
                                         class="block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Logout</a>
                                 </li>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\masterAnggotaController;
+use App\Http\Controllers\Dokter\ForgotPasswordController;
 use App\Http\Middleware\Dokter;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +21,8 @@ use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\persetujuanController;
 
 use App\Http\Controllers\Dokter\AuthhController;
+
+use App\Http\Controllers\Dokter\LandingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +34,7 @@ use App\Http\Controllers\Dokter\AuthhController;
 |
 */
 
-//=========================AUTH ROUTES WITH VERIFY EMAIL======================================//
+//=========================DOKTER AUTH ROUTES WITH VERIFY EMAIL======================================//
 
 Route::get('login', [AuthhController::class, 'index'])->name('login');
 Route::post('post-login', [AuthhController::class, 'postLogin'])->name('post-login');
@@ -39,36 +43,29 @@ Route::post('post-registration', [AuthhController::class, 'postRegistration'])->
 Route::get('logout', [AuthhController::class, 'logout'])->name('logout');
 Route::get('verifEmail', [AuthhController::class, 'verifPage'])->name('verifEmail');
 
-
 /* New Added Routes */
-Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email']);
+Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email', 'Dokter']);
 Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])->name('user.verify');
 
-//============================================================================================//
-// Route::get('/', function () {
-//     return view('Auth.register');
-// });
 
-//==================================AUTH USER==============================================//
-// Route::get('/login', [CobaLoginController::class, 'login'])->name('login');
-// Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
-// Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard')->middleware('User');
-
-//==================================AUTH DOKTER==============================================//
-
-// Route::resource('register', RegisterController::class);
-// Route::get('/login', [CobaLoginController::class, 'index'])->name('login');
-// Route::post('actionlogin', [CobaLoginController::class, 'actionlogin'])->name('actionlogin');
+// Forgot Password Routes
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
-// Route::get('/lupapassword', function () {
-//     return view('Auth.lupapassword');
-// });
+//========================================DOKTER LAYOUTS ROUTES============================================//
+
+
+Route::get('/', [LandingController::class, 'index']);
+
+//==================================AUTH==============================================//
 
 //============================MIDLEWARE ROUTES DOKTER==============================================//
 
 Route::group(['middleware' => ['auth', 'Dokter']], function() {
-    Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
+    // Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
 
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
@@ -92,6 +89,16 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
 // }]);
 
 
+
+
+
+
+
+
+
+
+
+
 //=========================================ADMIN ROUTESS==============================================//
 
 //Auth/Login admin
@@ -108,10 +115,6 @@ Route::get('logoutAdmin', [AuthController::class, 'logoutAdmin'])->name('logoutA
 
 Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::get('/admin', [dashboardController::class, 'admin'])->name('admin');
-    //ANGGOTA ROUTE
-    Route::get('/anggota', function () {
-        return view('Admin.MasterData.Anggota.index');
-    });
-    //persetujuan ROUTE
+    Route::resource('anggota', masterAnggotaController::class);
     Route::resource('persetujuan', approveController::class);
 });

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class approveController extends Controller
 {
@@ -95,6 +96,11 @@ class approveController extends Controller
     {
         //
         $user = User::find($id);
+        
+        $title = 'Delete User!';
+        $text = "Apakah anda yakin ingin menghapus user ini?";
+        confirmDelete($title, $text);
+        
         $user->delete();
         return redirect()->route('persetujuan.index')
             ->with('success', 'Data user berhasil di hapus');
