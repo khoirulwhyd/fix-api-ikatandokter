@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\masterAnggotaController;
 use App\Http\Middleware\Dokter;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
@@ -112,10 +113,11 @@ Route::get('logoutAdmin', [AuthController::class, 'logoutAdmin'])->name('logoutA
 
 Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::get('/admin', [dashboardController::class, 'admin'])->name('admin');
+    Route::resource('anggota', masterAnggotaController::class);
     //ANGGOTA ROUTE
-    Route::get('/anggota', function () {
-        return view('Admin.MasterData.Anggota.index');
-    });
+    // Route::get('/anggota', function () {
+    //     return view('Admin.MasterData.Anggota.index');
+    // });
     //persetujuan ROUTE
     Route::resource('persetujuan', approveController::class);
 });

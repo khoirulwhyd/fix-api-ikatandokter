@@ -36,6 +36,7 @@
                             
                                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
                                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                         @forelse ($user as $users)
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3">
@@ -61,7 +62,7 @@
                                                 </th>
                                             </tr>
                                         </thead>
-                                        @forelse ($user as $users)
+                                       
                                         <tbody>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                                 <td class="px-6 py-4 font-medium text-gray-800">
@@ -113,9 +114,18 @@
                                             </tr>   
                                         </tbody>
                                         @empty
-                                            <tr>
+                                        <tr>
+                                            <div class="mx-auto max-w-sm justify-center mt-10">
+                                            <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center" alt="user photo" />
+                                            <div class="py-4">
+                                                <p class="text-center font-medium text-lg">Tidak ada <strong class="text-primary-600">permintaan masuk</strong> untuk saat ini, mungkin lain kali</p>
+                                            </div>
+                                        </div>
+                                        </tr>
+                                        
+                                            <!-- <tr>
                                                 <td class="text-center text-mute" colspan="4">Data post tidak tersedia</td>
-                                            </tr>
+                                            </tr> -->
                                         @endforelse
                                     </table>
                                     
