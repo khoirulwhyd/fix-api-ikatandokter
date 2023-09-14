@@ -95,9 +95,8 @@
     </section>
         <section class="bg-gray-50 dark:bg-gray-800">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div class="max-w-screen-md mb-8 lg:mb-16">
-                <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">Cari Praktik Dokter</h2>
-                
+            <div class="mb-8 lg:mb-16">
+                <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white text-center">Cari Praktik Dokter</h2>
                 <form>
                     <div class="flex">
                         <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
@@ -130,11 +129,13 @@
                         </div>
                     </div>
                 </form>
+                
 
                 <!-- <p class="text-gray-500 sm:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p> -->
             </div>
-            <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-                <div>
+            
+            <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0 grid place-items-center">
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -146,7 +147,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -157,7 +158,7 @@
                         </a>               
                     </div>
                 </div>
-                <div>
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -169,7 +170,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -180,7 +181,7 @@
                         </a>               
                     </div>
                 </div>
-                <div>
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -192,7 +193,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -203,7 +204,7 @@
                         </a>               
                     </div>
                 </div>
-                <div>
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -215,7 +216,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -226,7 +227,7 @@
                         </a>               
                     </div>
                 </div>
-                <div>
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -238,7 +239,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -249,7 +250,7 @@
                         </a>               
                     </div>
                 </div>
-                <div>
+                <div class="grid place-items-center">
                     <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-blue-100 lg:h-12 lg:w-12 dark:bg-blue-900">
                         <img src="/Assets/avatars.svg" class="w-30 h-30">
                     </div>
@@ -261,7 +262,7 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5Z" fill="#555555"/>
                             </svg>
                         </div> -->
-                        <div class="">
+                        <div class="text-center">
                             <p class="text-gray-500 text-sm">Jalan Sunan Kalijaga No 10 Jatimulyo, Lowokwaru, Kota Malang</p>
                         </div>
                     </div>
@@ -272,6 +273,15 @@
                         </a>               
                     </div>
                 </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
         </div>
       </section>
