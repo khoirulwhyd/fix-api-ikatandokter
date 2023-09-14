@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Auth;
 use Validator;
 use Carbon\Carbon;
-use App\Models\DataPribadi;
 use App\Models\User;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class DataPribadiController extends Controller
 {
@@ -18,11 +20,12 @@ class DataPribadiController extends Controller
     public function index()
     {
         $dokter = Auth::user();
+        $dataPribadi = DataPribadi::all();
         // return response()->json([
         //     'message' => 'Data Pribadi Ditemukan',
-        //     'data' => $dokter
+        //     'data' => $dataPribadi
         // ]);
-        return view('Dokter.DataPribadi.index', compact('dokter'));
+        return view('Dokter.DataPribadi.index', compact('dokter', 'dataPribadi'));
     }
 
     /**
@@ -43,13 +46,15 @@ class DataPribadiController extends Controller
     public function store(Request $request)
     {
         $request['tanggal_lahir'] = Carbon::parse($request['tanggal_lahir'])->toDateString();
-
+        // $filename = $request->file('foto_diri')->getClientOriginalName();
+        // $name = trim($filename);
+        
         $validator = Validator::make($request->all(), [
             'npaidi' => 'required|string',
             'identitas' => 'required|string',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
-            'foto_diri' => 'required|string',
+            'foto_diri' => '',
             'tempat_lahir' => 'required|string',
             'tanggal_lahir' => 'required|string',
             'jenis_kelamin' => 'required|string',
@@ -57,19 +62,19 @@ class DataPribadiController extends Controller
             'agama' => 'required|string',
             'nama_pasangan' => 'required|string',
             'ktp_provinsi' => 'required|string',
-            'ktp_kabupaten/kota' => 'required|string',
+            'ktp_kabupaten_kota' => 'required|string',
             'ktp_kecamatan' => 'required|string',
             'ktp_kelurahan' => 'required|string',
             'ktp_rt' => 'required|string',
             'ktp_rw' => 'required|string',
             'ktp_kodepos' => 'required|string',
             'ktp_alamat_lengkap' => 'required|string',
-            'foto_ktp' => 'required|string',
+            'foto_ktp' => '',
             'no_teleponrumah' => 'required|string|min:10|max:13',
             'no_hp' => 'required|string|min:10|max:13',
             'no_hp2' => '',
             'krsp_provinsi' => 'required|string',
-            'krsp_kabupaten/kota' => 'required|string',
+            'krsp_kabupaten_kota' => 'required|string',
             'krsp_kecamatan' => 'required|string',
             'krsp_kelurahan' => 'required|string',
             'krsp_rt' => 'required|string',
@@ -83,7 +88,7 @@ class DataPribadiController extends Controller
         }
         DataPribadi::create($request->all());
 
-        alert::succes('Data Pribadi Berhasil Ditambahkan', 'Success');
+        Alert::succes('Data Pribadi Berhasil Ditambahkan', 'Success');
         return redirect()->route('data-pribadi.index');
     }
 
@@ -104,10 +109,14 @@ class DataPribadiController extends Controller
      */
     public function edit(String $id)
     {
-        $dataPribadi = DataPribadi::find($id);
-        $dokter = User::select('*')
-            ->where('id', $id)
-            ->get();
+        $dataPribadi = DataPribadi::all();
+        $dokter = Auth::user();
+        // $dokter = User::select('*')
+        //     ->where('id', $id)
+        //     ->get();
+        // return response()->json([
+        //     'data' => $dokter
+        // ]);
         return view('Dokter.DataPribadi.edit', compact('dokter', 'dataPribadi'));
     }
 
@@ -129,7 +138,7 @@ class DataPribadiController extends Controller
             'agama' => 'required|string',
             'nama_pasangan' => 'required|string',
             'ktp_provinsi' => 'required|string',
-            'ktp_kabupaten/kota' => 'required|string',
+            'ktp_kabupaten_kota' => 'required|string',
             'ktp_kecamatan' => 'required|string',
             'ktp_kelurahan' => 'required|string',
             'ktp_rt' => 'required|string',
@@ -141,7 +150,7 @@ class DataPribadiController extends Controller
             'no_hp' => 'required|string|min:10|max:13',
             'no_hp2' => '',
             'krsp_provinsi' => 'required|string',
-            'krsp_kabupaten/kota' => 'required|string',
+            'krsp_kabupaten_kota' => 'required|string',
             'krsp_kecamatan' => 'required|string',
             'krsp_kelurahan' => 'required|string',
             'krsp_rt' => 'required|string',

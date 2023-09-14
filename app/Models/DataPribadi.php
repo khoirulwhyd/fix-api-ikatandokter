@@ -24,7 +24,7 @@ class DataPribadi extends Model
         'agama',
         'nama_pasangan',
         'ktp_provinsi',
-        'ktp_kabupaten/kota',
+        'ktp_kabupaten_kota',
         'ktp_kecamatan',
         'ktp_kelurahan',
         'ktp_rt',
@@ -36,7 +36,7 @@ class DataPribadi extends Model
         'no_hp',
         'no_hp2',
         'krsp_provinsi',
-        'krsp_kabupaten/kota',
+        'krsp_kabupaten_kota',
         'krsp_kecamatan',
         'krsp_kelurahan',
         'krsp_rt',
@@ -47,7 +47,7 @@ class DataPribadi extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
     public function dataProfesi()

@@ -2,7 +2,7 @@
 @section('content')
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14">
-            <form action="{{ route('data-pribadi.store') }}" method="POST">
+            <form action="{{ route('data-pribadi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-0 gap-4 mb-4">
                     <div
@@ -95,7 +95,7 @@
                                         </label>
                                         <input
                                             class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="file_input" name="foto_diri" type="file" />
+                                            id="file_input" name="avatar" type="file" accept=".png, .jpg, .jpeg" />
                                         <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB, Mengikuti
                                             Tahun Lahir, Genap Background Biru, Ganjil Background Merah</span>
                                     </div>
@@ -260,7 +260,7 @@
                                                 <div class="w-full">
                                                     <select
                                                         class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                        id="kab/kota" type="text" name="ktp_kabupaten/kota"
+                                                        id="kab/kota" type="text" name="ktp_kabupaten_kota"
                                                         placeholder="">
                                                         <option selected disabled>Pilih Kabupaten/Kota</option>
                                                         <option value="Kab. Malang">Kab. Malang</option>
@@ -473,7 +473,7 @@
                                                 <div class="w-full">
                                                     <select
                                                         class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                        id="kab/kota" type="text" name="krsp_kabupaten/kota"
+                                                        id="kab/kota" type="text" name="krsp_kabupaten_kota"
                                                         placeholder="">
                                                         <option selected disabled>Pilih Kabupaten/Kota</option>
                                                         <option value="Kab. Malang">Kab. Malang</option>
