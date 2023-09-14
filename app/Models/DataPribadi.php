@@ -13,6 +13,7 @@ class DataPribadi extends Model
 
     protected $fillable = [
         'npaidi',
+        'identitas',
         'no_identitas',
         'nama_lengkap',
         'foto_diri',
@@ -30,6 +31,7 @@ class DataPribadi extends Model
         'ktp_rw',
         'ktp_kodepos',
         'ktp_alamat_lengkap',
+        'foto_ktp',
         'no_teleponrumah',
         'no_hp',
         'no_hp2',

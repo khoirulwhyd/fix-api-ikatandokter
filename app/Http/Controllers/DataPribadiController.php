@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Validator;
-use Auth;   
+use Carbon\Carbon;
 use App\Models\DataPribadi;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,9 +28,13 @@ class DataPribadiController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(DataPribadi $dataPribadi)
     {
-        return view('Dokter.DataPribadi.create');
+        $data = Auth::user();
+        // return response()->json([
+        //     'data' => $data
+        // ]);
+        return view('Dokter.DataPribadi.create', compact('dataPribadi', 'data'));
     }
 
     /**
@@ -37,8 +42,11 @@ class DataPribadiController extends Controller
      */
     public function store(Request $request)
     {
+        $request['tanggal_lahir'] = Carbon::parse($request['tanggal_lahir'])->toDateString();
+
         $validator = Validator::make($request->all(), [
-            'npaidi' => 'required|integer',
+            'npaidi' => 'required|string',
+            'identitas' => 'required|string',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
             'foto_diri' => 'required|string',
@@ -56,6 +64,7 @@ class DataPribadiController extends Controller
             'ktp_rw' => 'required|string',
             'ktp_kodepos' => 'required|string',
             'ktp_alamat_lengkap' => 'required|string',
+            'foto_ktp' => 'required|string',
             'no_teleponrumah' => 'required|string|min:10|max:13',
             'no_hp' => 'required|string|min:10|max:13',
             'no_hp2' => '',
@@ -74,10 +83,8 @@ class DataPribadiController extends Controller
         }
         DataPribadi::create($request->all());
 
-        return response()->json([
-            'message' => 'Data Pribadi Berhasil Ditambahkan',
-            'data' => $request->all()
-        ]);
+        return redirect()->route('data-pribadi.index')
+            ->with('success', 'Data Pribadi Berhasil Ditambahkan');
     }
 
     /**
@@ -95,10 +102,13 @@ class DataPribadiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DataPribadi $dataPribadi)
+    public function edit(String $id)
     {
-        $dokter = Auth::user();
-        return view('Dokter.DataPribadi.edit', compact('dokter'));
+        $dataPribadi = DataPribadi::find($id);
+        $dokter = User::select('*')
+            ->where('id', $id)
+            ->get();
+        return view('Dokter.DataPribadi.edit', compact('dokter', 'dataPribadi'));
     }
 
     /**
@@ -108,6 +118,7 @@ class DataPribadiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'npaidi' => 'required|integer',
+            'identitas' => 'required|string',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
             'foto_diri' => 'required|string',
