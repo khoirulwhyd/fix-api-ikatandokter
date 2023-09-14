@@ -23,21 +23,21 @@
                                     <p class="font-semibold text-primary-600"> Persetujuan Anggota</p>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 mt-2 ">
-                                <div class="justify-start ...">
-                                    <div class="section-avatar">
-                                        <p class="text-primary-600 text-base font-semibold md:text-xl">Dr. Lissa Nur Aini. S.T., M.T</p>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <hr></hr>
+                            
 
                             <div class="justify-start">
                                 <div class="justify py-2">
                                     <div class="mx-auto justify-center">
                                         @foreach($user as $users)
-                                        
+                                        <div class="grid grid-cols-1 md:grid-cols-2 mt-2 ">
+                                            <div class="justify-start ...">
+                                                <div class="section-avatar">
+                                                    <p class="text-primary-600 text-base font-semibold md:text-xl">{{$users->nama_lengkap}}</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <hr></hr>
                                         <form action="{{ route('persetujuan.update', $users->id) }}" method="post" class="w-full max-w-lg mt-6">
                                             @csrf
                                             @method('PUT')
