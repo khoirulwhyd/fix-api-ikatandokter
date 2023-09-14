@@ -374,6 +374,16 @@
 
                                 </div>
                             </div>
+                            <div class="mb-6">
+                                <label for="file_input"
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Foto KTP
+                                </label>
+                                <input
+                                    class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    id="file_input" name="foto_ktp" type="file" />
+                                <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB</span>
+                            </div>
 
 
                             <div class="justify-start pt-4">

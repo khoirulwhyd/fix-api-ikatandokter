@@ -83,8 +83,8 @@ class DataPribadiController extends Controller
         }
         DataPribadi::create($request->all());
 
-        return redirect()->route('data-pribadi.index')
-            ->with('success', 'Data Pribadi Berhasil Ditambahkan');
+        alert::succes('Data Pribadi Berhasil Ditambahkan', 'Success');
+        return redirect()->route('data-pribadi.index');
     }
 
     /**
@@ -117,7 +117,7 @@ class DataPribadiController extends Controller
     public function update(Request $request, DataPribadi $dataPribadi)
     {
         $validator = Validator::make($request->all(), [
-            'npaidi' => 'required|integer',
+            'npaidi' => 'required|string',
             'identitas' => 'required|string',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
@@ -136,6 +136,7 @@ class DataPribadiController extends Controller
             'ktp_rw' => 'required|string',
             'ktp_kodepos' => 'required|string',
             'ktp_alamat_lengkap' => 'required|string',
+            'foto_ktp' => 'required|string',
             'no_teleponrumah' => 'required|string|min:10|max:13',
             'no_hp' => 'required|string|min:10|max:13',
             'no_hp2' => '',
@@ -158,10 +159,8 @@ class DataPribadiController extends Controller
         
         $dataPribadi->update($request->all());
         
-        return response()->json([
-            'message' => 'Data Pribadi Berhasil Diupdate',
-            'data' => $dataPribadi
-        ]);
+        toast('Data Pribadi Berhasil Diupdate', 'success');
+        return redirect()->route('data-pribadi.index');
     }
 
     /**
