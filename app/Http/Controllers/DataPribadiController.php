@@ -20,11 +20,12 @@ class DataPribadiController extends Controller
     public function index()
     {
         $dokter = Auth::user();
-        $dataPribadi = DataPribadi::all();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
         // return response()->json([
-        //     'message' => 'Data Pribadi Ditemukan',
-        //     'data' => $dataPribadi
+        //     'data1' => $dokter,
+        //     'data' =>$dataPribadi
         // ]);
+
         return view('Dokter.DataPribadi.index', compact('dokter', 'dataPribadi'));
     }
 
@@ -50,6 +51,7 @@ class DataPribadiController extends Controller
         // $name = trim($filename);
         
         $validator = Validator::make($request->all(), [
+            'id_user' => 'required|string',
             'npaidi' => 'required|string',
             'identitas' => 'required|string',
             'no_identitas' => 'required|string',
@@ -87,8 +89,8 @@ class DataPribadiController extends Controller
             return response()->json($validator->errors(), 400);
         }
         DataPribadi::create($request->all());
-
-        Alert::succes('Data Pribadi Berhasil Ditambahkan', 'Success');
+        
+        toast('Data Pribadi Berhasil Ditambahkan', 'success');
         return redirect()->route('data-pribadi.index');
     }
 
@@ -126,6 +128,7 @@ class DataPribadiController extends Controller
     public function update(Request $request, DataPribadi $dataPribadi)
     {
         $validator = Validator::make($request->all(), [
+            'id_user' => 'required|string',
             'npaidi' => 'required|string',
             'identitas' => 'required|string',
             'no_identitas' => 'required|string',

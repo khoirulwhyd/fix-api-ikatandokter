@@ -12,6 +12,7 @@ class DataPribadi extends Model
     protected $table = 'data_pribadis';
 
     protected $fillable = [
+        'id_user',
         'npaidi',
         'identitas',
         'no_identitas',

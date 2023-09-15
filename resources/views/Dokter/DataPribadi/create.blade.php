@@ -34,6 +34,7 @@
                                 </p>
                                 <div class="mx-auto justify-center">
                                     <div class="flex flex-wrap -mx-3 mb-6">
+                                        <input type="hidden" name="id_user" value="{{ Auth::user()->id }}" />
                                         <div class="w-full md:w-full px-3 mb-6 md:mb-0">
                                             <label
                                                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"

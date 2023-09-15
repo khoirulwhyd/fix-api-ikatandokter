@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_pribadis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
             $table->string('npaidi')->unique();
             $table->string('identitas');
             $table->string('no_identitas')->unique();
@@ -45,6 +46,8 @@ return new class extends Migration
             $table->string('krsp_kodepos');
             $table->string('krsp_alamat_lengkap');
             $table->timestamps();
+            
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

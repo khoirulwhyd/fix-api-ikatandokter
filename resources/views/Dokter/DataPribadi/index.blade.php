@@ -5,8 +5,7 @@
             <div class="grid grid-cols-0 gap-4 mb-4">
                 <div
                     class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <input type="hidden" name="id_pribadi">
-                    @foreach ($dataPribadi as $data)
+                    @if ($dataPribadi != null)
                         <div>
                             <div class="section-icon flex items-start justify-start mb-4">
                                 <p class="text-sm justify-center font-semibold text-gray-800 md:text-lg">
@@ -20,10 +19,10 @@
                                         alt="user photo" />
                                     <div class="section-avatar px-6">
                                         <p class="text-primary-600 text-base font-semibold md:text-xl">
-                                            {{ $data->nama_lengkap }}
+                                            {{ $dataPribadi->nama_lengkap }}
                                         </p>
                                         <p class="font-regular text-gray-400 text-sm sm:text-lg">
-                                            {{ $data->identitas }} - {{ $data->no_identitas }}
+                                            {{ $dataPribadi->identitas }} - {{ $dataPribadi->no_identitas }}
                                         </p>
                                     </div>
                                 </div>
@@ -110,7 +109,7 @@
                                                     class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     NPA IDI
                                                 </th>
-                                                <td class="px-6 py-4">{{ $data->npaidi }}</td>
+                                                <td class="px-6 py-4">{{ $dataPribadi->npaidi }}</td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 <th scope="row"
@@ -118,7 +117,7 @@
                                                     Tempat Tanggal Lahir
                                                 </th>
                                                 <td class="px-6 py-4">
-                                                    {{ $data->tempat_lahir }}, {{ $data->tanggal_lahir }}
+                                                    {{ $dataPribadi->tempat_lahir }}, {{ $dataPribadi->tanggal_lahir }}
                                                 </td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800">
@@ -126,28 +125,28 @@
                                                     class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     Jenis Kelamin
                                                 </th>
-                                                <td class="px-6 py-4">{{ $data->jenis_kelamin }}</td>
+                                                <td class="px-6 py-4">{{ $dataPribadi->jenis_kelamin }}</td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800">
                                                 <th scope="row"
                                                     class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     Kewarganegaraan
                                                 </th>
-                                                <td class="px-6 py-4">{{ $data->kewarganegaraan }}</td>
+                                                <td class="px-6 py-4">{{ $dataPribadi->kewarganegaraan }}</td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800">
                                                 <th scope="row"
                                                     class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     Agama
                                                 </th>
-                                                <td class="px-6 py-4">{{ $data->agama }}</td>
+                                                <td class="px-6 py-4">{{ $dataPribadi->agama }}</td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800">
                                                 <th scope="row"
                                                     class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     Nama Pasangan
                                                 </th>
-                                                <td class="px-6 py-4">{{ $data->nama_pasangan }}</td>
+                                                <td class="px-6 py-4">{{ $dataPribadi->nama_pasangan }}</td>
                                             </tr>
                                         </div>
                                     </tbody>
@@ -170,49 +169,50 @@
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Provinsi
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_provinsi }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_provinsi }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kab/Kota
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_kabupaten_kota }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_kabupaten_kota }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kecamatan
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_kecamatan }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_kecamatan }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kelurahan
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_kelurahan }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_kelurahan }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 RT/RW
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_rt }} / {{ $data->ktp_rw }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_rt }} / {{ $dataPribadi->ktp_rw }}
+                                            </td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kode Pos
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_kode_pos }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_kode_pos }}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Alamat Lengkap
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->ktp_alamat_lengkap }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->ktp_alamat_lengkap }}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-gray-800">
                                             <th scope="row"
@@ -220,7 +220,7 @@
                                                 Scan KTP
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $data->foto_ktp }}
+                                                {{ $dataPribadi->foto_ktp }}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -243,14 +243,14 @@
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Telpon Rumah
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->no_teleponrumah }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->no_teleponrumah }}</td>
                                         </tr>
                                         <<tr class="bg-white dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 No Hp
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->no_telepon }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->no_telepon }}</td>
                                             </tr>
                                     </tbody>
                                 </table>
@@ -273,7 +273,7 @@
                                                 Provinsi
                                             </th>
                                             <td class="px-6 py-4">
-                                                <p>{{ $data->krsp_provinsi }}</p>
+                                                <p>{{ $dataPribadi->krsp_provinsi }}</p>
                                             </td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -281,49 +281,64 @@
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kab/Kota
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_kabupaten_kota }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_kabupaten_kota }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kecamatan
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_kecamatan }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_kecamatan }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kelurahan
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_kelurahan }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_kelurahan }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 RT/RW
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_rt }} / {{ $data->krsp_rw }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_rt }} /
+                                                {{ $dataPribadi->krsp_rw }}</td>
                                         </tr>
                                         <tr class="bg-white border-b dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Kode Pos
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_kode_pos }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_kode_pos }}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-gray-800">
                                             <th scope="row"
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Alamat Lengkap
                                             </th>
-                                            <td class="px-6 py-4">{{ $data->krsp_alamat_lengkap }}</td>
+                                            <td class="px-6 py-4">{{ $dataPribadi->krsp_alamat_lengkap }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
-                    @endforeach
+                    @else
+                        <tr>
+                            <td class="text-center text-mute" colspan="8">
+                                <div class="mx-auto max-w-sm justify-center mt-10">
+                                    <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center"
+                                        alt="user photo" />
+                                    <div class="py-4">
+                                        <p class="text-center font-medium text-lg">Tidak ada <strong
+                                                class="text-primary-600">permintaan
+                                                masuk</strong> untuk saat ini, mungkin
+                                            lain kali</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    @endif
                 </div>
             </div>
         </div>
