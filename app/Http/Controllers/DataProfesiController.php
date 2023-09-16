@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataProfesi;
-use App\Models\DataPribadi;
 
 //modell dropdown
 use App\Models\Pilihan;
@@ -21,13 +20,13 @@ class DataProfesiController extends Controller
      */
     public function index()
     {
-        $dataPribadi = DataPribadi::where('id_user', Auth::user()->id)->first();
-        $dataProfesi = DataProfesi::where('id_pribadi', $dataPribadi->id)->first();
-        // return response()->json([
-        //     'data' => $dataPribadi,
-        //     'data2' => $dataProfesi
-        // ]);
-        return view('Dokter.DataProfesi.index', compact('dataPribadi', 'dataProfesi'));
+        $dokter = Auth::user();
+        $dataProfesi = DataProfesi::where('id_user', $dokter->id)->first();
+        return response()->json([
+            'data' => $dokter,
+            'data2' => $dataProfesi
+        ]);
+        return view('Dokter.DataProfesi.index', compact('dokter', 'dataProfesi'));
     }
 
     /**
