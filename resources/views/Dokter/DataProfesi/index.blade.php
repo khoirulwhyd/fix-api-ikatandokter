@@ -3,7 +3,7 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14 mt-14">
             <div class="grid grid-cols-0 gap-4 mb-4">
-                {{-- @if ($dataProfesi != null) --}}
+                @if ($dataProfesi != null)
                 <div
                     class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div class="section-icon flex items-start justify-start mb-4">
@@ -20,8 +20,8 @@
                                 <p class="font-regular text-gray-400 text-sm sm:text-lg">{{ $dokter->nik }}</p>
                             </div>
                         </div>
-                            <div class="py-4 md:flex justify-end">
-                            <a href="">
+                        <div class="py-4 md:flex justify-end">
+                            <a href="{{ route('data-profesi.create') }}">
                                 <button type="button"
                                     class="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -35,13 +35,17 @@
                             </a>
                         </div>
                     </div>
-                        @foreach($dataProfesi as $data)
-                        <div class="justify-start w-full h-full mt-4">
-                            <div class="justify-start py-2">
-                                <div class="grid grid-cols-2">
+                        
+                        <div class="justify-start w-full h-full">
+                            <div class="justify-start py-2">   
+                                <hr class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
+                                </hr>
+                            </div>
+                            @foreach($dataProfesi as $profesi)
+                                <div class="grid grid-cols-2 py-5">
                                     <div clas="flex justify-start">
                                         <p class="text-base justify-center font-bold text-gray-800 md:text-lg">
-                                            Data Profesi 1 {{ $loop->iteration }}
+                                            Data Profesi {{ $loop->iteration }}
                                         </p>
                                     </div>
                                     <div clas="flex justify-end items-end">
@@ -81,10 +85,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <hr class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
-                                </hr>
-                            </div>
-                            <table
+                                <table
                                 class="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400 md:table-fixed">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -116,10 +117,10 @@
                                         </tr>
                                     </div>
                                 </tbody>
-                            </table>
-                        </div>
-                        @endforeach
-                        <tr>
+                                </table>
+                                @endforeach
+                            @else
+                            <tr>
                             <td class="text-center text-mute" colspan="8">
                                 <div class="mx-auto max-w-sm justify-center mt-10">
                                     <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center"
@@ -149,7 +150,12 @@
                                     </div>
                                 </div>
                             </td>
+                            @endif
                         </tr>
+                             
+                        </div>
+                        
+                        
                    
                 </div>
             </div>

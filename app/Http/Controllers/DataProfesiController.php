@@ -21,21 +21,17 @@ class DataProfesiController extends Controller
     public function index()
     {
         $dokter = Auth::user();
-        $dataProfesi = DataProfesi::where('id_user', $dokter->id)->first();
+        $dataProfesi = DataProfesi::where('id_user', $dokter->id)->first()->get();
+        
         // return response()->json([
         //     'data' => $dokter,
         //     'data2' => $dataProfesi
         // ]);
-        foreach ($dataProfesi as $data) {
-            $data->dokter;
-            $data->spesialis;
-            $data->subspesialis;
-        }
-        return response()->json([
-            'data' => $dokter,
-            'data2' => $dataProfesi
-        ]);
-        // return view('Dokter.DataProfesi.index', compact('dokter', 'dataProfesi', 'data'));        
+        // return response()->json([
+        //     'data' => $dokter,
+        //     'data2' => $dataProfesi
+        // ]);
+        return view('Dokter.DataProfesi.index', compact('dokter', 'dataProfesi'));        
     }
 
     /**
