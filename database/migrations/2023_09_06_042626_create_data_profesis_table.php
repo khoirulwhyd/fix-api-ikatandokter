@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('data_profesis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_pribadi');
             $table->string('dokter');
             $table->string('spesialis')->nullable();
