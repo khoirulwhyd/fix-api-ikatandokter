@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_lengkap')->nullable();
             $table->string('no_telepon', 13)->nullable();
             $table->string('email')->nullable()->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->dateTime('email_verified_at')->nullable();
             $table->string('password');
             $table->string('ulangi_password');
             $table->string('lupa_password')->nullable();
