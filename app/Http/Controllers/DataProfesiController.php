@@ -22,26 +22,35 @@ class DataProfesiController extends Controller
     {
         $dokter = Auth::user();
         $dataProfesi = DataProfesi::where('id_user', $dokter->id)->first();
+        // return response()->json([
+        //     'data' => $dokter,
+        //     'data2' => $dataProfesi
+        // ]);
+        foreach ($dataProfesi as $data) {
+            $data->dokter;
+            $data->spesialis;
+            $data->subspesialis;
+        }
         return response()->json([
             'data' => $dokter,
             'data2' => $dataProfesi
         ]);
-        return view('Dokter.DataProfesi.index', compact('dokter', 'dataProfesi'));
+        // return view('Dokter.DataProfesi.index', compact('dokter', 'dataProfesi', 'data'));        
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(DataProfesi $dataProfesi)
     {
-        $dataPribadi = DataPribadi::where('id_user', Auth::user()->id)->first();
+        $data = Auth::user();
         // return response()->json([
         //     'data' => $dataPribadi
         // ]);
-        $data['pilihans'] = Pilihan::get(["name", "id"]);
+        // $data['pilihans'] = Pilihan::get(["name", "id"]);
         // return view('pilih', $data);
 
-        return view('Dokter.DataProfesi.create', compact('dataPribadi', 'data'));
+        return view('Dokter.DataProfesi.create', compact('dataProfesi', 'data'));
     }
 
     public function fetchSpesialis(Request $request)
@@ -65,26 +74,22 @@ class DataProfesiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
             'dokter' => 'required|string',
             'spesialis' => '',
-            'sub_spesialis' => '',
-            'akademis' => 'required|string'
+            'sub_spesialis' => '', 
         ]);
 
         if($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Data Profesi Gagal Ditambahkan',
-                'data' => $validator->errors()
-            ]);
+            return response()->json($validator->errors(), 401);
         }
         DataProfesi::create($request->all());
         
-        return response()->json([
-            'message' => 'Data Profesi Berhasil Ditambahkan',
-            'data' => $request->all()
-        ]);
+        toast('Data profesi berhasil ditambahkan', 'success');
+        return redirect()->route('data-profesi.index');
+        // return response()->json([
+        //     'message' => 'Data Profesi Berhasil Ditambahkan',
+        //     'data' => $request->all()
+        // ]);
     }
 
     /**
@@ -113,11 +118,9 @@ class DataProfesiController extends Controller
     public function update(Request $request, DataProfesi $dataProfesi)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
             'dokter' => 'required|string',
             'spesialis' => '',
-            'sub_spesialis' => '',
-            'akademis' => 'required|string'
+            'sub_spesialis' => ''
         ]);
 
         if($validator->fails()) {

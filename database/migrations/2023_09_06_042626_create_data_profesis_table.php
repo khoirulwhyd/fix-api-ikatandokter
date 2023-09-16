@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('dokter');
             $table->string('spesialis')->nullable();
             $table->string('sub_spesialis')->nullable();
-            $table->string('akademis');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

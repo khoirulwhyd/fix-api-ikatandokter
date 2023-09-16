@@ -17,8 +17,7 @@ class DataProfesi extends Model
         'id_user',
         'dokter',
         'spesialis',
-        'sub_spesialis',
-        'akademis'
+        'sub_spesialis'
     ];
 
     public function users()
