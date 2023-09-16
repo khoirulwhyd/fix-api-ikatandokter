@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            Dokter::class
+            Dokter::class,
+            PilihanSpesialisSubspesialis::class
         ]);
         // \App\Models\User::factory(10)->create();
 
