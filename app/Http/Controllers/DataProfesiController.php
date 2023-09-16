@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\DataProfesi;
 use App\Models\DataPribadi;
+
+//modell dropdown
+use App\Models\Pilihan;
+use App\Models\Spesialis;
+use App\Models\Subspesialis;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Validator;
@@ -34,7 +39,25 @@ class DataProfesiController extends Controller
         // return response()->json([
         //     'data' => $dataPribadi
         // ]);
-        return view('Dokter.DataProfesi.create', compact('dataPribadi'));
+        $data['pilihans'] = Pilihan::get(["name", "id"]);
+        // return view('pilih', $data);
+
+        return view('Dokter.DataProfesi.create', compact('dataPribadi', 'data'));
+    }
+
+    public function fetchSpesialis(Request $request)
+    {
+        $data['spesialis'] = Spesialis::where("pilihan_id", $request->pilihan_id)
+            ->get(["name", "id"]);
+
+        return response()->json($data);
+    }
+    public function fetchSubspesialis(Request $request)
+    {
+        $data['subspesialis'] = Subspesialis::where("spesialis_id", $request->spesialis_id)
+            ->get(["name", "id"]);
+
+        return response()->json($data);
     }
 
     /**
