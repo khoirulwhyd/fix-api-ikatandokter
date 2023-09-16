@@ -38,7 +38,7 @@ class DataPribadiController extends Controller
         // return response()->json([
         //     'data' => $data
         // ]);
-        return view('Dokter.DataPribadi.create', compact('dataPribadi', 'data'));
+        return view('Dokter.DataPribadi.create', compact('dataPribadi'));
     }
 
     /**
@@ -111,13 +111,11 @@ class DataPribadiController extends Controller
      */
     public function edit(String $id)
     {
-        $dataPribadi = DataPribadi::all();
         $dokter = Auth::user();
-        // $dokter = User::select('*')
-        //     ->where('id', $id)
-        //     ->get();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
         // return response()->json([
-        //     'data' => $dokter
+        //     'data' => $dokter,
+        //     'data2' => $dataPribadi
         // ]);
         return view('Dokter.DataPribadi.edit', compact('dokter', 'dataPribadi'));
     }
@@ -162,11 +160,12 @@ class DataPribadiController extends Controller
             'krsp_alamat_lengkap' => 'required|string'
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data Pribadi Gagal Diupdate',
-                'data' => $validator->errors()
-            ]);
+        // return response()->json([
+        //     'data' => $request->all()
+        // ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
         
         $dataPribadi->update($request->all());

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Validator;
 use App\Models\DataSIP;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -14,15 +16,28 @@ class DataSIPController extends Controller
      */
     public function index()
     {
-        return view('Dokter.SIP.index');
+        $dokter = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
+        $dataSIP = DataSIP::where('id_user', $dokter->id)->first();
+        // return response()->json([
+        //     'data1' => $dokter,
+        //     'data' => $dataSIP
+        // ]);
+        return view('Dokter.SIP.index', compact('dokter', 'dataPribadi', 'dataSIP'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(DataSIP $dataSIP)
     {
-        //
+        $dokter = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
+        // return response()->json([
+        //     'data1' => $dokter,
+        //     'data' => $dataPribadi
+        // ]);
+        return view('Dokter.SIP.create', compact('dataPribadi', 'dataSIP'));
     }
 
     /**
@@ -31,23 +46,17 @@ class DataSIPController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_sip' => 'required|string',
-            'scan_sip' => 'required|string'
+            'scan_sip' => ''
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data SIP Gagal Ditambahkan',
-                'data' => $validator->errors()
-            ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
         DataSIP::create($request->all());
 
-        return response()->json([
-            'message' => 'Data SIP Berhasil Ditambahkan',
-            'data' => $request->all()
-        ]);
+        return redirect()->route('data-sip.index')->with('success', 'Data SIP Berhasil Ditambahkan');
     }
 
     /**
@@ -67,7 +76,10 @@ class DataSIPController extends Controller
      */
     public function edit(DataSIP $dataSIP)
     {
-        //
+        $dokter = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
+        $dataSIP = DataSIP::where('id_user', $dokter->id)->first();
+        return view('Dokter.SIP.edit', compact('dataSIP', 'dataPribadi'));
     }
 
     /**
@@ -76,24 +88,18 @@ class DataSIPController extends Controller
     public function update(Request $request, DataSIP $dataSIP)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_sip' => 'required|string',
-            'scan_sip' => 'required|string'
+            'scan_sip' => ''
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data SIP Gagal Diupdate',
-                'data' => $validator->errors()
-            ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
 
         $dataSIP->update($request->all());
 
-        return response()->json([
-            'message' => 'Data SIP Berhasil Diupdate',
-            'data' => $dataSIP
-        ]);
+        return redirect()->route('data-sip.index')->with('success', 'Data SIP Berhasil Diupdate');
     }
 
     /**
