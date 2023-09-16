@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataProfesi;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Validator;
+use Auth;
 
 class DataProfesiController extends Controller
 {
@@ -14,7 +16,13 @@ class DataProfesiController extends Controller
      */
     public function index()
     {
-        return view('Dokter.DataProfesi.index');
+        $dataPribadi = DataPribadi::where('id_user', Auth::user()->id)->first();
+        $dataProfesi = DataProfesi::where('id_pribadi', $dataPribadi->id)->first();
+        // return response()->json([
+        //     'data' => $dataPribadi,
+        //     'data2' => $dataProfesi
+        // ]);
+        return view('Dokter.DataProfesi.index', compact('dataPribadi', 'dataProfesi'));
     }
 
     /**
@@ -22,7 +30,11 @@ class DataProfesiController extends Controller
      */
     public function create()
     {
-        //
+        $dataPribadi = DataPribadi::where('id_user', Auth::user()->id)->first();
+        // return response()->json([
+        //     'data' => $dataPribadi
+        // ]);
+        return view('Dokter.DataProfesi.create', compact('dataPribadi'));
     }
 
     /**
