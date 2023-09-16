@@ -62,5 +62,20 @@ class User extends Authenticatable
     public function data_pribadi()
     {
         return $this->hasOne(DataPribadi::class, 'id_pribadi', 'id');
-    }    
+    }
+
+    public function data_profesi()
+    {
+        return $this->hasOne(DataProfesi::class, 'id_profesi', 'id');
+    }
+    
+    public function data_sip()
+    {
+        return $this->hasOne(DataSIP::class, 'id_sip', 'id');
+    }
+
+    public function data_str()
+    {
+        return $this->hasOne(DataSTR::class, 'id_str', 'id');
+    }
 }

@@ -14,7 +14,7 @@ class DataProfesi extends Model
     protected $table = 'data_profesis';
 
     protected $fillable = [
-        'id_pribadi',
+        'id_user',
         'dokter',
         'spesialis',
         'sub_spesialis',
@@ -24,9 +24,5 @@ class DataProfesi extends Model
     public function users()
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
-    }
-    public function dataPribadi()
-    {
-        return $this->belongsTo(DataPribadi::class, 'id_pribadi', 'id');
     }
 }

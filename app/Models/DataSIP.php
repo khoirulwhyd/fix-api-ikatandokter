@@ -12,13 +12,13 @@ class DataSIP extends Model
     protected $table = 'data_sip_s';
 
     protected $fillable = [
-        'id_pribadi',
+        'id_user',
         'no_sip',
         'scan_sip'
     ];
 
-    public function dataPribadi()
+    public function users()
     {
-        return $this->belongsTo(DataPribadi::class, 'id_pribadi', 'id');
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 }
