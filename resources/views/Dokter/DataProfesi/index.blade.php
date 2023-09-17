@@ -5,11 +5,15 @@
             <div class="grid grid-cols-0 gap-4 mb-4">
                 @if ($dataProfesi != null)
                 <div
-                    class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div class="section-icon flex items-start justify-start mb-4">
-                        <p class="text-sm justify-center font-semibold text-gray-800 md:text-lg">
-                            Data Profesi
-                        </p>
+                class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex items-start gap-2 justify-start mb-4">
+                            <a>
+                               <div>
+                                <p class="text-sm justify-center font-semibold text-gray-800 md:text-sm">
+                                    Data Profesi
+                                </p>
+                            </div>
+                            </a>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="flex justify-start ...">

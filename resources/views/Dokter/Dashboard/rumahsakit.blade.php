@@ -24,8 +24,6 @@
                                     Rumah Sakit
                                     </p>
                                 </div>
-
-                                
                             </div>
                             
                             <div class="justify-start w-full h-full mt-4">

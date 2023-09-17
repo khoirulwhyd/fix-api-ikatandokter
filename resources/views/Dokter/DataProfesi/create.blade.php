@@ -5,14 +5,25 @@
             <div class="grid grid-cols-0 gap-4 mb-4">
                 <div
                     class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div class="section-icon flex items-start justify-start mb-4">
-                        <p class="text-sm justify-center font-regular text-gray-800 md:text-lg">
-                            Data Profesi
-                        </p>
-                        <p class="text-sm ml-2 justify-center font-semibold text-primary-600 md:text-lg">
-                            > Tambah Data Profesi
-                        </p>
-                    </div>
+                    <div class="flex items-start gap-2 justify-start mb-4">
+                               <a href="/data-profesi">
+                                    <div>
+                                    <p class="text-sm justify-center font-semibold text-gray-800 hover:text-primary-600 md:text-sm">
+                                        Data Profesi
+                                    </p>
+                                </div>
+                               </a>
+                                <div class="mt-1">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" viewBox="0 0 7 13" fill="none">
+                                    <path d="M1.021 1.54159L5.97933 6.49992L1.021 11.4583" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-primary-600">
+                                     Tambah Data Profesi
+                                    </p>
+                                </div>
+                            </div>
                     <form action="{{ route('data-profesi.store') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2">
