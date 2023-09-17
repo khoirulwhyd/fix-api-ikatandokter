@@ -43,46 +43,57 @@
                             </div>
                             @forelse($dataProfesi as $profesi)
                                 <div class="grid grid-cols-2 py-5">
-                                    <div clas="flex justify-start">
-                                        <p class="text-base justify-center font-bold text-gray-800 md:text-lg">
-                                            Data Profesi {{ $loop->iteration }}
-                                        </p>
+                                    <div class="flex justify-start items-center">
+                                        <div class="justify-start">
+                                            <p class="text-base justify-center font-bold text-gray-800 md:text-lg">
+                                                Data Profesi {{ $loop->iteration }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div clas="flex justify-end items-end">
-                                        <button type="button"
-                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13"
-                                                viewBox="0 0 11 13" fill="none">
-                                                <path
-                                                    d="M9.64134 4.90186C9.64134 4.90186 9.32508 8.82457 9.14161 10.4769C9.05425 11.2661 8.56675 11.7286 7.76823 11.7432C6.24865 11.7705 4.72732 11.7723 3.20832 11.7403C2.44009 11.7245 1.96074 11.2562 1.87513 10.481C1.69049 8.81409 1.37598 4.90186 1.37598 4.90186"
-                                                    stroke="white" stroke-width="1.04839" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M10.4473 3.02144H0.570312" stroke="white" stroke-width="1.04839"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                <path
-                                                    d="M8.54438 3.02138C8.08716 3.02138 7.69343 2.69813 7.60374 2.25023L7.46221 1.54199C7.37484 1.21524 7.07896 0.989258 6.74173 0.989258H4.27628C3.93904 0.989258 3.64317 1.21524 3.5558 1.54199L3.41427 2.25023C3.32457 2.69813 2.93085 3.02138 2.47363 3.02138"
-                                                    stroke="white" stroke-width="1.04839" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg>
-                                            <span class="sr-only">Icon description</span>
-                                        </button>
-                                        <a href="{{ route('data-profesi.edit', $profesi->id) }}" type="button"
-                                            class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
-                                                viewBox="0 0 13 13" fill="none">
-                                                <path
-                                                    d="M6.25638 1.29517H4.22957C2.56269 1.29517 1.51758 2.47526 1.51758 4.14593V8.65272C1.51758 10.3234 2.55782 11.5035 4.22957 11.5035H9.01282C10.6851 11.5035 11.7254 10.3234 11.7254 8.65272V6.46925"
-                                                    stroke="white" stroke-width="1.04839" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M4.81314 5.70318L8.86405 1.65227C9.36872 1.14814 10.1867 1.14814 10.6914 1.65227L11.3511 2.31197C11.8558 2.81664 11.8558 3.63517 11.3511 4.1393L7.28066 8.20972C7.06003 8.43035 6.76081 8.55448 6.44857 8.55448H4.41797L4.46892 6.50545C4.47651 6.20405 4.59956 5.91675 4.81314 5.70318Z"
-                                                    stroke="white" stroke-width="1.04839" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M8.24805 2.27759L10.7232 4.75269" stroke="white"
-                                                    stroke-width="1.04839" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            <span class="sr-only">Icon description</span>
-                                        </a>
+                                    <div class="flex justify-end items-end">
+                                        <div>
+                                            <form action="{{ route('data-profesi.destroy', $profesi->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit"
+                                                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 show_confirm" data-toggle="tooltip" title='Delete'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13"
+                                                        viewBox="0 0 11 13" fill="none">
+                                                        <path
+                                                            d="M9.64134 4.90186C9.64134 4.90186 9.32508 8.82457 9.14161 10.4769C9.05425 11.2661 8.56675 11.7286 7.76823 11.7432C6.24865 11.7705 4.72732 11.7723 3.20832 11.7403C2.44009 11.7245 1.96074 11.2562 1.87513 10.481C1.69049 8.81409 1.37598 4.90186 1.37598 4.90186"
+                                                            stroke="white" stroke-width="1.04839" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path d="M10.4473 3.02144H0.570312" stroke="white" stroke-width="1.04839"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path
+                                                            d="M8.54438 3.02138C8.08716 3.02138 7.69343 2.69813 7.60374 2.25023L7.46221 1.54199C7.37484 1.21524 7.07896 0.989258 6.74173 0.989258H4.27628C3.93904 0.989258 3.64317 1.21524 3.5558 1.54199L3.41427 2.25023C3.32457 2.69813 2.93085 3.02138 2.47363 3.02138"
+                                                            stroke="white" stroke-width="1.04839" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                    <span class="sr-only">Icon description</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('data-profesi.edit', $profesi->id) }}" type="button"
+                                                class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+                                                    viewBox="0 0 13 13" fill="none">
+                                                    <path
+                                                        d="M6.25638 1.29517H4.22957C2.56269 1.29517 1.51758 2.47526 1.51758 4.14593V8.65272C1.51758 10.3234 2.55782 11.5035 4.22957 11.5035H9.01282C10.6851 11.5035 11.7254 10.3234 11.7254 8.65272V6.46925"
+                                                        stroke="white" stroke-width="1.04839" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M4.81314 5.70318L8.86405 1.65227C9.36872 1.14814 10.1867 1.14814 10.6914 1.65227L11.3511 2.31197C11.8558 2.81664 11.8558 3.63517 11.3511 4.1393L7.28066 8.20972C7.06003 8.43035 6.76081 8.55448 6.44857 8.55448H4.41797L4.46892 6.50545C4.47651 6.20405 4.59956 5.91675 4.81314 5.70318Z"
+                                                        stroke="white" stroke-width="1.04839" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path d="M8.24805 2.27759L10.7232 4.75269" stroke="white"
+                                                        stroke-width="1.04839" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                <span class="sr-only">Icon description</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <table
@@ -163,4 +174,23 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Apakah anda yakin ingin menhhapus data ini?`,
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+    </script>
 @endsection

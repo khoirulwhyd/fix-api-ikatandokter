@@ -10,6 +10,7 @@ use App\Models\Spesialis;
 use App\Models\Subspesialis;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use Validator;
 use Auth;
 
@@ -141,10 +142,7 @@ class DataProfesiController extends Controller
     {
         $dataProfesi = DataProfesi::find($id);
         $dataProfesi->delete();
-
-        return response()->json([
-            'message' => 'Data Profesi Berhasil Dihapus',
-            'data' => $dataProfesi
-        ]);
+        Alert::success('Data profesi berhasil dihapus');
+        return back();
     }
 }
