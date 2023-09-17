@@ -121,49 +121,21 @@
                                         <table class="min-w-full text-left text-sm font-light">
                                             <thead class="border-b font-medium text-gray-600 dark:border-neutral-500">
                                                 <tr>
-                                                    <th scope="col" class="px-6 py-4">No</th>
+                                                    <th scope="col" class="px-6 py-4">NPA IDI</th>
                                                     <th scope="col" class="px-6 py-4">Nama</th>
-                                                    <th scope="col" class="px-6 py-4">Keterangan</th>
-                                                    <th scope="col" class="px-6 py-4">Tanggal</th>
+                                                    <th scope="col" class="px-6 py-4">Profesi</th>
+                                                    <th scope="col" class="px-6 py-4">Alamat</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($data as $data)
                                                 <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Mark</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Otto</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@mdo</td>
+                                                    <td class=" px-6 py-4 font-medium text-gray-600">{{ $data->npaidi }}</td>
+                                                    <td class=" px-6 py-4 font-medium text-gray-600">{{ $data->nama_lengkap }}</td>
+                                                    <td class=" px-6 py-4 font-medium text-gray-600">{{ $data->nama_lengkap }}</td>
+                                                    <td class=" px-6 py-4 font-medium text-gray-600">{{ $data->krsp_alamat_lengkap }}</td>
                                                 </tr>
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Jacob</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Thornton</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@fat</td>
-                                                </tr>
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@twiasddddddddddddddtter</td>
-                                                </tr>
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">4</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@twiasddddddddddddddtter</td>
-                                                </tr>
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">5</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@twiasddddddddddddddtter</td>
-                                                </tr>
-                                                <tr class="border-b dark:border-neutral-500">
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium">6</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
-                                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@twiasddddddddddddddtter</td>
-                                                </tr>   
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

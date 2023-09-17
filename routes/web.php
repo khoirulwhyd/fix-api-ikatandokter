@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\masterAnggotaController;
 use App\Http\Controllers\Data\CreateProfesiController;
+use App\Http\Controllers\Data\DashboardDataController;
 use App\Http\Controllers\Data\PilihanProfesiController;
 use App\Http\Controllers\Dokter\ForgotPasswordController;
 use App\Http\Middleware\Dokter;
@@ -103,6 +104,9 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::resource('data-sip', DataSIPController::class);
     
     Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+    Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit']);
+    
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {
