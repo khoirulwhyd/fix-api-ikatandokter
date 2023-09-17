@@ -51,7 +51,7 @@
 
                                     <button type="button"
                                         class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3 mr-3"
-                                        onclick="location.href='{{ route('data-pribadi.edit', $dataProfesi->id) }}'">
+                                        onclick="location.href='{{ route('data-pribadi.edit', $dokter->id) }}'">
                                         <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewBox="0 0 18 18" fill="none">
                                             <path
