@@ -19,10 +19,10 @@
                             <div class="flex justify-start ...">
                                 <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
                                 <div class="section-avatar px-6">
-                                    <p class="text-primary-600 text-base font-semibold md:text-xl">{{ $data->nama_lengkap }}
+                                    <p class="text-primary-600 text-base font-semibold md:text-xl">{{ $auth->nama_lengkap }}
                                         </p>
                                     <p class="font-regular text-gray-400 text-sm sm:text-lg">
-                                        {{ $data->nik }}
+                                        {{ $auth->nik }}
                                     </p>
                                 </div>
                             </div>
@@ -56,12 +56,16 @@
                                                     Pilih Dokter Umum atau Spesialis
                                                 </label>
                                                 
-                                                    <select
+                                                    <select id="country-dropdown"
                                                         class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter"
                                                         name="dokter">
-                                                        <option selected disabled>Pilih Jenis</option>
-                                                        <option value="Dokter Spesialis">Dokter Spesialis</option>
-                                                        <option value="Dokter Umum">Dokter Umum</option>
+                                                        <!-- <option selected disabled>Pilih Jenis Profesi</option> -->
+                                                        <option value="">-- Pilihan Dokter --</option>
+                                                        @foreach ($pilihans as $data)
+                                                        <option value="{{ $data->name }}">
+                                                            {{$data->name}}
+                                                        </option>
+                                                        @endforeach
                                                     </select>
                                                 
                                             </div>
@@ -70,34 +74,30 @@
                                                     class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                                     Spesialis
                                                 </label>
-                                                
-                                                    <select
+                                                    <select id=""
                                                         class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter" name="spesialis">
-                                                        <option selected disabled>Pilih Jenis</option>
-                                                        <option value="Anestesiologi dan Terapi Intensif [Sp.An]">Anestesiologi dan Terapi Intensif [Sp.An]
+                                                        <option value="">-- Pilihan Spesialis --</option>
+                                                        @foreach ($spesialis as $data)
+                                                        <option value="{{ $data->name }}">
+                                                            {{$data->name}}
                                                         </option>
-                                                        <option value="Ilmu Bedah [Sp.B]">Ilmu Bedah [Sp.B]</option>
-                                                        <option value="Ilmu Penyakit Dalam [Sp.PD]">Ilmu Penyakit Dalam [Sp.PD]</option>
-                                                        <option value="Ilmu Kesehatan Anak [Sp.A]">Ilmu Kesehatan Anak [Sp.A]</option>
-                                                        <option value="Ilmu Kesehatan Anak [Sp.A]">Ilmu Kesehatan Anak [Sp.A]</option>
+                                                        @endforeach
                                                     </select>
-                                                
+                                                    
                                             </div>
                                             <div class="py-4">
                                                 <label for="pilihan-dokter"
                                                     class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                                     Sub Spesialis
                                                 </label>
-                                                
-                                                    <select
+                                                    <select id="city-dropdown"
                                                         class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter" name="sub_spesialis">
-                                                        <option selected disabled>Pilih Jenis</option>
-                                                        <option value="Anestesiologi dan Terapi Intensif [Sp.An]">Anestesiologi dan Terapi Intensif [Sp.An]
+                                                        <option value="">-- Pilih Subspesialis --</option>
+                                                        @foreach ($subspesialis as $sub)
+                                                        <option value="{{ $sub->name }}">
+                                                            {{$sub->name}}
                                                         </option>
-                                                        <option value="Ilmu Bedah [Sp.B]">Ilmu Bedah [Sp.B]</option>
-                                                        <option value="Ilmu Penyakit Dalam [Sp.PD]">Ilmu Penyakit Dalam [Sp.PD]</option>
-                                                        <option value="Ilmu Kesehatan Anak [Sp.A]">Ilmu Kesehatan Anak [Sp.A]</option>
-                                                        <option value="Ilmu Kesehatan Anak [Sp.A]">Ilmu Kesehatan Anak [Sp.A]</option>
+                                                        @endforeach
                                                     </select>
                                             </div>
                                         </div>
@@ -125,17 +125,9 @@
                             </div>
                         </div>
                     </form>
-
-
-
-
                 </div>
             </div>
-            <div class="justify-start w-full h-full mt-4">
-
-
-
-
+                
         </div>
     </div>
     </div>

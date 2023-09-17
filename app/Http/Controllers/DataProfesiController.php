@@ -39,16 +39,13 @@ class DataProfesiController extends Controller
      */
     public function create(DataProfesi $dataProfesi)
     {
-        $data = Auth::user();
-        // return response()->json([
-        //     'data' => $dataPribadi
-        // ]);
-        // $data['pilihans'] = Pilihan::get(["name", "id"]);
-        // return view('pilih', $data);
+        $auth = Auth::user();
+        $data["pilihans"] = Pilihan::get(["name", "id"]);
+        $data["spesialis"] = Spesialis::get(["name", "id"]);
+        $data["subspesialis"] = Subspesialis::get(["name", "id"]);
 
-        return view('Dokter.DataProfesi.create', compact('dataProfesi', 'data'));
+        return view('Dokter.DataProfesi.create', $data, compact('dataProfesi', 'auth'));
     }
-
     public function fetchSpesialis(Request $request)
     {
         $data['spesialis'] = Spesialis::where("pilihan_id", $request->pilihan_id)

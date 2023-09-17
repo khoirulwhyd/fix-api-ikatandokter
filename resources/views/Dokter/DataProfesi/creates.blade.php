@@ -1,6 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +10,13 @@
     <script src="../path/to/flowbite/dist/datepicker.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
     <!-- <link href="{{ asset('css/login.css') }}" rel="stylesheet"> -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', '/resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="login.css">
 </head>
-
 <body>
     @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
     @include('sweetalert::alert')
@@ -171,407 +170,182 @@
             </ul>
         </div>
     </aside>
-    <script>
-        // ApexCharts options and config
-        window.addEventListener("load", function() {
-            const options = {
-                colors: ["#1A56DB", "#FDBA8C"],
-                series: [{
-                        name: "S. Kandungan",
-                        color: "#007BFF",
-                        data: [{
-                                x: "Kota Malang",
-                                y: 231
-                            },
-                            {
-                                x: "Kota Batu",
-                                y: 122
-                            },
-                            {
-                                x: "Kec Pujon",
-                                y: 63
-                            },
-                            {
-                                x: "Kec. Ngantang",
-                                y: 421
-                            },
-                            {
-                                x: "Kec. Pakis",
-                                y: 122
-                            },
-                            {
-                                x: "Kec. Blimbing",
-                                y: 323
-                            },
-                            {
-                                x: "Kec. Kepanjen",
-                                y: 111
-                            },
-                            {
-                                x: "Kec. Gondanglegi",
-                                y: 400
-                            },
-                            {
-                                x: "Kec. Turen",
-                                y: 159
-                            },
-                        ],
-                    },
-                    {
-                        name: "S. Jantung",
-                        color: "#FDBA8C",
-                        data: [{
-                                x: "Kota Malang",
-                                y: 231
-                            },
-                            {
-                                x: "Kota Batu",
-                                y: 122
-                            },
-                            {
-                                x: "Kec Pujon",
-                                y: 63
-                            },
-                            {
-                                x: "Kec. Ngantang",
-                                y: 421
-                            },
-                            {
-                                x: "Kec. Pakis",
-                                y: 122
-                            },
-                            {
-                                x: "Kec. Blimbing",
-                                y: 323
-                            },
-                            {
-                                x: "Kec. Kepanjen",
-                                y: 111
-                            },
-                            {
-                                x: "Kec. Gondanglegi",
-                                y: 400
-                            },
-                            {
-                                x: "Kec. Turen",
-                                y: 159
-                            },
-                        ],
-                    },
-                    {
-                        name: "S.P Dalam",
-                        color: "#092F57",
-                        data: [{
-                                x: "Kota Malang",
-                                y: 231
-                            },
-                            {
-                                x: "Kota Batu",
-                                y: 122
-                            },
-                            {
-                                x: "Kec Pujon",
-                                y: 63
-                            },
-                            {
-                                x: "Kec. Ngantang",
-                                y: 421
-                            },
-                            {
-                                x: "Kec. Pakis",
-                                y: 122
-                            },
-                            {
-                                x: "Kec. Blimbing",
-                                y: 323
-                            },
-                            {
-                                x: "Kec. Kepanjen",
-                                y: 111
-                            },
-                            {
-                                x: "Kec. Gondanglegi",
-                                y: 400
-                            },
-                            {
-                                x: "Kec. Turen",
-                                y: 159
-                            },
-                        ],
-                    },
-                    {
-                        name: "S. Mata",
-                        color: "#FF3D00",
-                        data: [{
-                                x: "Kota Malang",
-                                y: 231
-                            },
-                            {
-                                x: "Kota Batu",
-                                y: 122
-                            },
-                            {
-                                x: "Kec Pujon",
-                                y: 63
-                            },
-                            {
-                                x: "Kec. Ngantang",
-                                y: 421
-                            },
-                            {
-                                x: "Kec. Pakis",
-                                y: 122
-                            },
-                            {
-                                x: "Kec. Blimbing",
-                                y: 323
-                            },
-                            {
-                                x: "Kec. Kepanjen",
-                                y: 111
-                            },
-                            {
-                                x: "Kec. Gondanglegi",
-                                y: 400
-                            },
-                            {
-                                x: "Kec. Turen",
-                                y: 159
-                            },
-                        ],
-                    },
-                ],
-                chart: {
-                    type: "bar",
-                    height: "320px",
-                    fontFamily: "Poppins, sans-serif",
-                    toolbar: {
-                        show: false,
-                    },
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: "70%",
-                        borderRadiusApplication: "end",
-                        borderRadius: 8,
-                    },
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    style: {
-                        fontFamily: "Poppins, sans-serif",
-                    },
-                },
-                states: {
-                    hover: {
-                        filter: {
-                            type: "darken",
-                            value: 1,
-                        },
-                    },
-                },
-                stroke: {
-                    show: true,
-                    width: 0,
-                    colors: ["transparent"],
-                },
-                grid: {
-                    show: false,
-                    strokeDashArray: 4,
-                    padding: {
-                        left: 2,
-                        right: 2,
-                        top: -14
-                    },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                legend: {
-                    show: false,
-                },
-                xaxis: {
-                    floating: false,
-                    labels: {
-                        show: true,
-                        style: {
-                            fontFamily: "Poppins, sans-serif",
-                            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                        }
-                    },
-                    axisBorder: {
-                        show: false,
-                    },
-                    axisTicks: {
-                        show: false,
-                    },
-                },
-                yaxis: {
-                    show: false,
-                },
-                fill: {
-                    opacity: 1,
-                },
-            }
-
-            if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
-                const chart = new ApexCharts(document.getElementById("column-chart"), options);
-                chart.render();
-            }
-        });
-    </script>
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14 mt-14">
+            <div class="grid grid-cols-0 gap-4 mb-4">
+                <div
+                    class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="section-icon flex items-start justify-start mb-4">
+                        <p class="text-sm justify-center font-regular text-gray-800 md:text-lg">
+                            Data Profesi
+                        </p>
+                        <p class="text-sm ml-2 justify-center font-semibold text-primary-600 md:text-lg">
+                            > Tambah Data Profesi
+                        </p>
+                    </div>
+                    <form action="{{ route('data-profesi.store') }}" method="POST">
+                        @csrf
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="flex justify-start ...">
+                                <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
+                                <div class="section-avatar px-6">
+                                    <p class="text-primary-600 text-base font-semibold md:text-xl">{{ $auth->nama_lengkap }}
+                                        </p>
+                                    <p class="font-regular text-gray-400 text-sm sm:text-lg">
+                                        {{ $auth->nik }}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="justify-start w-full h-full mt-4">
 
 
-    <script>
-        // ApexCharts options and config
-        window.addEventListener("load", function() {
-            const getChartOptions = () => {
-                return {
-                    series: [52.8, 26.8],
-                    colors: ["#1C64F2", "#16BDCA"],
-                    chart: {
-                        height: 420,
-                        width: "100%",
-                        type: "pie",
-                    },
-                    stroke: {
-                        colors: ["white"],
-                        lineCap: "",
-                    },
-                    plotOptions: {
-                        pie: {
-                            labels: {
-                                show: true,
-                            },
-                            size: "100%",
-                            dataLabels: {
-                                offset: -25
-                            }
-                        },
-                    },
-                    labels: ["Dokter Spesialis", "Dokter Umum"],
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            fontFamily: "Poppins, sans-serif",
-                        },
-                    },
-                    legend: {
-                        position: "bottom",
-                        fontFamily: "Poppins, sans-serif",
-                    },
-                    yaxis: {
-                        labels: {
-                            formatter: function(value) {
-                                return value + "%"
-                            },
-                        },
-                    },
-                    xaxis: {
-                        labels: {
-                            formatter: function(value) {
-                                return value + "%"
-                            },
-                        },
-                        axisTicks: {
-                            show: false,
-                        },
-                        axisBorder: {
-                            show: false,
-                        },
-                    },
-                }
-            }
-
-            if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
-                const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
-                chart.render();
-            }
-        });
-    </script>
-    <!-- ajax -->
-                 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-                 <script>
-                    $(document).ready(function () {
-                        $('#country-dropdown').on('change', function () {
-                            var idSpesialis = this.value;
-                            $("#state-dropdown").html('');
-                            $.ajax({
-                                url: "{{url('/api/fetch-spesialis')}}",
-                                type: "POST",
-                                data: {
-                                    pilihan_id : idSpesialis,
-                                    _token: '{{csrf_token()}}'
-                                },
-                                dataType: 'json',
-                                success: function (result) {
-                                    $('#state-dropdown').html('<option value="">-- Select Spesialis --</option>');
-                                    $.each(result.spesialis, function (key, value) {
-                                        $("#state-dropdown").append('<option value="' + value
-                                            .id + '">' + value.name + '</option>');
+                            <!-- data profesi 2 -->
+                            <div class="justify-start py-2 mt-4">
+                                <div class="grid grid-cols-2">
+                                    <div clas="flex justify-start">
+                                        <p class="text-base justify-center font-bold text-gray-800 md:text-lg">
+                                            Tambah Data Profesi
+                                        </p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
+                                <hr class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
+                                </hr>
+                                <table
+                                    class="table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400 md:table-fixed">
+                                    <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    </thead>
+                                    <tbody>
+                                        <div>
+                                            <div class="mt-4 py-2">
+                                                <label for="pilihan-dokter"
+                                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                    Pilih Dokter Umum atau Spesialis
+                                                </label>
+                                                
+                                                    <select id="country-dropdown"
+                                                        class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter"
+                                                        name="dokter">
+                                                        <!-- <option selected disabled>Pilih Jenis Profesi</option> -->
+                                                        <option value="">-- Pilihan Dokter --</option>
+                                                        @foreach ($pilihans as $data)
+                                                        <option value="{{$data->id}}">
+                                                            {{$data->name}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                
+                                            </div>
+                                            <div class="py-4">
+                                                <label for="spesialis"
+                                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                    Spesialis
+                                                </label>
+                                                    <select id="state-dropdown"
+                                                        class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter" name="spesialis">
+                                                    </select>
+                                            </div>
+                                            <div class="py-4">
+                                                <label for="sub_spesialis"
+                                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                                    Sub Spesialis
+                                                </label>
+                                                    <select id="city-dropdown"
+                                                        class="w-full md:w-1/2 px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:pilih dokter" name="sub_spesialis">
+                                                    </select>
+                                            </div>
+                                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function () {
+                            
+                                        /*------------------------------------------
+                                        --------------------------------------------
+                                        Country Dropdown Change Event
+                                        --------------------------------------------
+                                        --------------------------------------------*/
+                                        $('#country-dropdown').on('change', function () {
+                                            var idSpesialis = this.value;
+                                            $("#state-dropdown").html('');
+                                            $.ajax({
+                                                url: "{{url('api/fetch-spesialis')}}",
+                                                type: "POST",
+                                                data: {
+                                                    pilihan_id : idSpesialis,
+                                                    _token: '{{csrf_token()}}'
+                                                },
+                                                dataType: 'json',
+                                                success: function (result) {
+                                                    $('#state-dropdown').html('<option value="">-- Select Spesialis --</option>');
+                                                    $.each(result.spesialis, function (key, value) {
+                                                        $("#state-dropdown").append('<option value="' + value
+                                                            .id + '">' + value.name + '</option>');
+                                                    });
+                                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
+                                                }
+                                            });
+                                        });
+                            
+                                        /*------------------------------------------
+                                        --------------------------------------------
+                                        State Dropdown Change Event
+                                        --------------------------------------------
+                                        --------------------------------------------*/
+                                        $('#state-dropdown').on('change', function () {
+                                            var idSpesialis = this.value;
+                                            $("#city-dropdown").html('');
+                                            $.ajax({
+                                                url: "{{url('api/fetch-subspesialis')}}",
+                                                type: "POST",
+                                                data: {
+                                                    spesialis_id : idSpesialis,
+                                                    _token: '{{csrf_token()}}'
+                                                },
+                                                dataType: 'json',
+                                                success: function (res) {
+                                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
+                                                    $.each(res.subspesialis, function (key, value) {
+                                                        $("#city-dropdown").append('<option value="' + value
+                                                            .id + '">' + value.name + '</option>');
+                                                    });
+                                                }
+                                            });
+                                        });
+                            
                                     });
-                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
-                                }
-                            });
-                        });
-                        $('#state-dropdown').on('change', function () {
-                            var idSpesialis = this.value;
-                            $("#city-dropdown").html('');
-                            $.ajax({
-                                url: "{{url('api/fetch-subspesialis')}}",
-                                type: "POST",
-                                data: {
-                                    spesialis_id : idSpesialis,
-                                    _token: '{{csrf_token()}}'
-                                },
-                                dataType: 'json',
-                                success: function (res) {
-                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
-                                    $.each(res.subspesialis, function (key, value) {
-                                        $("#city-dropdown").append('<option value="' + value
-                                            .id + '">' + value.name + '</option>');
-                                    });
-                                }
-                            });
-                        });
-                    }
-                 </script>
-
-
-
-
-    @yield('content')
-</body>
-<div class="relative p-4 md:ml-64 bg-blueGray-100 mt-10 md:mt-4">
-    <div class="grid-cols-2">
-        <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-            <div class="w-full max-w-screen-xl p-4 md:flex md:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href=""
-                        class="hover:underline">IDI Malang Raya</a>. All Rights Reserved.
-                </span>
-                <div class="justify-end -mr-16">
-                    <ul
-                        class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                        </li>
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Contact</a>
-                        </li>
-                    </ul>
+                                </script>
+                                        </div>
+                                    </tbody>
+                                </table>
+                                <div class="justify-start py-4 md:flex md:justify-start">
+                                <a href="/data-profesi">
+                                    <button type="button"
+                                        class="text-gray-600 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2 justify-end md:px-5 py-3">
+                                        Batal
+                                    </button>
+                                </a>
+                                
+                                <button type="submit"
+                                    class="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3">
+                                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 20 21" fill="none">
+                                        <path
+                                            d="M19.7583 4.90834L15.5917 0.74168C15.5138 0.664446 15.4214 0.603342 15.3199 0.561871C15.2184 0.520401 15.1097 0.49938 15 0.500014H1.66667C1.22464 0.500014 0.800715 0.675608 0.488155 0.988169C0.175595 1.30073 0 1.72465 0 2.16668V18.8333C0 19.2754 0.175595 19.6993 0.488155 20.0118C0.800715 20.3244 1.22464 20.5 1.66667 20.5H18.3333C18.7753 20.5 19.1993 20.3244 19.5118 20.0118C19.8244 19.6993 20 19.2754 20 18.8333V5.50001C20.0006 5.39034 19.9796 5.28162 19.9381 5.18009C19.8967 5.07856 19.8356 4.98621 19.7583 4.90834ZM6.66666 2.16668H13.3333V5.50001H6.66666V2.16668ZM13.3333 18.8333H6.66666V12.1667H13.3333V18.8333ZM15 18.8333V12.1667C15 11.7246 14.8244 11.3007 14.5118 10.9882C14.1993 10.6756 13.7754 10.5 13.3333 10.5H6.66666C6.22463 10.5 5.80071 10.6756 5.48815 10.9882C5.17559 11.3007 5 11.7246 5 12.1667V18.8333H1.66667V2.16668H5V5.50001C5 5.94204 5.17559 6.36596 5.48815 6.67852C5.80071 6.99108 6.22463 7.16668 6.66666 7.16668H13.3333C13.7754 7.16668 14.1993 6.99108 14.5118 6.67852C14.8244 6.36596 15 5.94204 15 5.50001V2.50835L18.3333 5.84168V18.8333H15Z"
+                                            fill="white" />
+                                    </svg>
+                                    Simpan
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </footer>
+                
+        </div>
     </div>
-</div>
-
-
-</html>
+    </div>
+    </div>
+</body>
