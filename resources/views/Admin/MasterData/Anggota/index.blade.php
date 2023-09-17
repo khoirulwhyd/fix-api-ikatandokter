@@ -4,10 +4,15 @@
                 <div class="p-4  border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14 mt-14 overflow-x-auto">
                     <div class="grid grid-cols-0 gap-4 mb-4">
                         <div class="max-w-full overflow-auto h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div class="section-icon flex items-start justify-start mb-4">
-                                <p class="text-sm justify-center font-semibold text-gray-800 md:text-lg">
-                                    Master Data Anggota
-                                </p>
+                            <h1 class="text-xl font-bold text-gray-800">Master Data Anggota</h1>
+                            <div class="mt-2 flex items-start gap-2 justify-start mb-4">
+                               <a>
+                                    <div>
+                                    <p class="text-sm justify-center font-semibold text-gray-800 hover:text-primary-600 md:text-sm">
+                                        Semua Anggota
+                                    </p>
+                                </div>
+                               </a>
                             </div>
 
                             <div class="justify-start mt-4">
