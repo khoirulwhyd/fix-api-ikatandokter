@@ -41,7 +41,7 @@
                                 <hr class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
                                 </hr>
                             </div>
-                            @foreach($dataProfesi as $profesi)
+                            @forelse($dataProfesi as $profesi)
                                 <div class="grid grid-cols-2 py-5">
                                     <div clas="flex justify-start">
                                         <p class="text-base justify-center font-bold text-gray-800 md:text-lg">
@@ -118,8 +118,8 @@
                                     </div>
                                 </tbody>
                                 </table>
-                                @endforeach
-                            @else
+                                
+                            @empty
                             <tr>
                             <td class="text-center text-mute" colspan="8">
                                 <div class="mx-auto max-w-sm justify-center mt-10">
@@ -150,8 +150,10 @@
                                     </div>
                                 </div>
                             </td>
-                            @endif
+                           
                         </tr>
+                         @endif
+                         @endforelse
                              
                         </div>
                         

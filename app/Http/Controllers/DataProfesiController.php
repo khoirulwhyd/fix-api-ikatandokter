@@ -21,7 +21,7 @@ class DataProfesiController extends Controller
     public function index()
     {
         $dokter = Auth::user();
-        $dataProfesi = DataProfesi::where('id_user', $dokter->id)->first()->get();
+        $dataProfesi = DataProfesi::where('id_user', $dokter->id)->get();
         
         // return response()->json([
         //     'data' => $dokter,
