@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Validator;
 use App\Models\DataSIP;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Auth;
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -17,9 +18,7 @@ class DataSIPController extends Controller
      */
     public function index()
     {
-        $dokter = Auth::user();
-        $datasip = DataSIP::where('id_user', $dokter->id)->get();
-        return view('Dokter.SIP.index', compact('dokter', 'datasip'));
+        return view('Dokter.SIP.index');
     }
 
     /**
@@ -97,7 +96,10 @@ class DataSIPController extends Controller
      */
     public function edit(DataSIP $dataSIP)
     {
-        //
+        $dokter = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
+        $dataSIP = DataSIP::where('id_user', $dokter->id)->first();
+        return view('Dokter.SIP.edit', compact('dataSIP', 'dataPribadi'));
     }
 
     /**
@@ -106,24 +108,18 @@ class DataSIPController extends Controller
     public function update(Request $request, DataSIP $dataSIP)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_sip' => 'required|string',
-            'scan_sip' => 'required|string'
+            'scan_sip' => ''
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data SIP Gagal Diupdate',
-                'data' => $validator->errors()
-            ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
 
         $dataSIP->update($request->all());
 
-        return response()->json([
-            'message' => 'Data SIP Berhasil Diupdate',
-            'data' => $dataSIP
-        ]);
+        return redirect()->route('data-sip.index')->with('success', 'Data SIP Berhasil Diupdate');
     }
 
     /**

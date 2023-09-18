@@ -386,7 +386,6 @@
                                 <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB</span>
                             </div>
 
-
                             <div class="justify-start pt-4">
                                 <p class="text-base border-b justify-center font-bold text-gray-800 md:text-lg">
                                     Detail Kontak
@@ -402,7 +401,7 @@
                                             <input
                                                 class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-last-name" name="no_teleponrumah" type="number"
-                                                placeholder="Masukkan No Telpon Rumah" required />
+                                                placeholder="Masukkan No Telpon Rumah" />
                                         </div>
                                     </div>
                                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -593,15 +592,12 @@
 
                     </div>
                 </div>
-                <div class="justify-end py-4 md:flex justify-end">
-                    <Link to="/datapribadi">
+                <div class="justify-end py-4 md:flex justify-end">>
                     <button type="button"
                         class="text-gray-500 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2 justify-end md:px-5 py-3">
                         Batal
                     </button>
-                    </Link>
 
-                    <Link to="/editdatapribadi">
                     <button type="submit"
                         class="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -615,7 +611,6 @@
                         </svg>
                         Simpan
                     </button>
-                    </Link>
 
                 </div>
             </form>
