@@ -11,8 +11,11 @@ class DashboardDataController extends Controller
 {
     public function rumahsakit() {
         $rumahsakits = Rumahsakit::paginate(10);
-            //    dd($rumahsakits);
-        return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'));
+        // return response()->json([
+        //     'data' => $rumahsakits
+        // ]);
+        return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function carirumahsakit(Request $request) {
         $cari = $request->cari;
@@ -21,7 +24,7 @@ class DashboardDataController extends Controller
             ->where('nama','like',"%".$cari."%");
             // ->paginate();
 
-        return view('Dokter.Dashboard.rumahsakit', ['rumahsakits' => $rumahsakits]);
+        return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'));
     }
     
 }

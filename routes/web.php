@@ -19,7 +19,6 @@ use App\Http\Controllers\DataProfesiController;
 //admin import
 use App\Http\Controllers\Admin\approveController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\CobaLoginController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\persetujuanController;
 
@@ -85,8 +84,6 @@ Route::get('/', [LandingController::class, 'index']);
 //============================MIDLEWARE ROUTES DOKTER==============================================//
 
 Route::group(['middleware' => ['auth', 'Dokter']], function() {
-    // Route::get('/dashboard', [CobaLoginController::class, 'dashboard'])->name('dashboard');
-
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
     
@@ -102,10 +99,8 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     
     // Route SIP
     Route::resource('data-sip', DataSIPController::class);
-    
-    Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
-    Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit']);
+    Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit'])->name('rumahsakit');
     Route::get('/cari', [DashboardDataController::class, 'carirumahsakit']);
     
 });

@@ -12,7 +12,7 @@ class Rumahsakit extends Model
     protected $table = 'rumahsakits';
     
     protected $fillable = [
-        'kode',
+        'id',
         'nama',
         'alamat',
         'no_telp',
