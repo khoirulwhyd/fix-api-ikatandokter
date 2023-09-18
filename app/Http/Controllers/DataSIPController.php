@@ -7,6 +7,8 @@ use App\Models\DataSIP;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Auth;
+use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DataSIPController extends Controller
 {
@@ -32,11 +34,32 @@ class DataSIPController extends Controller
      */
     public function store(Request $request)
     {
+        $request['mulai_berlaku'] = Carbon::parse($request['mulai_berlaku'])->toDateString();
+        $request['akhir_berlaku'] = Carbon::parse($request['akhir_berlaku'])->toDateString();
+
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_sip' => 'required|string',
-            'scan_sip' => 'required|string'
+            'jenis_sarana' => 'required|string',
+            'nama_sarana' => 'required|string',
+            'hari_pelayanan' => 'required|string',
+            'waktu_pelayanan' => 'required|string',
+            'provinsi' => 'required|string',
+            'kab_kota' => 'required|string',
+            'kecamatan' => 'required|string',
+            'kelurahan' => 'required|string',
+            'rt' => 'required|string',
+            'rw' => 'required|string',
+            'kode_pos' => 'required|string',
+            'alamat_lengkap' => 'required|string',
+            'mulai_berlaku' => 'required|string',
+            'akhir_berlaku' => 'required|string',
+            'scan_sip' => ''
         ]);
+
+        $imageName  = time() . '.' . $request->scan_sip->extension();
+        $request->scan_sip->move(public_path('images'), $imageName );
+
 
         if($validator->fails()) {
             return response()->json([
@@ -46,10 +69,13 @@ class DataSIPController extends Controller
         }
         DataSIP::create($request->all());
 
-        return response()->json([
-            'message' => 'Data SIP Berhasil Ditambahkan',
-            'data' => $request->all()
-        ]);
+        toast('Data SIP Berhasil Ditambahkan', 'success');
+        return redirect()->route('data-sip.index', $imageName );
+
+        // return response()->json([
+        //     'message' => 'Data SIP Berhasil Ditambahkan',
+        //     'data' => $request->all()
+        // ]);
     }
 
     /**

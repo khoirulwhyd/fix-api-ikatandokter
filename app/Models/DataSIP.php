@@ -10,14 +10,12 @@ class DataSIP extends Model
     use HasFactory;
 
     protected $table = 'data_sip_s';
-
     protected $fillable = [
         'id_user',
         'no_sip',
         'jenis_sarana',
         'nama_sarana',
         'hari_pelayanan',
-        'jenis_sarana',
         'waktu_pelayanan',
         'provinsi',
         'kab_kota',
