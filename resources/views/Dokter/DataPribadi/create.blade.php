@@ -22,7 +22,7 @@
                                 <div class="section-avatar px-6">
                                     <p class="text-primary-600 text-base font-semibold md:text-xl">{{ $data->nama_lengkap }}
                                     </p>
-                                    <p class="font-regular text-gray-400 text-sm sm:text-lg">KTP-65441645646464</p>
+                                    <p class="font-regular text-gray-400 text-sm sm:text-lg">{{ $data->nik }}</p>
                                 </div>
                             </div>
 

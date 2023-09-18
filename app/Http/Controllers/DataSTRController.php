@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataSTR;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Validator;
+use Auth;
 
 class DataSTRController extends Controller
 {
@@ -14,7 +16,9 @@ class DataSTRController extends Controller
      */
     public function index()
     {
-        return view('Dokter.STR.index');
+        $auth = Auth::user();
+        $dataSTR = DataSTR::where('id_user', $auth->id)->first();
+        return view('Dokter.STR.index', compact('auth', 'dataSTR'));
     }
 
     /**
@@ -22,7 +26,8 @@ class DataSTRController extends Controller
      */
     public function create()
     {
-        //
+        $auth = Auth::user();
+        return view('Dokter.STR.create', compact('auth'));
     }
 
     /**
@@ -31,23 +36,18 @@ class DataSTRController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_str' => 'required|string',
-            'scan_str' => 'required|string'
+            'scan_str' => ''
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data STR Gagal Ditambahkan',
-                'data' => $validator->errors()
-            ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
         DataSTR::create($request->all());
 
-        return response()->json([
-            'message' => 'Data STR Berhasil Ditambahkan',
-            'data' => $request->all()
-        ]);
+        toast('Data STR Berhasil Ditambahkan', 'success');
+        return redirect()->route('data-str.index');
     }
 
     /**
@@ -67,7 +67,10 @@ class DataSTRController extends Controller
      */
     public function edit(DataSTR $dataSTR)
     {
-        //
+        $auth = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $auth->id)->first();
+        $dataSTR = DataSTR::where('id_user', $auth->id)->first();
+        return view('Dokter.STR.edit', compact('auth', 'dataPribadi', 'dataSTR'));
     }
 
     /**
@@ -76,24 +79,21 @@ class DataSTRController extends Controller
     public function update(Request $request, DataSTR $dataSTR)
     {
         $validator = Validator::make($request->all(), [
-            'id_pribadi' => 'required|integer',
+            'id_user' => 'required|integer',
             'no_str' => 'required|string',
-            'scan_str' => 'required|string'
+            'scan_str' => ''
         ]);
 
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data STR Gagal Diubah',
-                'data' => $validator->errors()
-            ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
-
+        // return response()->json([
+        //     'data' => $request->all()
+        // ]);
         $dataSTR->update($request->all());
 
-        return response()->json([
-            'message' => 'Data STR Berhasil Diubah',
-            'data' => $dataSTR
-        ]);
+        toast('Data STR Berhasil Diupdate', 'success');
+        return redirect()->route('data-str.index');
     }
 
     /**
@@ -104,9 +104,7 @@ class DataSTRController extends Controller
         $dataSTR = DataSTR::find($id);
         $dataSTR->delete();
 
-        return response()->json([
-            'message' => 'Data STR Berhasil Dihapus',
-            'data' => $dataSTR
-        ]);
+        toast('Data Pribadi Berhasil Dihapus', 'success');
+        return redirect()->route('data-str.index');
     }
 }

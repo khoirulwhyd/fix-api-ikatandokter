@@ -38,7 +38,7 @@ class DataPribadiController extends Controller
         // return response()->json([
         //     'data' => $data
         // ]);
-        return view('Dokter.DataPribadi.create', compact('dataPribadi'));
+        return view('Dokter.DataPribadi.create', compact('dataPribadi', 'data'));
     }
 
     /**
@@ -182,9 +182,7 @@ class DataPribadiController extends Controller
         $dataPribadi = DataPribadi::find($id);
         $dataPribadi->delete();
 
-        return response()->json([
-            'message' => 'Data Pribadi Berhasil Dihapus',
-            'data' => $dataPribadi
-        ]);
+        toast('Data Pribadi Berhasil Dihapus', 'success');
+        return redirect()->route('data-pribadi.index');
     }
 }

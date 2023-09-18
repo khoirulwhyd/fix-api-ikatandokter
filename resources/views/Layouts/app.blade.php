@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
     @include('sweetalert::alert')
     <nav
@@ -492,57 +493,58 @@
         });
     </script>
     <!-- ajax -->
-                 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-                 <script>
-                    $(document).ready(function () {
-                        $('#country-dropdown').on('change', function () {
-                            var idSpesialis = this.value;
-                            $("#state-dropdown").html('');
-                            $.ajax({
-                                url: "{{url('/api/fetch-spesialis')}}",
-                                type: "POST",
-                                data: {
-                                    pilihan_id : idSpesialis,
-                                    _token: '{{csrf_token()}}'
-                                },
-                                dataType: 'json',
-                                success: function (result) {
-                                    $('#state-dropdown').html('<option value="">-- Select Spesialis --</option>');
-                                    $.each(result.spesialis, function (key, value) {
-                                        $("#state-dropdown").append('<option value="' + value
-                                            .id + '">' + value.name + '</option>');
-                                    });
-                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
-                                }
-                            });
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script>
+        $(document).ready(function() {
+                    $('#country-dropdown').on('change', function() {
+                        var idSpesialis = this.value;
+                        $("#state-dropdown").html('');
+                        $.ajax({
+                            url: "{{ url('/api/fetch-spesialis') }}",
+                            type: "POST",
+                            data: {
+                                pilihan_id: idSpesialis,
+                                _token: '{{ csrf_token() }}'
+                            },
+                            dataType: 'json',
+                            success: function(result) {
+                                $('#state-dropdown').html(
+                                    '<option value="">-- Select Spesialis --</option>');
+                                $.each(result.spesialis, function(key, value) {
+                                    $("#state-dropdown").append('<option value="' + value
+                                        .id + '">' + value.name + '</option>');
+                                });
+                                $('#city-dropdown').html(
+                                    '<option value="">-- Select SubSpesialis --</option>');
+                            }
                         });
-                        $('#state-dropdown').on('change', function () {
-                            var idSpesialis = this.value;
-                            $("#city-dropdown").html('');
-                            $.ajax({
-                                url: "{{url('api/fetch-subspesialis')}}",
-                                type: "POST",
-                                data: {
-                                    spesialis_id : idSpesialis,
-                                    _token: '{{csrf_token()}}'
-                                },
-                                dataType: 'json',
-                                success: function (res) {
-                                    $('#city-dropdown').html('<option value="">-- Select SubSpesialis --</option>');
-                                    $.each(res.subspesialis, function (key, value) {
-                                        $("#city-dropdown").append('<option value="' + value
-                                            .id + '">' + value.name + '</option>');
-                                    });
-                                }
-                            });
+                    });
+                    $('#state-dropdown').on('change', function() {
+                        var idSpesialis = this.value;
+                        $("#city-dropdown").html('');
+                        $.ajax({
+                            url: "{{ url('api/fetch-subspesialis') }}",
+                            type: "POST",
+                            data: {
+                                spesialis_id: idSpesialis,
+                                _token: '{{ csrf_token() }}'
+                            },
+                            dataType: 'json',
+                            success: function(res) {
+                                $('#city-dropdown').html(
+                                    '<option value="">-- Select SubSpesialis --</option>');
+                                $.each(res.subspesialis, function(key, value) {
+                                    $("#city-dropdown").append('<option value="' + value
+                                        .id + '">' + value.name + '</option>');
+                                });
+                            }
                         });
-                    }
-                 </script>
-
-
-
+                    });
+                }
+    </script>
 
     @yield('content')
+
 </body>
 <div class="relative p-4 md:ml-64 bg-blueGray-100 mt-10 md:mt-4">
     <div class="grid-cols-2">

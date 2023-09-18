@@ -47,23 +47,27 @@
                                         Edit Data
                                     </button>
 
-                                    <button type="submit"
-                                        class="text-white bg-[#E00F0F] hover:bg-[#AB1616]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2 justify-end md:px-5 py-3">
-                                        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                                            viewBox="0 0 17 17" fill="none">
-                                            <path
-                                                d="M14.1042 6.39014C14.1042 6.39014 13.6517 12.0026 13.3892 14.3668C13.2642 15.496 12.5667 16.1576 11.4242 16.1785C9.24999 16.2176 7.07332 16.2201 4.89999 16.1743C3.80082 16.1518 3.11499 15.4818 2.99249 14.3726C2.72832 11.9876 2.27832 6.39014 2.27832 6.39014"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M15.2567 3.69975H1.125" stroke="white" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path
-                                                d="M12.5335 3.69974C11.8793 3.69974 11.316 3.23724 11.1877 2.5964L10.9852 1.58307C10.8602 1.11557 10.4368 0.792236 9.95432 0.792236H6.42682C5.94432 0.792236 5.52099 1.11557 5.39599 1.58307L5.19349 2.5964C5.06516 3.23724 4.50182 3.69974 3.84766 3.69974"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        Hapus Data
-                                    </button>
+                                    <form action="{{ route('data-pribadi.destroy', $dataPribadi->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" id="delete"
+                                            class="text-white bg-[#E00F0F] hover:bg-[#AB1616]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2 justify-end md:px-5 py-3">
+                                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="17"
+                                                height="17" viewBox="0 0 17 17" fill="none">
+                                                <path
+                                                    d="M14.1042 6.39014C14.1042 6.39014 13.6517 12.0026 13.3892 14.3668C13.2642 15.496 12.5667 16.1576 11.4242 16.1785C9.24999 16.2176 7.07332 16.2201 4.89999 16.1743C3.80082 16.1518 3.11499 15.4818 2.99249 14.3726C2.72832 11.9876 2.27832 6.39014 2.27832 6.39014"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M15.2567 3.69975H1.125" stroke="white" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M12.5335 3.69974C11.8793 3.69974 11.316 3.23724 11.1877 2.5964L10.9852 1.58307C10.8602 1.11557 10.4368 0.792236 9.95432 0.792236H6.42682C5.94432 0.792236 5.52099 1.11557 5.39599 1.58307L5.19349 2.5964C5.06516 3.23724 4.50182 3.69974 3.84766 3.69974"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            Hapus Data
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
 
@@ -88,6 +92,14 @@
                                                     NPA IDI
                                                 </th>
                                                 <td class="px-6 py-4">{{ $dataPribadi->npaidi }}</td>
+                                            </tr>
+                                            <tr class="bg-white border-b">
+                                                <th scope="row"
+                                                    class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Identitas
+                                                </th>
+                                                <td class="px-6 py-4">{{ $dataPribadi->identitas }} -
+                                                    {{ $dataPribadi->no_identitas }}</td>
                                             </tr>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 <th scope="row"
@@ -338,4 +350,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#delete').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            })
+        });
+    </script>
 @endsection
