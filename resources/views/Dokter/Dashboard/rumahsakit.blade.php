@@ -3,7 +3,6 @@
             <div class="p-4 sm:ml-64">
                 <div class="mt-14 p-4  border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14">
                     <div class="grid grid-cols-0 gap-4 mb-4">
-                       
                         <div class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div class="flex items-start gap-2 justify-start mb-4">
                                 <a href="/dashboard">

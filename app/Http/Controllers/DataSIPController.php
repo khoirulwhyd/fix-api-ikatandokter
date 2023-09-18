@@ -154,7 +154,7 @@ class DataSIPController extends Controller
     {
         $datasip = DataSIP::find($id);
         $datasip->delete();
-        Alert::success('Data profesi berhasil dihapus');
+        toast('Data SIP Berhasil Dihapus', 'success');
         return back();
 
         // return reponse()->json([
