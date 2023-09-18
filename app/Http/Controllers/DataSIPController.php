@@ -8,7 +8,6 @@ use App\Models\DataSIP;
 use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Auth;
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 
