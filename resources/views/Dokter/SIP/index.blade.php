@@ -57,9 +57,9 @@
                                     </div>
                                     <div class="flex justify-end items-end">
                                         <div>
-                                            <form action="" method="post">
-                                                <!-- @csrf
-                                                @method('DELETE') -->
+                                            <form action="{{ route('data-sip.destroy', $sip->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit"
                                                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 show_confirm" data-toggle="tooltip" title='Delete'>
@@ -81,7 +81,7 @@
                                             </form>
                                         </div>
                                         <div>
-                                            <a href="" type="button"
+                                            <a href="{{ route('data-sip.edit', $sip->id) }}" type="button"
                                                 class="text-white bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
                                                     viewBox="0 0 13 13" fill="none">
@@ -254,4 +254,23 @@
             </div>
         </div>
     </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+        <script type="text/javascript">
+            $('.show_confirm').click(function(event) {
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: `Apakah anda yakin ingin menghapus data ini?`,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                form.submit();
+                }
+            });
+        });
+        </script>
 @endsection
