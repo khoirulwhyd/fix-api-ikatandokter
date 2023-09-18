@@ -102,7 +102,7 @@ class approveController extends Controller
         // confirmDelete($title, $text);
         
         $user->delete();
-        return redirect()->route('persetujuan.index')
-            ->with('success', 'Data user berhasil di hapus');
+        Alert::success('Data profesi berhasil dihapus');
+        return back();
     }
 }

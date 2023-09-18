@@ -6,6 +6,7 @@ use Validator;
 use App\Models\DataSIP;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Auth;
 
 class DataSIPController extends Controller
 {
@@ -20,9 +21,10 @@ class DataSIPController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(DataSIP $datasip)
     {
-        //
+        $auth = Auth::user();
+        return view('Dokter.SIP.create', $datasip, compact('datasip', 'auth'));
     }
 
     /**
