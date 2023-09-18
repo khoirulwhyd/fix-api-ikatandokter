@@ -14,6 +14,21 @@ class DataSIP extends Model
     protected $fillable = [
         'id_user',
         'no_sip',
+        'jenis_sarana',
+        'nama_sarana',
+        'hari_pelayanan',
+        'jenis_sarana',
+        'waktu_pelayanan',
+        'provinsi',
+        'kab_kota',
+        'kecamatan',
+        'kelurahan',
+        'rt',
+        'rw',
+        'kode_pos',
+        'alamat_lengkap',
+        'mulai_berlaku',
+        'akhir_berlaku',
         'scan_sip'
     ];
 
