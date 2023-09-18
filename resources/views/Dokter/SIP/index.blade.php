@@ -60,8 +60,8 @@
                                             <form action="{{ route('data-sip.destroy', $sip->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit"
+                                                <!-- <input name="_method" type="hidden" value="DELETE"> -->
+                                                <button type="submit" id="delete"
                                                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 show_confirm" data-toggle="tooltip" title='Delete'>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13"
                                                         viewBox="0 0 11 13" fill="none">
@@ -244,7 +244,6 @@
                                     </div>
                                 </div>
                             </td>
-                           
                         </tr>
                          @endif
                          @endforelse
@@ -255,22 +254,24 @@
         </div>
     </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-        <script type="text/javascript">
-            $('.show_confirm').click(function(event) {
-            var form =  $(this).closest("form");
+        <script>
+        $('#delete').click(function(event) {
+            var form = $(this).closest("form");
             var name = $(this).data("name");
             event.preventDefault();
-            swal({
-                title: `Apakah anda yakin ingin menghapus data ini?`,
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                form.submit();
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Menghapus data profesi ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
                 }
-            });
+            })
         });
-        </script>
+    </script>
 @endsection

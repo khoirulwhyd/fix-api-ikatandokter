@@ -142,7 +142,9 @@ class DataProfesiController extends Controller
     {
         $dataProfesi = DataProfesi::find($id);
         $dataProfesi->delete();
-        Alert::success('Data profesi berhasil dihapus');
-        return back();
+        toast('Data Profesi Berhasil Dihapus', 'success');
+        return redirect()->route('data-profesi.index');
+
+
     }
 }

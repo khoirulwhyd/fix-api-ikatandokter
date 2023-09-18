@@ -59,8 +59,8 @@
                                             <form action="{{ route('data-profesi.destroy', $profesi->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit"
+                                                <!-- <input name="_method" type="hidden" value="DELETE"> -->
+                                                <button type="submit" id="delete"
                                                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 show_confirm" data-toggle="tooltip" title='Delete'>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13"
                                                         viewBox="0 0 11 13" fill="none">
@@ -144,7 +144,7 @@
                                         <p class="text-center font-medium text-lg">Ups <strong
                                                 class="text-primary-600">Data Profesimu </strong> masih kosong.
                                         </p>
-                                        <button type="button"
+                                        <button type="button" 
                                             class="mt-2 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-10 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-10 py-3 mr-3"
                                             onclick="location.href='{{ route('data-profesi.create') }}'">
                                             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
@@ -179,22 +179,24 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-    <script type="text/javascript">
-        $('.show_confirm').click(function(event) {
-          var form =  $(this).closest("form");
-          var name = $(this).data("name");
-          event.preventDefault();
-          swal({
-              title: `Apakah anda yakin ingin menhhapus data ini?`,
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              form.submit();
-            }
-          });
-      });
+    <script>
+        $('#delete').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Menghapus data profesi ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            })
+        });
     </script>
 @endsection

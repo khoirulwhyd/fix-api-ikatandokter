@@ -106,6 +106,7 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
     Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit']);
+    Route::get('/cari', [DashboardDataController::class, 'carirumahsakit']);
     
 });
 
