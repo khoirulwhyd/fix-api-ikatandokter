@@ -97,12 +97,12 @@ class approveController extends Controller
         //
         $user = User::find($id);
         
-        $title = 'Delete User!';
-        $text = "Apakah anda yakin ingin menghapus user ini?";
-        confirmDelete($title, $text);
+        // $title = 'Delete User!';
+        // $text = "Apakah anda yakin ingin menghapus user ini?";
+        // confirmDelete($title, $text);
         
         $user->delete();
-        return redirect()->route('persetujuan.index')
-            ->with('success', 'Data user berhasil di hapus');
+        Alert::success('Data profesi berhasil dihapus');
+        return back();
     }
 }

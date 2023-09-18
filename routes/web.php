@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\masterAnggotaController;
+use App\Http\Controllers\Data\CreateProfesiController;
+use App\Http\Controllers\Data\DashboardDataController;
+use App\Http\Controllers\Data\PilihanProfesiController;
 use App\Http\Controllers\Dokter\ForgotPasswordController;
 use App\Http\Middleware\Dokter;
 use Illuminate\Routing\Controller;
@@ -33,6 +36,17 @@ use App\Http\Controllers\Dokter\LandingController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//==============================aJAX TEST=========================================================//
+Route::get('pilih', [PilihanProfesiController::class, 'index']);
+Route::post('api/fetch-spesialis', [PilihanProfesiController::class, 'fetchSpesialis']);
+Route::post('api/fetch-subspesialis', [PilihanProfesiController::class, 'fetchSubspesialis']);
+
+//==============================DATA PROFESI WITHOUT RESOURCE CONTROLLER=========================================================//
+Route::get('creates', [CreateProfesiController::class, 'index']);
+Route::post('api/fetch-spesialis', [CreateProfesiController::class, 'fetchSpesialis']);
+Route::post('api/fetch-subspesialis', [CreateProfesiController::class, 'fetchSubspesialis']);
+
 
 //=========================DOKTER AUTH ROUTES WITH VERIFY EMAIL======================================//
 
@@ -80,6 +94,8 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
 
     //Route Data Profesi
     Route::resource('data-profesi', DataProfesiController::class);
+    Route::post('api/fetch-spesialis', [DataProfesiController::class, 'fetchSpesialis']);
+    Route::post('api/fetch-subspesialis', [DataProfesiController::class, 'fetchSubspesialis']);
 
     // Route Data STR
     Route::resource('data-str', DataSTRController::class);
@@ -88,6 +104,9 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::resource('data-sip', DataSIPController::class);
     
     Route::get('actionlogout', [CobaLoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+    Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit']);
+    
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {

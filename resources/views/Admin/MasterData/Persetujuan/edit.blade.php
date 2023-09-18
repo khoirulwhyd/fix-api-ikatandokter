@@ -4,23 +4,24 @@
                 <div class="p-4  border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14 mt-14 overflow-x-auto">
                     <div class="grid grid-cols-0 gap-4 mb-4">
                         <div class="max-w-full overflow-auto h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div class="section-icon flex items-start justify-start">
-                                <p class="text-sm justify-center font-semibold text-gray-800 md:text-xl">
-                                    Persetujuan Masuk
-                                </p>
-                            </div>
-                            <!-- Navigation Bar -->
-                            <div class="flex items-start justify-start gap-3 text-sm py-5">
-                                <div>
-                                    <p class="font-medium text-gray-600">Persetujuan Masuk</p>
+                            <h1 class="text-xl font-bold text-gray-800">Master Data Anggota</h1>
+                            <div class="mt-2 flex items-start gap-2 justify-start mb-4">
+                               <a href="/persetujuan">
+                                    <div>
+                                    <p class="text-sm justify-center font-semibold text-gray-800 hover:text-primary-600 md:text-sm">
+                                        Permintaan Persetujuan
+                                    </p>
                                 </div>
-                                <div class="items-center mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 4 8" fill="none">
-                                        <path d="M0.541626 1.08335L3.45829 4.00002L0.541626 6.91669" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                               </a>
+                               <div class="mt-1">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" viewBox="0 0 7 13" fill="none">
+                                    <path d="M1.021 1.54159L5.97933 6.49992L1.021 11.4583" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="font-semibold text-primary-600"> Persetujuan Anggota</p>
+                                    <p class="text-sm font-bold text-primary-600">
+                                     Ubah Persetujuan
+                                    </p>
                                 </div>
                             </div>
                             
