@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\masterAnggotaController;
 use App\Http\Controllers\Data\CreateProfesiController;
 use App\Http\Controllers\Data\DashboardDataController;
+use App\Http\Controllers\Data\FetchDashboardController;
 use App\Http\Controllers\Data\PilihanProfesiController;
 use App\Http\Controllers\Dokter\ForgotPasswordController;
 use App\Http\Middleware\Dokter;
@@ -58,7 +59,7 @@ Route::get('verifEmail', [AuthhController::class, 'verifPage'])->name('verifEmai
 
 
 /* New Added Routes */
-Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email', 'Dokter']);
+// Route::get('dashboard', [AuthhController::class, 'dashboard'])->middleware(['auth', 'verify_email', 'Dokter']);
 Route::get('account/verify/{token}', [AuthhController::class, 'verifyAccount'])->name('user.verify');
 
 
@@ -83,10 +84,10 @@ Route::get('/', [LandingController::class, 'index']);
 
 //============================MIDLEWARE ROUTES DOKTER==============================================//
 
-Route::group(['middleware' => ['auth', 'Dokter']], function() {
+Route::group(['middleware' => ['auth', 'Dokter', 'verify_email']], function() {
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
-    
+    Route::get('/dashboard', [FetchDashboardController::class, 'dashboard'])->name('rumahsakits');
     // Route::get('data-pribadi/edit', [DataPribadiController::class, 'edit'])->name('data-pribadi.edit');
 
     //Route Data Profesi

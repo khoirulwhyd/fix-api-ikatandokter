@@ -13,7 +13,7 @@
                                             </h5>
                                             <div class="py-2">
                                                 <span class="font-semibold text-3xl text-blueGray-700">
-                                                    <p>150</p>
+                                                    <p>{{ $dokter }}</p>
                                                 </span>
                                             </div>
 

@@ -13,7 +13,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>50 Unit</p>
+                                            <p>{{ $rumahsakits }}</p>
                                         </span>
                                     </div>
                                 </div>
