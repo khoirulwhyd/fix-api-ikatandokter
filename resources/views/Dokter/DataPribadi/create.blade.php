@@ -90,13 +90,13 @@
                                         </div>
                                     </div>
                                     <div class="mb-6">
-                                        <label for="file_input"
+                                        <label for="upload"
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                             Foto terbaru
                                         </label>
                                         <input
                                             class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="file_input" name="avatar" type="file" accept=".png, .jpg, .jpeg" />
+                                            id="upload" name="foto_diri" type="file" accept=".png, .jpg, .jpeg" />
                                         <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB, Mengikuti
                                             Tahun Lahir, Genap Background Biru, Ganjil Background Merah</span>
                                     </div>

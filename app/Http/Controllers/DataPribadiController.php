@@ -47,9 +47,14 @@ class DataPribadiController extends Controller
     public function store(Request $request)
     {
         $request['tanggal_lahir'] = Carbon::parse($request['tanggal_lahir'])->toDateString();
-        // $filename = $request->file('foto_diri')->getClientOriginalName();
-        // $name = trim($filename);
-        
+        $name = $request->file('foto_diri')->getClientOriginalName();
+
+        $request->file('foto_diri')->storeAs('public/uploads/dokter/foto-pribadi', $name);
+        $request['foto_diri'] = $name;
+        // return response()->json([
+        //     'data' => $request->all()
+        // ]);
+
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|string',
             'npaidi' => 'required|string',
@@ -86,8 +91,22 @@ class DataPribadiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            $path = 'public/uploads/dokter/foto-pribadi' . $request['foto_diri'];
+            if(file_exists($path)) {
+                unlink($path);
+            }
+
+            $pathKTP = 'public/uploads/dokter/foto-ktp' . $request['foto_ktp'];
+            if(file_exists($pathKTP)) {
+                unlink($pathKTP);
+            }
+
+            Alert::error('Error', 'Data Pribadi Gagal Ditambahkan');
+            return redirect()->back();
         }
+
+
+
         DataPribadi::create($request->all());
         
         toast('Data Pribadi Berhasil Ditambahkan', 'success');
