@@ -29,19 +29,6 @@
                         </div>
                     </div>
                     </a>
-
-                    <div class="mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" viewBox="0 0 7 13"
-                            fill="none">
-                            <path d="M1.021 1.54159L5.97933 6.49992L1.021 11.4583" stroke="#212121" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-primary-600">
-                            Rumah Sakit
-                        </p>
-                    </div>
                 </div>
 
                 <div class="justify-start w-1/2 md:w-full h-full mt-4">
@@ -51,8 +38,9 @@
                         </p>
                     </div>
                     <div class="justify-start py-2">
-                        <form action="/rumahsakit/carirs" method="GET" class="flex items-center">
-                            <label for="voice-search" class="sr-only">Search</label>
+                        <form action="{{ route('cari.rumahsakit') }}" method="GET" class="flex items-center">
+                            @csrf
+                            <label for="search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -73,11 +61,11 @@
                                             stroke-linecap="round" />
                                     </svg>
                                 </div>
-                                <input type="text" id="carirs" name="carirs"
+                                <input type="text" name="search"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Cari nama rumah sakit " required>
+                                    placeholder="Cari nama rumah sakit" value="{{ request('search') }}" />
                             </div>
-                            <button type="submit" value=""
+                            <button type="submit"
                                 class="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 20 20">
@@ -86,7 +74,7 @@
                                 </svg>Cari
                             </button>
                         </form>
-                        <div class="relative overflow-x-auto border sm:rounded-lg mt-2">
+                        <div class="relative overflow-x-auto border sm:rounded-lg mt-2 table-data">
                             <table class="w-1/2 md:w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -147,9 +135,8 @@
 
                         </div>
                     </div>
-
-
-                    <nav aria-label="Page navigation example">
+                    {{-- {{ $rumahsakits->links() }} --}}
+                    {{-- <nav aria-label="Page navigation example">
                         <ul class="flex items-center -space-x-px h-8 text-sm mt-4">
                             <li>
                                 <a href="#"
@@ -194,8 +181,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
-
+                    </nav> --}}
                 </div>
             </div>
         </div>

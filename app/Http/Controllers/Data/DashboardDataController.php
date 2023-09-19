@@ -10,21 +10,20 @@ use Illuminate\Support\Facades\DB;
 class DashboardDataController extends Controller
 {
     public function rumahsakit() {
-        $rumahsakits = Rumahsakit::paginate(10);
-        // return response()->json([
-        //     'data' => $rumahsakits
-        // ]);
-        return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
-    public function carirumahsakit(Request $request) {
-        $cari = $request->cari;
-
-        $rumahsakits = DB::table('rumahsakits')
-            ->where('nama','like',"%".$cari."%");
-            // ->paginate();
+        $rumahsakits = Rumahsakit::all();
 
         return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'));
     }
-    
+
+    public function carirumahsakit(Request $request) {
+        $search = $request->input('search');
+
+        $rumahsakits = Rumahsakit::where('nama', 'LIKE', '%' . $search . '%')
+            ->orWhere('alamat', 'LIKE', '%' . $search . '%')
+            ->orWhere('layanan_pembayaran', 'LIKE', '%' . $search . '%')
+            ->orWhere('kecamatan', 'LIKE', '%' . $search . '%')
+            ->get();
+
+        return view('Dokter.Dashboard.rumahsakit', compact('rumahsakits'));
+    }
 }

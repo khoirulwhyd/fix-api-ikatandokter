@@ -101,24 +101,12 @@ Route::group(['middleware' => ['auth', 'Dokter']], function() {
     Route::resource('data-sip', DataSIPController::class);
 
     Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit'])->name('rumahsakit');
-    Route::get('/cari', [DashboardDataController::class, 'carirumahsakit']);
-    
+    Route::get('/cari', [DashboardDataController::class, 'carirumahsakit'])->name('cari.rumahsakit');
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {
 //     return view('Auth.login');
 // }]);
-
-
-
-
-
-
-
-
-
-
-
 
 //=========================================ADMIN ROUTESS==============================================//
 
