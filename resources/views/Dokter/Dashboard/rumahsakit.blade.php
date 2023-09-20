@@ -29,9 +29,7 @@
                         </div>
                     </div>
                     </a>
-                </div>
-
-                <div class="justify-start w-1/2 md:w-full h-full mt-4">
+                    <div class="justify-start w-1/2 md:w-full h-full mt-4">
                     <div class="justify-start py-2">
                         <p class="text-base border-b justify-center font-bold text-gray-800 md:text-lg">
                             Data Rumah Sakit
@@ -135,7 +133,7 @@
 
                         </div>
                     </div>
-                    {{-- {{ $rumahsakits->links() }} --}}
+                    <!-- {{-- {{ $rumahsakits->links() }} --}}
                     {{-- <nav aria-label="Page navigation example">
                         <ul class="flex items-center -space-x-px h-8 text-sm mt-4">
                             <li>
@@ -181,8 +179,11 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav> --}}
+                    </nav> --}} -->
                 </div>
+                </div>
+
+                
             </div>
         </div>
     </div>
