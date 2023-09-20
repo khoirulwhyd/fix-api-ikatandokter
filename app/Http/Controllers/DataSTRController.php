@@ -17,8 +17,9 @@ class DataSTRController extends Controller
     public function index()
     {
         $auth = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $auth->id)->first();
         $dataSTR = DataSTR::where('id_user', $auth->id)->first();
-        return view('Dokter.STR.index', compact('auth', 'dataSTR'));
+        return view('Dokter.STR.index', compact('auth', 'dataPribadi', 'dataSTR'));
     }
 
     /**
@@ -35,13 +36,25 @@ class DataSTRController extends Controller
      */
     public function store(Request $request)
     {
+        $filename = $request->file('str')->getClientOriginalName();
+        $name = trim($filename);
+
+        $request->file('str')->storeAs('public/uploads/dokter/str', $name);
+        $request['scan_str'] = $name;
+
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|integer',
-            'no_str' => 'required|string',
-            'scan_str' => ''
+            'no_str' => 'required',
+            'scan_str' => 'required'
         ]);
 
         if ($validator->fails()) {
+            $path = 'public/uploads/dokter/str' . $request['scan_str'];
+            if(file_exists($path)){
+                unlink($path);
+            }
+
+            Alert::error('Error', 'Data STR Gagal Ditambahkan');
             return response()->json($validator->errors(), 400);
         }
         DataSTR::create($request->all());

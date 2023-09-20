@@ -21,4 +21,19 @@ class DataSTR extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function dataPribadi()
+    {
+        return $this->belongsTo(DataPribadi::class);
+    }
+
+    public function dataProfesi()
+    {
+        return $this->belongsTo(DataProfesi::class);
+    }
+
+    public function dataSIP()
+    {
+        return $this->belongsTo(DataSIP::class);
+    }
 }

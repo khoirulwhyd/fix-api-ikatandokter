@@ -24,4 +24,19 @@ class DataProfesi extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function dataPribadi()
+    {
+        return $this->belongsTo(DataPribadi::class);
+    }
+
+    public function dataSTR()
+    {
+        return $this->hasOne(DataSTR::class);
+    }
+    
+    public function dataSIP()
+    {
+        return $this->hasOne(DataSIP::class);
+    }
 }

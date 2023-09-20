@@ -22,9 +22,10 @@
                                 </div>
                             </div>
 
-                            <div class="justify-end py-4 md:flex">
-                                <button type="submit" onclick="location.href='{{ route('data-str.edit', $dataSTR->id) }}'"
-                                    class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3">
+                            <div class="justify-end py-4 md:flex justify-end">
+                                <button type="submit"
+                                    class="text-white bg-[#FFC107] hover:bg-[#D9A509]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-3 py-2 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-5 py-3 mr-3"
+                                    onclick="location.href='{{ route('data-str.edit', $dataSTR->id) }}'">
                                     <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 18 18" fill="none">
                                         <path
@@ -93,7 +94,8 @@
                                             Scan STR
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $dataSTR->scan_str }}
+                                            <img src="{{ asset('/storage/uploads/dokter/str/' . $dataSTR->scan_str) }}"
+                                                width="300px" height="300px" alt="">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -113,8 +115,8 @@
                                     <button type="button"
                                         class="mt-2 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-10 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-10 py-3 mr-3"
                                         onclick="location.href='{{ route('data-str.create') }}'">
-                                        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 18 18" fill="none">
+                                        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
+                                            height="18" viewBox="0 0 18 18" fill="none">
                                             <path
                                                 d="M8.57699 0.824219H5.46116C2.89866 0.824219 1.29199 2.63839 1.29199 5.20672V12.1351C1.29199 14.7034 2.89116 16.5176 5.46116 16.5176H12.8145C15.3853 16.5176 16.9845 14.7034 16.9845 12.1351V8.77838"
                                                 stroke="white" stroke-width="1.5" stroke-linecap="round"

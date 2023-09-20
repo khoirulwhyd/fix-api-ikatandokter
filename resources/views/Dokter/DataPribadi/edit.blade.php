@@ -19,7 +19,9 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="flex justify-start ...">
-                                <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
+                                <img class="w-16 h-16 rounded-full"
+                                    src="{{ asset('storage/uploads/dokter/foto-pribadi/' . $dataPribadi->foto_diri) }}"
+                                    alt="user photo" />
                                 <div class="section-avatar px-6">
                                     <p class="text-primary-600 text-base font-semibold md:text-xl">
                                         {{ $dataPribadi->nama_lengkap }}
@@ -94,16 +96,15 @@
                                         </div>
                                     </div>
                                     <div class="mb-6">
-                                        <label for="file_input"
+                                        <label for="upload"
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                             Foto terbaru
                                         </label>
+                                        <input type="hidden" name="foto_diri">
                                         <input
                                             class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="file_input" name="foto_diri" type="file"
-                                            value="{{ $dataPribadi->foto_diri }}" />
-                                        <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB,
-                                            Mengikuti
+                                            id="upload" name="foto" type="file" accept=".png, .jpg, .jpeg" />
+                                        <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB, Mengikuti
                                             Tahun Lahir, Genap Background Biru, Ganjil Background Merah</span>
                                     </div>
                                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -392,16 +393,15 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="mb-6">
                                 <label for="file_input"
                                     class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Foto KTP
                                 </label>
+                                <input type="hidden" name="foto_ktp">
                                 <input
                                     class="block w-full md:w-full text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="file_input" name="foto_ktp" type="file"
-                                    value="{{ $dataPribadi->foto_ktp }}" />
+                                    id="file_input" name="photo_ktp" type="file" accept=".png, .jpg, .jpeg" />
                                 <span class="py-2 text-red-600 text-xs italic">Ukuran maksimal file 1 MB</span>
                             </div>
 

@@ -15,7 +15,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-2">
                                 <div class="flex justify-start ...">
                                     <img class="w-16 h-16 rounded-full"
-                                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                                        src="{{ asset('storage/uploads/dokter/foto-pribadi/' . $dataPribadi->foto_diri) }}"
                                         alt="user photo" />
                                     <div class="section-avatar px-6">
                                         <p class="text-primary-600 text-base font-semibold md:text-xl">
@@ -210,7 +210,8 @@
                                                 Scan KTP
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $dataPribadi->foto_ktp }}
+                                                <img src="{{ asset('storage/uploads/dokter/foto-ktp/' . $dataPribadi->foto_ktp) }}"
+                                                    width="350px" height="350px" alt="user photo" />
                                             </td>
                                         </tr>
                                     </tbody>

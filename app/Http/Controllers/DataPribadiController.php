@@ -47,13 +47,17 @@ class DataPribadiController extends Controller
     public function store(Request $request)
     {
         $request['tanggal_lahir'] = Carbon::parse($request['tanggal_lahir'])->toDateString();
-        $name = $request->file('foto_diri')->getClientOriginalName();
+        $filename = $request->file('foto')->getClientOriginalName();
+        $name = trim($filename);
 
-        $request->file('foto_diri')->storeAs('public/uploads/dokter/foto-pribadi', $name);
+        $request->file('foto')->storeAs('public/uploads/dokter/foto-pribadi', $name);
         $request['foto_diri'] = $name;
-        // return response()->json([
-        //     'data' => $request->all()
-        // ]);
+
+        $filename2 = $request->file('photo_ktp')->getClientOriginalName();
+        $name2 = trim($filename2);
+
+        $request->file('photo_ktp')->storeAs('public/uploads/dokter/foto-ktp', $name2);
+        $request['foto_ktp'] = $name2;
 
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|string',
@@ -61,7 +65,7 @@ class DataPribadiController extends Controller
             'identitas' => 'required|string',
             'no_identitas' => 'required|string',
             'nama_lengkap' => 'required|string',
-            'foto_diri' => '',
+            'foto_diri' => 'required',
             'tempat_lahir' => 'required|string',
             'tanggal_lahir' => 'required|string',
             'jenis_kelamin' => 'required|string',
@@ -76,7 +80,7 @@ class DataPribadiController extends Controller
             'ktp_rw' => 'required|string',
             'ktp_kodepos' => 'required|string',
             'ktp_alamat_lengkap' => 'required|string',
-            'foto_ktp' => '',
+            'foto_ktp' => 'required',
             'no_teleponrumah' => 'required|string|min:10|max:13',
             'no_hp' => 'required|string|min:10|max:13',
             'no_hp2' => '',
@@ -104,9 +108,6 @@ class DataPribadiController extends Controller
             Alert::error('Error', 'Data Pribadi Gagal Ditambahkan');
             return redirect()->back();
         }
-
-
-
         DataPribadi::create($request->all());
         
         toast('Data Pribadi Berhasil Ditambahkan', 'success');

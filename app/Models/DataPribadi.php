@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataPribadi extends Model
 {
@@ -49,5 +49,20 @@ class DataPribadi extends Model
     public function users()
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
+    }
+
+    public function dataProfesi()
+    {
+        return $this->hasOne(DataProfesi::class);
+    }
+
+    public function dataSTR()
+    {
+        return $this->hasOne(DataSTR::class);
+    }
+
+    public function dataSIP()
+    {
+        return $this->hasOne(DataSIP::class);
     }
 }

@@ -3,7 +3,7 @@
     <div class="p-4 sm:ml-64">
         <div class="mt-14 p-4  border-gray-200 border-dashed rounded-lg dark:border-gray-700 md:mt-14">
             <div class="grid grid-cols-0 gap-4 mb-4">
-                <form action="{{ route('data-str.store') }}" method="POST">
+                <form action="{{ route('data-str.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div
                         class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -50,9 +50,10 @@
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                         Scan STR
                                     </label>
+                                    <input type="hidden" name="scan_str">
                                     <input
                                         class="block w-full md:w-1/2 text-sm text-gray-500 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                        id="file_input" type="file" name="scan_str" />
+                                        type="file" name="str" />
                                 </div>
                             </div>
                         </div>
