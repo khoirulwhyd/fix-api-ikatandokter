@@ -103,8 +103,8 @@
         aria-label="Sidebar">
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
-                <li>
-                    <a href="/dashboard"
+                <li class="{{ request()->is('dashboard') ? 'bg-gray-200':'' }} rounded-lg">
+                    <a href="{{ route('dashboard') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 28 28"
                             fill="none">
@@ -115,7 +115,7 @@
                         <span class="text-base ml-3">Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ request()->is('data-pribadi') ? 'bg-gray-200':'' }} rounded-lg">
                     <a href="{{ route('data-pribadi.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 28 28"
@@ -127,7 +127,7 @@
                         <span class="flex-1 ml-3 whitespace-nowrap">Data Pribadi</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ request()->is('data-profesi') ? 'bg-gray-200':'' }} rounded-lg">
                     <a href="{{ route('data-profesi.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21"
@@ -145,7 +145,7 @@
                         <span class="flex-1 ml-3 whitespace-nowrap">Data Profesi</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ request()->is('data-str') ? 'bg-gray-200':'' }} rounded-lg">
                     <a href="{{ route('data-str.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -157,7 +157,7 @@
                         <span class="flex-1 ml-3 whitespace-nowrap">Surat Tanda Registrasi</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ request()->is('data-sip') ? 'bg-gray-200':'' }} rounded-lg">
                     <a href="{{ route('data-sip.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 28 28"
