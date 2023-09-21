@@ -6,18 +6,17 @@
                 <div
                     class="max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex items-start gap-2 justify-start mb-4">
-                            <a>
-                               <div>
+                        <a>
+                            <div>
                                 <p class="text-sm justify-center font-semibold text-gray-800 md:text-sm">
                                     Surat Tanda Registrasi
                                 </p>
                             </div>
-                            </a>
+                        </a>
                     </div>
-            @if ($dataSTR != null)
+                    @if ($dataSTR != null)
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="flex justify-start ...">
-                                <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
                                 <div class="section-avatar px-6">
                                     <p class="text-primary-600 text-base font-semibold md:text-xl">
                                         {{ Auth::user()->nama_lengkap }}
@@ -105,39 +104,39 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                @else
-                    <tr>
-                        <td class="text-center text-mute" colspan="8">
-                            <div class="mx-auto max-w-sm justify-center mt-10">
-                                <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center"
-                                    alt="user photo" />
-                                <div class="py-4 text-center">
-                                    <p class="text-center font-medium text-lg">Ups <strong class="text-primary-600">Data
-                                            STRmu </strong> masih kosong.
-                                    </p>
-                                    <button type="button"
-                                        class="mt-2 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-10 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-10 py-3 mr-3"
-                                        onclick="location.href='{{ route('data-str.create') }}'">
-                                        <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
-                                            height="18" viewBox="0 0 18 18" fill="none">
-                                            <path
-                                                d="M8.57699 0.824219H5.46116C2.89866 0.824219 1.29199 2.63839 1.29199 5.20672V12.1351C1.29199 14.7034 2.89116 16.5176 5.46116 16.5176H12.8145C15.3853 16.5176 16.9845 14.7034 16.9845 12.1351V8.77838"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M6.35652 7.60074L12.584 1.37324C13.3599 0.598242 14.6174 0.598242 15.3932 1.37324L16.4074 2.38741C17.1832 3.16324 17.1832 4.42158 16.4074 5.19658L10.1499 11.4541C9.81069 11.7932 9.35069 11.9841 8.87069 11.9841H5.74902L5.82736 8.83408C5.83902 8.37074 6.02819 7.92908 6.35652 7.60074Z"
-                                                stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M11.6377 2.33545L15.4427 6.14045" stroke="white" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Buat Data
-                                    </button>
-                                </div>
+                </div>
+            @else
+                <tr>
+                    <td class="text-center text-mute" colspan="8">
+                        <div class="mx-auto max-w-sm justify-center mt-10">
+                            <img class="w-full" src="/Assets/emptystate.png" class="justify-center items-center"
+                                alt="user photo" />
+                            <div class="py-4 text-center">
+                                <p class="text-center font-medium text-lg">Ups <strong class="text-primary-600">Data
+                                        STRmu </strong> masih kosong.
+                                </p>
+                                <button type="button"
+                                    class="mt-2 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-semibold rounded-lg text-xs px-10 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mb-2 justify-end md:px-10 py-3 mr-3"
+                                    onclick="location.href='{{ route('data-str.create') }}'">
+                                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 18 18" fill="none">
+                                        <path
+                                            d="M8.57699 0.824219H5.46116C2.89866 0.824219 1.29199 2.63839 1.29199 5.20672V12.1351C1.29199 14.7034 2.89116 16.5176 5.46116 16.5176H12.8145C15.3853 16.5176 16.9845 14.7034 16.9845 12.1351V8.77838"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.35652 7.60074L12.584 1.37324C13.3599 0.598242 14.6174 0.598242 15.3932 1.37324L16.4074 2.38741C17.1832 3.16324 17.1832 4.42158 16.4074 5.19658L10.1499 11.4541C9.81069 11.7932 9.35069 11.9841 8.87069 11.9841H5.74902L5.82736 8.83408C5.83902 8.37074 6.02819 7.92908 6.35652 7.60074Z"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.6377 2.33545L15.4427 6.14045" stroke="white" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    Buat Data
+                                </button>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </td>
+                </tr>
                 @endif
             </div>
         </div>

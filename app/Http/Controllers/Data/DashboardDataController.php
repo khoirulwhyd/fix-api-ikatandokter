@@ -6,10 +6,28 @@ use App\Http\Controllers\Controller;
 use App\Models\Puskesmas;
 use Illuminate\Http\Request;
 use App\Models\Rumahsakit;
+use App\Models\DataPribadi;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class DashboardDataController extends Controller
 {
+    public function fotoNav() {
+        $user = Auth::user();
+        $data = DataPribadi::where('id_user', $user->id)->first();
+
+        if($foto = $data->foto_diri) {
+            $imageURL = asset('storage/uploads/dokter/foto-pribadi/' . $foto);
+            return response()->file($imageURL);
+        } else {
+            $imageURL = asset('Assets/emptystate.png');
+            return response()->file($imageURL);
+        }
+        return response()->json([
+            'data' => $imageURL
+        ]);
+    }
+
     public function rumahsakit() {
         $rumahsakits = Rumahsakit::all();
 

@@ -87,6 +87,7 @@ Route::get('/', [LandingController::class, 'index']);
 Route::group(['middleware' => ['auth', 'Dokter', 'verify_email']], function() {
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
+    Route::get('asd', [DashboardDataController::class, 'fotoNav'])->name('gambar');
     Route::get('/dashboard', [FetchDashboardController::class, 'dashboard'])->name('dashboard');
     // Route::get('data-pribadi/edit', [DataPribadiController::class, 'edit'])->name('data-pribadi.edit');
 
@@ -132,4 +133,3 @@ Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::resource('anggota', masterAnggotaController::class);
     Route::resource('persetujuan', approveController::class);
 });
-
