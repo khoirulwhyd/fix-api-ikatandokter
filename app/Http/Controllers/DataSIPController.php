@@ -39,9 +39,18 @@ class DataSIPController extends Controller
      */
     public function store(Request $request)
     {
+        $filename = $request->file('sip')->getClientOriginalName();
+        $name = trim($filename);
+
+        $request->file('sip')->storeAs('public/uploads/dokter/sip', $name);
+        $request['scan_sip'] = $name;
+
+
         $request['mulai_berlaku'] = Carbon::parse($request['mulai_berlaku'])->toDateString();
         $request['akhir_berlaku'] = Carbon::parse($request['akhir_berlaku'])->toDateString();
 
+
+        
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|integer',
             'no_sip' => 'required|string',
@@ -59,23 +68,23 @@ class DataSIPController extends Controller
             'alamat_lengkap' => 'required|string',
             'mulai_berlaku' => 'required|string',
             'akhir_berlaku' => 'required|string',
-            'scan_sip' => ''
+            'scan_sip' => 'required'
         ]);
 
-        $imageName  = time() . '.' . $request->scan_sip->extension();
-        $request->scan_sip->move(public_path('images'), $imageName );
+        if ($validator->fails()) {
+            $path = 'public/uploads/dokter/sip' . $request['scan_sip'];
+            if (file_exists($path)) {
+                unlink($path);
+            }
 
-
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Data SIP Gagal Ditambahkan',
-                'data' => $validator->errors()
-            ]);
+            Alert::error('Error', 'Data STR Gagal Ditambahkan');
+            return response()->json($validator->errors(), 400);
         }
+
         DataSIP::create($request->all());
 
         toast('Data SIP Berhasil Ditambahkan', 'success');
-        return redirect()->route('data-sip.index', $imageName );
+        return redirect()->route('data-sip.index' );
 
         // return response()->json([
         //     'message' => 'Data SIP Berhasil Ditambahkan',

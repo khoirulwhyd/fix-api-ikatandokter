@@ -207,7 +207,10 @@
                                                 class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 Scan SIP
                                             </th>
-                                            <td class="px-6 py-4">{{ $sip->scan_sip }}</td>
+                                            <td class="px-6 py-4">
+                                                <img src="{{ asset('/storage/uploads/dokter/sip/' . $sip->scan_sip) }}"
+                                                width="300px" height="300px" alt="">
+                                            </td>
                                         </tr>
                                         
                                     </div>
