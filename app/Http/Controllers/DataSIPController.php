@@ -19,8 +19,10 @@ class DataSIPController extends Controller
     public function index()
     {
         $dokter = Auth::user();
+        $dataPribadi = DataPribadi::where('id_user', $dokter->id)->first();
+        //get sip
         $datasip = DataSIP::where('id_user', $dokter->id)->get();
-        return view('Dokter.SIP.index', compact('dokter', 'datasip'));
+        return view('Dokter.SIP.index', compact('dokter', 'datasip', 'dataPribadi'));
     }
 
     /**

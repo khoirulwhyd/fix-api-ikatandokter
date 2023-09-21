@@ -17,11 +17,12 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="flex justify-start ...">
-                            <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
+                            <img class="w-16 h-16 rounded-full"
+                            src="{{ asset('storage/uploads/dokter/foto-pribadi/' . $dataPribadi->foto_diri) }}" alt="user photo" />
                             <div class="section-avatar px-6">
                                 <p class="text-primary-600 text-base font-semibold md:text-xl">
-                                    {{ $dokter->nama_lengkap }}</p>
-                                <p class="font-regular text-gray-400 text-sm sm:text-lg">{{ $dokter->nik }}</p>
+                                    {{ $dataPribadi->nama_lengkap }}
+                                <p class="font-regular text-gray-400 text-sm sm:text-lg">{{ $dataPribadi->identitas }} - {{ $dataPribadi->no_identitas }}</p>
                             </div>
                         </div>
                         <div class="py-4 md:flex justify-end">
