@@ -4,11 +4,7 @@
         <div class="max-w-screen m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="login-section flex-1 px-24 text-left hidden lg:flex">
                 <div class="m-12 xl:m-16 w-full bg-center bg-no-repeat">
-                    <div class="section">
-                        <div class="logoidi py-4">
-                            <img class="h-12 w-12" src="{{ url('Assets/logoidi.png') }}" alt="description of myimage">
-                            <p class="font-bold text-gray-50 text-2xl">IDI Malang Raya</p>
-                        </div>
+                    <div class="mt-12 section">
                         <h1 class="text-5xl font-bold text-gray-50 justify-start py-2">Bergabunglah </h1>
                         <h1 class="text-5xl font-bold text-gray-50 justify-start">Bersama Kami IDI</h1>
                         <h1 class="text-5xl font-bold text-gray-50 justify-start">Malang Raya</h1>
@@ -16,11 +12,18 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 mt-10 xl:w-5/12 p-6 sm:p-24">
+            <div class="lg:w-1/2 mt-12 md:mt-0 xl:w-5/12 p-6 sm:p-24">
                 <div class="flex flex-col px-4 md:px-12">
-                    <h1 class="text-2xl xl:text-3xl font-extrabold">
-                        Login Anggota IDI
-                    </h1>
+                    <div class="logoidi flex">
+                        <img class="h-8 w-8" src="{{ url('Assets/logoidi.png') }}" alt="description of myimage">
+                        <p class="font-bold text-gray-800 text-xl">Ikatan Dokter Malang Raya</p>
+                    </div>
+                    <div class="mt-12 justify-start">
+                        <h1 class="text-2xl xl:text-3xl font-extrabold">
+                            Login Anggota IDI
+                        </h1>
+                    </div>  
+                    
 
                     <!-- session -->
                     @if(session()->has('succes'))
