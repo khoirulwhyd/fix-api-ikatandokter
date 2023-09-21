@@ -15,7 +15,9 @@
                             </div>
                             </a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2">
+                    
+                            @forelse($dataProfesi as $profesi)
+                            <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="flex justify-start ...">
                             <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
                             <div class="section-avatar px-6">
@@ -45,7 +47,6 @@
                                 <hr class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
                                 </hr>
                             </div>
-                            @forelse($dataProfesi as $profesi)
                                 <div class="grid grid-cols-2 py-5">
                                     <div class="flex justify-start items-center">
                                         <div class="justify-start">
