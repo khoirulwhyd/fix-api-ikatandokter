@@ -103,6 +103,10 @@ Route::group(['middleware' => ['auth', 'Dokter', 'verify_email']], function() {
 
     Route::get('/rumahsakit', [DashboardDataController::class, 'rumahsakit'])->name('rumahsakit');
     Route::get('/cari', [DashboardDataController::class, 'carirumahsakit'])->name('cari.rumahsakit');
+
+    Route::get('/puskesmas', [DashboardDataController::class, 'puskesmas'])->name('puskesmas');
+    Route::get('/carip', [DashboardDataController::class, 'caripuskesmas'])->name('carip.puskesmas');
+
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {
@@ -128,3 +132,4 @@ Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::resource('anggota', masterAnggotaController::class);
     Route::resource('persetujuan', approveController::class);
 });
+

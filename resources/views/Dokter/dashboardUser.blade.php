@@ -56,7 +56,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>50 Unit</p>
+                                            <p>{{ $puskesmass }} Unit</p>
                                         </span>
                                     </div>
 
@@ -79,7 +79,7 @@
                                 <span class="whitespace-nowrap">Di beberapa daerah sudah berdiri puskesmas</span>
                             </p>
                             <div class="flex justify-between items-center pt-5">
-                                <a href="#"
+                                <a href="{{ route('puskesmas') }}"
                                     class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 py-2">
                                     Lihat Semua
                                     <svg class="w-2.5 h-2.5 ml-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
