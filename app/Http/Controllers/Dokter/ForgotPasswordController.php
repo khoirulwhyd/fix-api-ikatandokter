@@ -11,6 +11,9 @@ use Mail;
 use Hash;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+//import phpmailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class ForgotPasswordController extends Controller
 {
@@ -32,13 +35,65 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::send('emails.forgetPassword', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Reset Password');
-        });
+        // Mail::send('emails.forgetPassword', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Reset Password');
+        // });
+        $this->composeEmail($request->email, $token);
 
         return back()->with('message', 'We have e-mailed your password reset link!');
     }
+
+    public function composeEmail ($email, $token)
+    {
+        require base_path("vendor/autoload.php");
+        $mail = new PHPMailer(true); // Passing `true` enables exceptions
+
+        try {
+
+            // Email server settings
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com'; //  smtp host
+            $mail->SMTPAuth = true;
+            $mail->Username = 'khoirulwahyudin17@gmail.com'; //  sender username
+            $mail->Password = 'nhjkyytustzpkace'; // sender password
+            $mail->SMTPSecure = 'ssl'; // encryption - ssl/tls
+            $mail->Port = 465; // port - 587/465
+
+            $mail->setFrom('adminidi@idi.com', 'Admin IDI');
+
+            $mail->addAddress($email);
+            $mail->addCC($email);
+            $mail->addBCC($email);
+
+            $mail->addReplyTo('adminidi@idi.com', 'Admin IDI');
+
+            // if (isset($_FILES['emailAttachments'])) {
+            //     for ($i = 0; $i < count($_FILES['emailAttachments']['tmp_name']); $i++) {
+            //         $mail->addAttachment($_FILES['emailAttachments']['tmp_name'][$i], $_FILES['emailAttachments']['name'][$i]);
+            //     }
+            // }
+
+
+            $mail->isHTML(true); // Set email content format to HTML
+
+            $mail->Subject = "Email Verification";
+            $mail->Body = view('emails.forgetPassword', ['token' => $token])->render();
+
+            // $mail->AltBody = plain text version of email body;
+
+            if (!$mail->send()) {
+                return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+            } else {
+                return back()->with("success", "Email has been sent.");
+            }
+
+        } catch (Exception $e) {
+            return back()->with('error', 'Message could not be sent.');
+        }
+    }
+
     public function showResetPasswordForm($token)
     {
         return view('auth2.lupapasswordLink', ['token' => $token]);
