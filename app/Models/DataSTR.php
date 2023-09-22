@@ -12,13 +12,28 @@ class DataSTR extends Model
     protected $table = 'data_str_s';
 
     protected $fillable = [
-        'id_pribadi',
+        'id_user',
         'no_str',
         'scan_str'
     ];
 
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
+    }
+
     public function dataPribadi()
     {
-        return $this->belongsTo(DataPribadi::class, 'id_pribadi', 'id');
+        return $this->belongsTo(DataPribadi::class);
+    }
+
+    public function dataProfesi()
+    {
+        return $this->belongsTo(DataProfesi::class);
+    }
+
+    public function dataSIP()
+    {
+        return $this->belongsTo(DataSIP::class);
     }
 }

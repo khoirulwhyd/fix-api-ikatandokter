@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\User;
-use Validator;
+use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class masterAnggotaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Auth.login');
-    }
+        $user = User::where('role', 'dokter')->get();
+        return view('Admin.MasterData.Anggota.index', compact('user'));
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -31,24 +30,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nik' => 'required|string|min:16|max:16',
-            'password' => 'required|string|min:6|max:50'
-        ]);
-
-        if(Auth::attempt([
-            'nik' => $request->get('nik'),
-            'password' => $request->get('password')
-        ])) {
-
-            $request->session()->regenerate();
-
-            return view ('Dokter.DataPribadi.index');
-        };
-
-        return back()->withErrors([
-            'message' => 'NIK atau password salah'
-        ]);
+        //
     }
 
     /**
@@ -64,7 +46,10 @@ class LoginController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::select('*')
+            ->where('id', $id)
+            ->get();
+        return view('Admin.MasterData.Anggota.edit', ['user' => $user]);
     }
 
     /**

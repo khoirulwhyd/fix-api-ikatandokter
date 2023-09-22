@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Dokter
 {
@@ -15,6 +17,28 @@ class Dokter
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if($request->user()->role == User::ROLE_DOKTER) {
+            return $next($request);
+        }
+        return back()->withErrors('Maaf anda belum memiliki hak akses');
+        // abort(401);
+
+        // $user = User::where('nik', $request->nik)->first();
+        // if ($user->role == 'admin') {
+        //     return redirect('admin');
+        // } elseif ($user->role == 'dokter') {
+        //     return redirect('dashboard');
+        // }
+
+        // return $next($request);
+
+        // if($request->user()->role == User::ROLE_DOKTER) {
+        //     return redirect('dashboard');
+        // } elseif($request->user()->role == User::ROLE_ADMIN) {
+        //     return redirect('admin');
+        // }
+        // return $next($request);
+        
+        
     }
 }

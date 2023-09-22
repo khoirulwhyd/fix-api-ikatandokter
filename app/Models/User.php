@@ -13,6 +13,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    // add role
+    const ROLE_USER = 'user';
+    const ROLE_DOKTER = 'dokter';
+    const ROLE_ADMIN  = 'admin';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +32,8 @@ class User extends Authenticatable
         'password',
         'ulangi_password',
         'lupa_password',
-        'role'
+        'role',
+        'email_verified_at',
     ];
 
 
@@ -56,5 +62,20 @@ class User extends Authenticatable
     public function data_pribadi()
     {
         return $this->hasOne(DataPribadi::class, 'id_pribadi', 'id');
-    }    
+    }
+
+    public function data_profesi()
+    {
+        return $this->hasOne(DataProfesi::class, 'id_profesi', 'id');
+    }
+    
+    public function data_sip()
+    {
+        return $this->hasOne(DataSIP::class, 'id_sip', 'id');
+    }
+
+    public function data_str()
+    {
+        return $this->hasOne(DataSTR::class, 'id_str', 'id');
+    }
 }

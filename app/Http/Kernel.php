@@ -30,12 +30,14 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \RealRashid\SweetAlert\ToSweetAlert::class,
         ],
 
         'api' => [
@@ -66,6 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'Admin' => \App\Http\Middleware\Admin::class,
         'Dokter' => \App\Http\Middleware\Dokter::class,
-        'user' => \App\Http\Middleware\user::class,
+        'User' => \App\Http\Middleware\User::class,
+        'verify_email' => \App\Http\Middleware\VerifyEmail::class,
     ];
 }

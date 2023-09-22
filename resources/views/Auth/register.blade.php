@@ -1,5 +1,6 @@
 @extends('Auth.app')
 @section('content')
+@include('sweetalert::alert')
     <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div class="max-w-screen m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="login-section flex-1 px-24 text-left hidden lg:flex">
@@ -109,9 +110,8 @@
                                     Saya menerima syarat dan ketentuan yang berlakuu
                                 </span>
                             </label>
-                            <button
-                                class=" mt-5 tracking-wide font-semibold bg-primary-600 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                                onclick="location.href='{{ route('login.index') }}">
+                            <button type="submit"
+                                class=" mt-5 tracking-wide font-semibold bg-primary-600 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                 <span class="ml-3">
                                     Registrasi Sekarang
                                 </span>
@@ -127,7 +127,7 @@
                             </button>
                             <div class="flex jusfity-end py-2">
                                 <span class="text-gray-600 mr-2">Sudah memiliki akun ? </span>
-                                <a href="{{ route('login.index') }}" className="px-2">
+                                <a href="{{ url('login') }}" className="px-2">
                                     <span class="text-primary-600 font-semibold underline">Login</span>
                                 </a>
                             </div>
@@ -137,4 +137,7 @@
             </div>
         </div>
     </div>
+@include('sweetalert::alert')
+
 @endsection('content')
+

@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataPribadi extends Model
 {
@@ -12,7 +12,9 @@ class DataPribadi extends Model
     protected $table = 'data_pribadis';
 
     protected $fillable = [
+        'id_user',
         'npaidi',
+        'identitas',
         'no_identitas',
         'nama_lengkap',
         'foto_diri',
@@ -23,18 +25,19 @@ class DataPribadi extends Model
         'agama',
         'nama_pasangan',
         'ktp_provinsi',
-        'ktp_kabupaten/kota',
+        'ktp_kabupaten_kota',
         'ktp_kecamatan',
         'ktp_kelurahan',
         'ktp_rt',
         'ktp_rw',
         'ktp_kodepos',
         'ktp_alamat_lengkap',
+        'foto_ktp',
         'no_teleponrumah',
         'no_hp',
         'no_hp2',
         'krsp_provinsi',
-        'krsp_kabupaten/kota',
+        'krsp_kabupaten_kota',
         'krsp_kecamatan',
         'krsp_kelurahan',
         'krsp_rt',
@@ -45,21 +48,21 @@ class DataPribadi extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
     public function dataProfesi()
     {
-        return $this->hasMany(DataProfesi::class);
+        return $this->hasOne(DataProfesi::class);
+    }
+
+    public function dataSTR()
+    {
+        return $this->hasOne(DataSTR::class);
     }
 
     public function dataSIP()
     {
-        return $this->hasMany(DataSIP::class);
-    }
-    
-    public function dataSTR()
-    {
-        return $this->hasOne(DataSTR::class);
+        return $this->hasOne(DataSIP::class);
     }
 }

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('data_str_s', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_pribadi');
+            $table->unsignedBigInteger('id_user');
             $table->string('no_str')->unique();
             $table->string('scan_str');
             $table->timestamps();
 
-            $table->foreign('id_pribadi')->references('id')->on('data_pribadis')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
