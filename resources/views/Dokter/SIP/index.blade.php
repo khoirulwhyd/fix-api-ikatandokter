@@ -19,8 +19,11 @@
                         @forelse($datasip as $sip)
                             <div class="grid grid-cols-1 md:grid-cols-2">
                                 <div class="flex justify-start ...">
-                                    <img class="w-16 h-16 rounded-full" src="" alt="user photo" />
                                     <div class="section-avatar px-6">
+                                        <p class="text-primary-600 text-base font-semibold md:text-xl">
+                                            {{ Auth::user()->nama_lengkap }}
+                                        <p class="font-regular text-gray-400 text-sm sm:text-lg">
+                                            {{ Auth::user()->nik }}</p>
                                     </div>
                                 </div>
                                 <div class="py-4 md:flex justify-end">
@@ -43,9 +46,7 @@
                                 <div class="justify-start py-2">
                                     <hr
                                         class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
-                                    </hr>
                                 </div>
-
                                 <div class="justify-start w-full h-full">
                                     <div class="justify-start py-2">
                                         <hr
@@ -224,7 +225,6 @@
                                                             width="300px" height="300px" alt="">
                                                     </td>
                                                 </tr>
-
                                             </div>
                                         </tbody>
                                     </table>
