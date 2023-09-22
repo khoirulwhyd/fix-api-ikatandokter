@@ -44,7 +44,7 @@
                                 Verifikasi Email
                             </h1>
                             <p class="py-8 font-medium text-gray-500">
-                                Kami mengirimkan verifikasi ke email anda. Silakan cek kotak masuk email Anda untuk menemukan pesan dari kami. Lalu klik tautan untuk melanjutkan.
+                                Kami mengirimkan verifikasi ke email anda. Silakan cek kotak masuk atau folder spam pada email anda untuk menemukan pesan dari kami. Lalu klik tombol verifikasi untuk melanjutkan.
                             </p>
                             <div class="flex jusfity-end">
                                 <div class="flex flex-row items-start justify-start mt-10">

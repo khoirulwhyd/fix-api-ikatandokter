@@ -132,7 +132,7 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Confirm Your Email Address</h1>
+              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">PERINGATAN MASA AKTIF SIP</h1>
             </td>
           </tr>
         </table>
@@ -154,39 +154,27 @@
         <td align="center" valign="top" width="600">
         <![endif]-->
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Hallo Dokter, Terimakasih telah mendaftar pada website kami kami mengirimkan email konfirmasi pada akun gmail anda, harap tekan tombol verifikasi dibawah dan anda akan di alihkan menuju halaman login</p>
+              <p style="margin: 0;">Hallo Dokter,
             </td>
           </tr>
           <!-- end copy -->
-
-          <!-- start button -->
           <tr>
-            <td align="left" bgcolor="#ffffff">
-              <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr>
-                  <td align="center" bgcolor="#ffffff" style="padding: 12px;">
-                    <table border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                          <a href="{{ route('user.verify', $token)  }}"  style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Verifikasi</a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
+            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+              <p style="margin: 0;">masa berlaku surat izin praktik anda dengan nomor {{ $nomor }} akan berakhir, tepatnya {{ $end }}
+                dan tersisa {{ $sisa }} hari</p>
             </td>
           </tr>
+          <!-- start button -->
+          
           <!-- end button -->
 
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Catatan : Setalah email dikonfirmasi harap menunggu persetujuan dari admin agar anda bisa menggunakan web kami</p>
+              <p style="margin: 0;">Catatan : Harap segera perbarui Surat izin praktik anda. Supaya ketika praktik anda tidak mempunyai permasalaan</p>
             </td>
           </tr>
           <!-- end copy -->
@@ -194,7 +182,7 @@
           <!-- start copy -->
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-              <p style="margin: 0;">Admin IDI,<br> admin</p>
+              <p style="margin: 0;">Terimakasih,<br> Admin IDI</p>
             </td>
           </tr>
           <!-- end copy -->
@@ -220,11 +208,6 @@
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
 
           <!-- start permission -->
-          <tr>
-            <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">Anda memperoleh email karena anda melakukan pendaftaran terhadap website kami</p>
-            </td>
-          </tr>
           <!-- end permission -->
 
           <!-- start unsubscribe -->
