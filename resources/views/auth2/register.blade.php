@@ -21,6 +21,19 @@
             <div class="bg-white">
                 <h1 class="text-gray-800 font-extrabold text-4xl mb-1">Hello Dokter!</h1>
 			    <p class="text-sm font-normal text-gray-600 mb-7">Silahkan mendaftar untuk mengakses website kami</p>
+                        @if(session()->has('succes'))
+                        <div class="alert alert-success alert-dismissible fade-show" role="alert">
+                            {{ session('succes') }}
+                            <button type="button" class="btn-close" data-bs-dinmiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+
+                        @if(session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade-show" role="alert">
+                            {{ session('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dinmiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                 <div class="w-full flex mt-8">
                     <form class="w-full max-w-lg" action="{{ route('post-register') }}" method="post">
                         @csrf
@@ -31,9 +44,9 @@
                                         NPA IDI
                                     </label>
                                     <input
-                                        class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="@error('npaidi') is-invalid @enderror text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="" type="text" placeholder="Masukkan NPA IDI" name="npaidi"
-                                        required />
+                                        required value="{{ old('npaidi') }}" />
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 py-2">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -41,9 +54,9 @@
                                         NIK
                                     </label>
                                     <input
-                                        class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="@error('nik') is-invalid @enderror text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-last-name" type="text" placeholder="Masukkan NIK" name="nik"
-                                        required />
+                                        required value="{{ old('nik') }}"/>
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -53,9 +66,9 @@
                                         Nama lengkap dan Gelar
                                     </label>
                                     <input
-                                        class="text-sm appearance-none block w-full bg-gray-100    text-gray-700 border border-gray-200 rounded-lg py-3 px-4 m leading-tight focus:outline-none focus:bg-wh focus:border-gray-500"
+                                        class="@error('nama_lengkap') is-invalid @enderror text-sm appearance-none block w-full bg-gray-100    text-gray-700 border border-gray-200 rounded-lg py-3 px-4 m leading-tight focus:outline-none focus:bg-wh focus:border-gray-500"
                                         id="grid-password" type="text" placeholder="Masukkan nama leng  dan gelar"
-                                        name="nama_lengkap" required />
+                                        name="nama_lengkap" required value="{{ old('nama_lengkap') }}"/>
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">
@@ -65,9 +78,9 @@
                                         No. Telepon
                                     </label>
                                     <input
-                                        class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="@error('no_telepon') is-invalid @enderror text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-last-name" type="text" placeholder="No. Telpon" name="no_telepon"
-                                        required />
+                                        required value="{{ old('no_telepon') }}" />
                                 </div>
                                 <div class="w-full md:w-1/2 px-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -75,9 +88,9 @@
                                         Email
                                     </label>
                                     <input
-                                        class="text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="@error('email') is-invalid @enderror text-sm appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-200 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-last-name" type="text" placeholder="Masukkan Email" name="email"
-                                        required />
+                                        required value="{{ old('email') }}"/>
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">

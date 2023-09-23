@@ -1,48 +1,40 @@
 @extends('auth2.app')
 @section('content')
-    <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-        <div class="max-w-screen m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-            <div class="login-section flex-1 px-24 text-left hidden lg:flex">
-                <div class="m-12 xl:m-16 w-full bg-center bg-no-repeat">
-                    <div class="mt-12 section">
-                        <h1 class="text-5xl font-bold text-gray-50 justify-start py-2">Bergabunglah </h1>
-                        <h1 class="text-5xl font-bold text-gray-50 justify-start">Bersama Kami IDI</h1>
-                        <h1 class="text-5xl font-bold text-gray-50 justify-start">Malang Raya</h1>
-                        <img class="py-10 w-50" src="{{ url('Assets/Ilustrasi.svg') }}" alt="description of myimage">
+    <div class="h-screen md:flex">
+        <div class="masuk-section relative overflow-hidden md:flex w-1/2 justify-around items-center     hidden">
+                <div class="justify-center items-center">
+                    <div class="mb-4">
+                        <img src="/Assets/ilustrasi.svg"/>
                     </div>
+                    <div class="items-center self-center text-center">
+                        <h1 class="text-white font-bold text-4xl font-sans">IDI Malang Raya</h1>
+                        <p class="text-white mt-3">Aplikasi Pendataan bagi para dokter dimalang raya</p>
+                    </div>                    
                 </div>
-            </div>
-            <div class="lg:w-1/2 mt-12 md:mt-0 xl:w-5/12 p-6 sm:p-24">
-                <div class="flex flex-col px-4 md:px-12">
-                    <div class="logoidi flex">
-                        <img class="h-8 w-8" src="{{ url('Assets/logoidi.png') }}" alt="description of myimage">
-                        <p class="font-bold text-gray-800 text-xl">Ikatan Dokter Malang Raya</p>
-                    </div>
-                    <div class="mt-12 justify-start">
-                        <h1 class="text-2xl xl:text-3xl font-extrabold">
-                            Login Anggota IDI
-                        </h1>
-                    </div>  
-                    
-
-                    <!-- session -->
-                    @if(session()->has('succes'))
+                <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+                <div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+        </div>
+        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+            <div class="bg-white">
+                <h1 class="text-gray-800 font-extrabold text-4xl mb-1">Hello Dokter!</h1>
+			        <p class="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
+                                            <!-- session -->
+                        @if(session()->has('succes'))
                         <div class="alert alert-success alert-dismissible fade-show" role="alert">
                             {{ session('succes') }}
                             <button type="button" class="btn-close" data-bs-dinmiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                        @endif
 
-                    @if(session()->has('loginError'))
+                        @if(session()->has('loginError'))
                         <div class="alert alert-danger alert-dismissible fade-show" role="alert">
                             {{ session('loginError') }}
                             <button type="button" class="btn-close" data-bs-dinmiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
-
-                    
-                        <!-- @csrf -->
-                        <div class="w-full flex-1 mt-8">
+                        @endif
+                    <div class="w-full flex-1 mt-8">
                             <form action="{{ route('post-login') }}" method="post">
                                 @csrf
                                 <div class="mx-auto max-w-sm justify-center">
@@ -110,10 +102,7 @@
                                         </div>
                                     </div>      
                         </div>
-                </div>
             </div>
-
         </div>
-    </div>
     </div>
 @endsection
