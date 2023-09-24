@@ -15,11 +15,10 @@
                         </a>
                     </div>
 
-                    @if ($dataProfesi != null)
-                        @forelse($dataProfesi as $profesi)
+                    
                             <div class="grid grid-cols-1 md:grid-cols-2">
                                 <div class="flex justify-start ...">
-                                    <div class="section-avatar px-6">
+                                    <div class="section-avatar">
                                         <p class="text-primary-600 text-base font-semibold md:text-xl">
                                             {{ Auth::user()->nama_lengkap }}</p>
                                         <p class="font-regular text-gray-400 text-sm sm:text-lg">{{ Auth::user()->nik }}</p>
@@ -40,12 +39,13 @@
                                     </a>
                                 </div>
                             </div>
-
+                            @if ($dataProfesi != null)
+                        @forelse($dataProfesi as $profesi)
                             <div class="justify-start w-full h-full">
-                                <div class="justify-start py-2">
+                                <!-- <div class="justify-start py-2">
                                     <hr
                                         class="mt-2 w-full h-0.5 py-0 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700">
-                                </div>
+                                </div> -->
                                 <div class="grid grid-cols-2 py-5">
                                     <div class="flex justify-start items-center">
                                         <div class="justify-start">

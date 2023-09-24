@@ -28,8 +28,8 @@
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="flex justify-start ...">
-                                <img class="w-16 h-16 rounded-full" src="/Assets/main-avatar.svg" alt="user photo" />
-                                <div class="section-avatar px-6">
+                                
+                                <div class="section-avatar">
                                     <p class="text-primary-600 text-base font-semibold md:text-xl">{{ $auth->nama_lengkap }}
                                         </p>
                                     <p class="font-regular text-gray-400 text-sm sm:text-lg">

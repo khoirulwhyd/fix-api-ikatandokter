@@ -162,7 +162,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="column-chart"></div>
+                {!! $chart->container() !!}
+                <!-- <div id="column-chart"></div> -->
                 <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
                     <div class="flex justify-between items-center pt-5">
                         <a href="#"
@@ -408,4 +409,6 @@
 
     </div>
     </div>
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
 @endsection
