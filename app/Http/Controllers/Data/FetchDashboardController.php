@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Data;
 
+use App\Charts\PerbandinganDokter;
 use App\Charts\PersebaranDokterSpesialisChart;
 use App\Http\Controllers\Controller;
 use App\Models\Puskesmas;
@@ -18,7 +19,7 @@ class FetchDashboardController extends Controller
         $profesis = DataProfesi::count();
         return view('Dokter.dashboardUser',['chart' => $chart->build()], compact('rumahsakits', 'puskesmass'));
     }
-    // public function persebaranDokter (PersebaranDokterSpesialisChart $chart) {
-    //     return view('Dokter.dashboardUser', ['chart' => $chart->build()]);
-    // }
+    public function perbandingan(PerbandinganDokter $perbandingan) {
+        return view('Dokter.dashboardUser', ['perbandingan' => $perbandingan->build()]);
+    }
 }

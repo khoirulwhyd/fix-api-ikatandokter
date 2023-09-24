@@ -92,7 +92,8 @@ Route::group(['middleware' => ['auth', 'Dokter', 'verify_email']], function() {
     // Route Data Pribadi
     Route::resource('data-pribadi', DataPribadiController::class);
     Route::get('asd', [DashboardDataController::class, 'fotoNav'])->name('gambar');
-    Route::get('/dashboard', [FetchDashboardController::class, 'dashboard', 'persebaranDokter'])->name('dashboard');
+    Route::get('/dashboard', [FetchDashboardController::class, 'dashboard'])->name('dashboard');
+    // Route::get('/dashboard', [FetchDashboardController::class, 'perbandperbandinganingan', 'persebaranDokter'])->name('dashboard');
     // Route::get('data-pribadi/edit', [DataPribadiController::class, 'edit'])->name('data-pribadi.edit');
 
     //Route Data Profesi
