@@ -25,7 +25,7 @@ class PersebaranDokterSpesialisChart
             // ->setTitle('San Francisco vs Boston.')
             // ->setSubtitle('Wins during season 2021.')
             ->setColors(['#ffc63b', '#ff6384'])
-            ->addData('San Francisco', [6, 9, 3, 4, 10, 8])
+            ->addData('San Francisco', [10, 9, 3, 4, 10, 8])
             ->addData('Boston', [7, 3, 8, 2, 6, 4])
             ->addData('Boston', [7, 3, 8, 2, 6, 4])
             ->addData('Boston', [7, 3, 8, 2, 6, 4])
