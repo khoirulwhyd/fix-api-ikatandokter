@@ -28,9 +28,11 @@ class PerbandinganDokter
         ];
 
         return $this->chart->pieChart()
-            ->setTitle('Perbandingan Dokter')
-            ->setSubtitle('Season 2021.')
-            ->addData($data);
+            ->setHeight(600)
+            ->setWidth(500)
+            ->addData($data)
+            ->setLabels($label)
+            ->setColors(['#D32F2F', '#03A9F4']);
             // ->addLabel([$label]);
     }
 }

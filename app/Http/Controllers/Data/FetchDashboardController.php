@@ -13,13 +13,13 @@ use App\Models\DataProfesi;
 
 class FetchDashboardController extends Controller
 {
-    public function dashboard(PersebaranDokterSpesialisChart $chart) {
+    public function dashboard(PerbandinganDokter $perbandingan) {
         $rumahsakits = Rumahsakit::count();
         $puskesmass = Puskesmas::count();
         $profesis = DataProfesi::count();
-        return view('Dokter.dashboardUser',['chart' => $chart->build()], compact('rumahsakits', 'puskesmass'));
+        return view('Dokter.dashboardUser',['perbandingan' => $perbandingan->build()], compact('rumahsakits', 'puskesmass'));
     }
-    public function perbandingan(PerbandinganDokter $perbandingan) {
-        return view('Dokter.dashboardUser', ['perbandingan' => $perbandingan->build()]);
-    }
+    // public function perbandingan(PerbandinganDokter $perbandingan) {
+    //     return view('Dokter.dashboardUser', ['perbandingan' => $perbandingan->build()]);
+    // }
 }

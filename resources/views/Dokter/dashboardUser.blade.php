@@ -162,7 +162,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- {!! $chart->container() !!} -->
                 <div id="column-chart"></div>
                 <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
                     <div class="flex justify-between items-center pt-5">
@@ -206,7 +205,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="py-6" id="pie-chart">
+                    <div class="py-6 max-w-sm"  id="">
+                        {!! $perbandingan->container() !!}
                     </div>
                     <div
                         class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
@@ -408,6 +408,6 @@
 
     </div>
     </div>
-    <script src="{{ $chart->cdn() }}"></script>
-    {{ $chart->script() }}
+    <script src="{{ $perbandingan->cdn() }}"></script>
+    {{ $perbandingan->script() }}
 @endsection
