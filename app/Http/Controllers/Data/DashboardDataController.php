@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Data;
 
 use App\Http\Controllers\Controller;
+use App\Models\Klinik;
 use App\Models\Puskesmas;
 use Illuminate\Http\Request;
 use App\Models\Rumahsakit;
@@ -64,5 +65,26 @@ class DashboardDataController extends Controller
             ->get();
 
         return view('Dokter.Dashboard.puskesmas', compact('puskesmass'));
+    }
+
+    public function klinik()
+    {
+        $kliniks = Klinik::all();
+        return view('Dokter.Dashboard.klinik', compact('kliniks'));
+        // return response()->json([
+        //     $puskesmass
+        // ]);
+    }
+
+    public function cariklinik(Request $request)
+    {
+        $search = $request->input('search');
+
+        $kliniks = Klinik::where('nama_dokter', 'LIKE', '%' . $search . '%')
+            ->orWhere('alamat_praktik', 'LIKE', '%' . $search . '%')
+            ->orWhere('kecamatan', 'LIKE', '%' . $search . '%')
+            ->get();
+
+        return view('Dokter.Dashboard.klinik', compact('kliniks'));
     }
 }

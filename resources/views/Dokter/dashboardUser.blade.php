@@ -100,7 +100,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>50 Unit</p>
+                                            <p>{{ $kliniks }} Unit</p>
                                         </span>
                                     </div>
 
@@ -123,7 +123,7 @@
                                 <span class="whitespace-nowrap">Di beberapa daera sudah beridi klinik dan terapi</span>
                             </p>
                             <div class="flex justify-between items-center pt-5">
-                                <a href="#"
+                                <a href="{{ route('klinik') }}"
                                     class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 py-2">
                                     Lihat Semua
                                     <svg class="w-2.5 h-2.5 ml-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -339,7 +339,7 @@
                         </div>
                         <div>
                             <h5 class="leading-none text-2xl font-bold text-gray-800 dark:text-white pb-1">Data</h5>
-                            <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Persebaran Dokter Spesialis</p>
+                            <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Nama Semua Anggota IDI</p>
                         </div>
                     </div>
                 </div>
@@ -350,27 +350,23 @@
                                 <table class="min-w-full text-left text-sm font-light">
                                     <thead class="border-b font-medium text-gray-600 dark:border-neutral-500">
                                         <tr>
-                                            <th scope="col" class="px-6 py-4">No</th>
                                             <th scope="col" class="px-6 py-4">Nama</th>
-                                            <th scope="col" class="px-6 py-4">Keterangan</th>
-                                            <th scope="col" class="px-6 py-4">Tanggal</th>
+                                            <th scope="col" class="px-6 py-4">Asal Rumah Sakit</th>
+                                            <th scope="col" class="px-6 py-4">Alamat Lengkap</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Mark</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Otto</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@mdo</td>
                                         </tr>
                                         <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Jacob</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Thornton</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@fat</td>
                                         </tr>
                                         <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
                                             <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">

@@ -113,6 +113,9 @@ Route::group(['middleware' => ['auth', 'Dokter', 'verify_email']], function() {
     Route::get('/puskesmas', [DashboardDataController::class, 'puskesmas'])->name('puskesmas');
     Route::get('/carip', [DashboardDataController::class, 'caripuskesmas'])->name('carip.puskesmas');
 
+    Route::get('/klinik', [DashboardDataController::class, 'klinik'])->name('klinik');
+    Route::get('/carik', [DashboardDataController::class, 'cariklinik'])->name('carik.klinik');
+
 });
 
 // Route::get('protected', ['middleware' => ['auth', 'user'], function() {
