@@ -13,7 +13,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>{{ $rumahsakits }} Unit</p>
+                                            {{-- <p>{{ $rumahsakits }} Unit</p> --}}
                                         </span>
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>{{ $puskesmass }} Unit</p>
+                                            {{-- <p>{{ $puskesmass }} Unit</p> --}}
                                         </span>
                                     </div>
 
@@ -100,7 +100,7 @@
                                     </h5>
                                     <div class="py-2">
                                         <span class="font-semibold text-xl text-blueGray-700">
-                                            <p>{{ $kliniks }} Unit</p>
+                                            {{-- <p>{{ $kliniks }} Unit</p> --}}
                                         </span>
                                     </div>
 
@@ -162,6 +162,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="py-6 max-w-sm" id="">
+                    {!! $persebaran->container() !!}
+                </div>
                 <div id="column-chart"></div>
                 <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
                     <div class="flex justify-between items-center pt-5">
@@ -205,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="py-6 max-w-sm"  id="">
+                    <div class="py-6 max-w-sm" id="">
                         {!! $perbandingan->container() !!}
                     </div>
                     <div
@@ -404,6 +407,8 @@
 
     </div>
     </div>
+    <script src="{{ $persebaran->cdn() }}"></script>
+    {{ $persebaran->script() }}
     <script src="{{ $perbandingan->cdn() }}"></script>
     {{ $perbandingan->script() }}
 @endsection
