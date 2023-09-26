@@ -165,7 +165,7 @@
                 <div class="py-6 max-w-sm" id="">
                     {!! $persebaran->container() !!}
                 </div>
-                <div id="column-chart"></div>
+                {{-- <div id="column-chart"></div>
                 <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
                     <div class="flex justify-between items-center pt-5">
                         <a href="#"
@@ -178,7 +178,7 @@
                             </svg>
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- end bar chart -->
             <div class="gap-4 mb-4 mt-4 md:grid grid-cols-2">
@@ -254,8 +254,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                     <div class="mx-auto w-full overflow-hidden">
                         <div class="flex flex-col">
                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -321,6 +321,7 @@
                     </div>
                 </div>
             </div>
+
             <div
                 class="mt-3 max-w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:mt-0">
                 <div className="section-icon flex items-start justify-start mb-4">
@@ -359,22 +360,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Mark</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Otto</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@mdo</td>
-                                        </tr>
-                                        <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Jacob</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Thornton</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">@fat</td>
-                                        </tr>
-                                        <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Larry</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">Wild</td>
-                                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">
-                                                @twiasddddddddddddddtter</td>
-                                        </tr>
+                                        @foreach ($data as $dokter)
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">
+                                                    {{ $dokter->nama_lengkap }}</td>
+                                            </tr>
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">
+                                                    {{ $dokter->ktp_alamat_lengkap }}</td>
+                                            </tr>
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-400">
+                                                    {{ $dokter->krsp_alamat_lengkap }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -396,17 +395,12 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
-
+    </div>
+    </div>
     </div>
     </div>
 
-    </div>
-    </div>
     <script src="{{ $persebaran->cdn() }}"></script>
     {{ $persebaran->script() }}
     <script src="{{ $perbandingan->cdn() }}"></script>
